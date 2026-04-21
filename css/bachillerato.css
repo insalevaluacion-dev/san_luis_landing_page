@@ -1,0 +1,163 @@
+/* Configuración */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: var();
+}
+
+/* Variables */
+:root {
+  --white: #ffffff;
+  --naranja-principal: #ff9723ff;
+  --azul-principal: #0a4c8fff;
+  --naranja-difuminado: #ff97237b;
+  --azul-difuminado: #0a3f7aa9;
+  --gris: #e0e0e0;
+}
+
+html {
+  scroll-behavior: smooth;  
+}
+
+.header {
+   background: var(--naranja-principal);
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  border-radius: 0 0 40px 40px;
+  transition: background 0.4s ease, border-radius 0.4s ease, box-shadow 0.4s ease;
+}
+
+.header.scroleado {
+  background: var(--naranja-principal);
+  border-radius: 0 0 25px 25px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+
+}
+
+.contenedor-imagenes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1450px;
+  margin: 0 auto;
+}
+
+.contenedor-imagenes img {
+  height: 75px;
+
+}
+
+.explorar {
+  padding: 80px 60px;
+  background: var(--white);
+  text-align: center;
+}
+
+.explorar-header {
+  margin-top: 30px;
+}
+
+.explorar-header h2 {
+  font-size: 52px;
+  font-weight: 800;
+  color: #222;
+  margin-top: 30px;
+}
+
+.explorar-header p {
+  font-size: 20px;
+  color: #777;
+  font-style: italic;
+}
+
+
+.acordion {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin-top: 40px;
+  max-width: 1350px;
+  height: 480px;
+  margin-left: 25px;
+  gap: 3px;
+  
+}
+
+.accordion__item {
+  flex: 1;
+  position: relative;
+  cursor: pointer;
+  transition: flex 0.5s;
+}
+
+.acordion-link{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  text-decoration: none;
+  color: inherit;
+  z-index: 3;
+}
+
+.accordion__item .inner {
+  position: absolute;
+  inset: 0;
+  transform: skewX(-10deg);
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+.accordion__item .inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+
+.accordion__item.naranja .inner::before {
+  background: var(--naranja-difuminado);
+}
+
+.accordion__item.azul .inner::before {
+  background: var(--azul-difuminado);
+}
+
+.accordion__icon {
+  position: absolute;
+  bottom: 0px;
+  left: 140px;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  z-index: 0;
+  transition: transform 0.3s;
+}
+
+.accordion__item:hover {
+  flex: 4;
+}
+
+.accordion__item:hover .accordion__icon {
+  transform: translate(-50%, -60%) scale(1.2);
+}
+
+

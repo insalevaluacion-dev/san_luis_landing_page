@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bachillerato</title>
+    <link rel="stylesheet" href="/css/DS.css">
+    <script src="/js/header.js" defer></script>
+    <link rel="shortcut icon" href="/img/logoinsal2.png" type="image/x-icon">
+    <script src="/js/displacement-utils.js" defer></script>
+    <script src="/js/glass-element.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body>
+    <header class="header">
+        <div class="contenedor-imagenes">
+            <a href="/index.html">
+            <img src="/img/logoinsal2.png" alt="Logo INSAL">
+            </a>    
+            <img src="/img/logomined.png" alt="Ministerio de Educación">
+        </div>
+    </header>
+    
+    <glass-element class="glass-btn" onclick="toggleMenu()" style="z-index:100; --glass-padding: 32px;" width="48" height="48"
+        radius="32" depth="5" blur="1" strength="40" background-color="rgba(255,255,255,0.6)" chromatic-aberration="2">
+        <div class="menu">
+            <span class="material-symbols-outlined icon">
+                menu
+            </span>
+        </div>
+    </glass-element>
+
+    <div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
+    
+    <nav class="side-menu" id="sideMenu">
+        <div class="menu-header">
+            <span class="material-symbols-outlined close-btn" onclick="toggleMenu()">close</span>
+            <a href="/index.html">
+                <img src="/img/logoinsal2.png" alt="Logo INSAL">
+            </a>
+            <h3>INSAL - Software</h3>
+        </div>
+        <ul class="menu-list">
+            <li class="back-option"><a href="/html/bachillerato.html"><span class="material-symbols-outlined">arrow_back</span>Volver</a></li>
+            <li><a href="/index.html"><span class="material-symbols-outlined">home</span>Inicio</a></li>
+            <li><a href="/html/bachillerato.html"><span class="material-symbols-outlined">school</span>Oferta Académica</a></li>
+            <li><a href="#"><span class="material-symbols-outlined">groups</span>Nosotros</a></li>
+            <li><a href="#"><span class="material-symbols-outlined">event</span>Eventos</a></li>
+            <li><a href="#"><span class="material-symbols-outlined">location_on</span>Ubicación</a></li>
+        </ul>
+    </nav>
+
+    <section class="main_container">
+        <h1 class="titulo-principal">Bachillerato Técnico Vocacional en Desarrollo de Software</h1>
+        <div class="video-container">
+        <iframe 
+            src="https://www.youtube.com/embed/wzKNDtwkJfU"
+            title="Video de YouTube"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+        </div>
+
+        <div class="descripcion-bachillerato">
+            <p>El <strong>Bachillerato Técnico Vocacional en Desarrollo de Software</strong> es una especialidad diseñada para formar mentes creativas y analíticas capaces de transformar ideas en soluciones digitales. A lo largo de esta formación, los estudiantes dominan lenguajes de programación, gestión de bases de datos y metodologías ágiles, preparándose para ser los arquitectos de las aplicaciones y sistemas que impulsan el mundo moderno.</p>
+            <p>Este programa no solo te equipa con las habilidades técnicas más demandadas, sino que también fomenta el pensamiento lógico, la resolución de problemas y la creatividad, pilares fundamentales para innovar en el dinámico mundo de la tecnología. Prepárate para construir el futuro digital.</p>
+        </div>
+
+        <div class="que-aprenderas">
+            <h2>¿Qué aprenderás en este Bachillerato?</h2>
+            <ul>
+                <li><strong>Fundamentos de Programación:</strong> Desarrollarás una sólida base en lógica de programación, algoritmos y estructuras de datos, esenciales para cualquier lenguaje.</li>
+                <li><strong>Lenguajes de Programación Modernos:</strong> Dominarás lenguajes clave como Python, JavaScript, Java y C#, aplicándolos en diversos proyectos.</li>
+                <li><strong>Desarrollo Web Frontend:</strong> Aprenderás a construir interfaces de usuario atractivas e interactivas utilizando HTML, CSS y JavaScript, y frameworks modernos.</li>
+                <li><strong>Desarrollo Web Backend:</strong> Crearás la lógica del servidor, APIs robustas y gestionarás la interacción con bases de datos utilizando tecnologías como Node.js o PHP.</li>
+                <li><strong>Gestión de Bases de Datos:</strong> Diseñarás, implementarás y administrarás bases de datos relacionales (SQL) y no relacionales (NoSQL).</li>
+                <li><strong>Desarrollo de Aplicaciones Móviles:</strong> Te introducirás en la creación de aplicaciones para plataformas Android e iOS, explorando herramientas multiplataforma.</li>
+                <li><strong>Metodologías Ágiles de Desarrollo:</strong> Trabajarás en equipo utilizando enfoques como Scrum y Kanban, simulando entornos de trabajo reales.</li>
+                <li><strong>Control de Versiones:</strong> Aprenderás a colaborar eficientemente en proyectos de software utilizando sistemas como Git y plataformas como GitHub.</li>
+                <li><strong>Principios de Seguridad Informática:</strong> Conocerás las bases para desarrollar software seguro y proteger la información.</li>
+                <li><strong>Pensamiento Lógico y Resolución de Problemas:</strong> Desarrollarás habilidades críticas para analizar desafíos y diseñar soluciones innovadoras.</li>
+            </ul>
+        </div>
+
+        <div class="contenedor-columnas">
+            <div class="columna columna-info">
+                <h2>¿Por qué estudiar con nosotros?</h2>
+                <ul>
+                    <li>Formación técnica de calidad acreditada por el Ministerio de Educación</li>
+                    <li>Docentes especializados con experiencia en la industria</li>
+                    <li>Tecnologías actualizadas a lo último del mercado y tendencias actuales</li>
+                    <li>Prácticas profesionales en empresas del sector</li>
+                    <li>Certificaciones internacionales en herramientas de desarrollo</li>
+                    <li>Acceso a equipos de computación modernos y equipados</li>
+                    <li>Proyectos prácticos que simulan entornos de trabajo reales</li>
+                    <li>Orientación vocacional y apoyo para la inserción laboral</li>
+                </ul>
+            </div>
+            <div class="columna columna-empleo">
+                <h2>Oportunidades de Empleo</h2>
+                <p>Al finalizar tu bachillerato, estarás preparado para una variedad de roles en la industria tecnológica, con una base sólida para continuar tus estudios universitarios o iniciar tu carrera profesional de inmediato.</p>
+                <div class="empleo-item">
+                    <h3>Desarrollador Web Frontend</h3>
+                    <p>Crea la parte visual e interactiva de sitios y aplicaciones web, asegurando una excelente experiencia de usuario.</p>
+                </div>
+                <div class="empleo-item">
+                    <h3>Desarrollador Web Backend</h3>
+                    <p>Construye la lógica del servidor, bases de datos y APIs que hacen funcionar las aplicaciones por detrás.</p>
+                </div>
+                <div class="empleo-item">
+                    <h3>Programador de Aplicaciones Móviles</h3>
+                    <p>Desarrolla aplicaciones nativas o multiplataforma para smartphones y tablets, llegando a millones de usuarios.</p>
+                </div>
+                <div class="empleo-item">
+                    <h3>Técnico en Soporte Informático</h3>
+                    <p>Brinda asistencia técnica y mantenimiento a sistemas y redes, resolviendo problemas y asegurando el buen funcionamiento.</p>
+                </div>
+                <div class="empleo-item">
+                    <h3>Desarrollador Full Stack Junior</h3>
+                    <p>Participa en el desarrollo tanto del frontend como del backend de aplicaciones, adquiriendo una visión integral del proyecto.</p>
+                </div>
+                <div class="empleo-item">
+                    <h3>Analista de Datos Junior</h3>
+                    <p>Ayuda a recopilar, procesar y analizar grandes volúmenes de información para extraer conocimientos valiosos.</p>
+                </div>
+                <div class="empleo-item">
+                    <h3>QA Tester (Control de Calidad)</h3>
+                    <p>Asegura que el software funcione correctamente, identificando errores y garantizando la calidad del producto final.</p>
+                </div>
+            </div>
+        </div>
+        <div class="seccion-testimonios">
+            <h2>Experiencias de Nuestros Egresados</h2>
+            <div class="contenedor-testimonios">
+                <div class="testimonio-card">
+                    <div class="testimonio-header">
+                        <div class="testimonio-avatar">JM</div>
+                        <div class="testimonio-info">
+                            <h3>Juan Méndez</h3>
+                            <p class="testimonio-puesto">Desarrollador Web - TechSolutions SV</p>
+                        </div>
+                    </div>
+                    <p class="testimonio-texto">"El programa me preparó excelentemente. En 6 meses de egresado conseguí trabajo en una empresa importante. Los conocimientos que adquirí en INSAL fueron fundamentales para mi éxito."</p>
+                    <div class="testimonio-rating">
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                    </div>
+                </div>
+                <div class="testimonio-card">
+                    <div class="testimonio-header">
+                        <div class="testimonio-avatar">SM</div>
+                        <div class="testimonio-info">
+                            <h3>Sandra Morales</h3>
+                            <p class="testimonio-puesto">Desarrolladora Full Stack - Digital Minds</p> 
+                        </div>
+                    </div>
+                    <p class="testimonio-texto">"Lo mejor fue la combinación de teoría y práctica. Las pasantías en empresas reales me dieron experiencia invaluable. Ahora trabajo en proyectos que impactan la comunidad."</p>
+                    <div class="testimonio-rating">
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                    </div>
+                </div>
+                <div class="testimonio-card">
+                    <div class="testimonio-header">
+                        <div class="testimonio-avatar">CR</div>
+                        <div class="testimonio-info">
+                            <h3>Carlos Rodríguez</h3>
+                            <p class="testimonio-puesto">Programador de Apps Móviles - AppStudio</p> 
+                        </div>
+                    </div>
+                    <p class="testimonio-texto">"Los docentes son profesionales activos en la industria, eso marca la diferencia. Aprendí las herramientas más actuales y conseguí trabajo en una startup innovadora."</p>
+                    <div class="testimonio-rating">
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                    </div>
+                </div>
+                <div class="testimonio-card">
+                    <div class="testimonio-header">
+                        <div class="testimonio-avatar">MG</div>
+                        <div class="testimonio-info">
+                            <h3>Mariana González</h3>
+                            <p class="testimonio-puesto">Analista de Sistemas - CyberSecure SV</p>
+                        </div>
+                    </div> 
+                    <p class="testimonio-texto">"No tenía experiencia previa en programación y el programa me llevó desde cero a tener un buen empleo. La dedicación del personal docente fue excepcional."</p>
+                    <div class="testimonio-rating">
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

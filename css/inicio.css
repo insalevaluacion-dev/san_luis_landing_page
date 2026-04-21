@@ -1,0 +1,716 @@
+/* Configuración */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--gris);
+  overflow-x: hidden;
+}
+
+/* Variables */
+:root {
+  --white: #ffffff;
+  --naranja-principal: #ff9723ff;
+  --azul-principal: #0a4c8fff;
+  --naranja-difuminado: #ff97237b;
+  --azul-difuminado: #0a3f7aa9;
+  --gris: #e0e0e0;
+}
+
+html {
+  scroll-behavior: smooth;  
+  overflow-x: hidden;
+}
+
+.header {
+   background: var(--white);
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  border-radius: 0 0 40px 40px;
+  transition: background 0.4s ease, border-radius 0.4s ease, box-shadow 0.4s ease;
+}
+
+.header.scroleado {
+  background: var(--naranja-principal);
+  border-radius: 0 0 25px 25px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+
+}
+
+.contenedor-imagenes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1450px;
+  margin: 0 auto;
+}
+
+.contenedor-imagenes img {
+  height: 75px;
+
+}
+
+.portada {
+  position: relative;
+  height: 100vh;
+  overflow: hidden; /* ← ya lo tienes, bien */
+  margin-bottom: 0;
+}
+
+.portada-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cobertura {
+  position: absolute;
+  inset: 0;
+  background: var(--azul-difuminado);
+  z-index: 1;
+}
+
+.portada-contenido {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--white);
+  top: 47%;
+  transform: translateY(-50%);
+  padding: 0 20px;
+}
+
+.portada-contenido h1 {
+  font-size: 75px;
+  font-weight: 900;
+}
+
+.divisor {
+  width: 550px;
+  height: 1px;
+  background: var(--white);
+  margin: 15px auto;
+}
+
+.lema {
+  font-size: 20px;
+  opacity: 0.9;
+  letter-spacing: 2px;
+}
+
+.boton-portada {
+  position: absolute;
+  bottom: 0px;    
+  left: 50%;
+  transform: translateX(-50%);
+  width: 105%;
+  height: 135px;
+  background: var(--naranja-principal);
+  border-top-left-radius: 150%;
+  border-top-right-radius: 150%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  color: var(--white);
+  font-size: 25px;
+  font-weight: 300;
+  cursor: pointer;
+  z-index: 3;    
+    
+}
+
+
+.boton-portada span {
+  font-size: 40px;
+  animation: flecha 1s infinite;
+  margin-bottom: 0px;
+  margin-top: -20px;
+  font-weight: 300;
+}
+
+
+@keyframes flecha {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(12px);
+  }
+}
+
+/* CARDS DE LAS SECCIONES */
+
+.explorar {
+
+  background: var(--white);
+  text-align: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 110px 20px 40px; /* espacio para header fijo */
+  
+}
+
+.explorar-header {
+  margin-top: 20px;
+}
+
+.explorar-header h2 {
+  font-size: 52px;
+  font-weight: 800;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.explorar-header p {
+  font-size: 20px;
+  color: #777;
+  font-style: italic;
+}
+
+
+.acordion {
+  display: flex;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 50px auto 0;
+  max-width: 1400px;
+  height: 420px;
+}
+
+/* ITEM */
+.accordion__item {
+  flex: 1;
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: flex 0.5s ease;
+  overflow: hidden;
+  position: relative;
+
+  background-size: cover;
+  background-position: center;
+}
+
+/* LINK */
+.acordion-link {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+
+  text-decoration: none;
+  color: var(--white);
+  z-index: 2;
+}
+
+/* OVERLAY */
+.accordion__item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.accordion__item.naranja::before {
+  background: var(--naranja-principal);
+}
+
+.accordion__item.azul::before {
+  background: var(--azul-principal);
+}
+
+/* ICONO */
+.accordion__icon {
+  width: 90px;
+  transition: transform 0.3s ease;
+}
+
+/* TEXTO */
+.item-title {
+  margin-top: 40px;
+  font-size: 20px;
+  font-weight: 700;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+@media (hover: hover) {
+
+  .accordion__item:hover {
+    flex: 4;
+  }
+
+  .accordion__item:hover::before {
+    opacity: 0.2;
+  }
+
+  .accordion__item:hover .accordion__icon {
+    transform: scale(1.4);
+  }
+
+  .accordion__item:hover .item-title {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ============================================================
+   RESPONSIVE COMPLETO - Instituto Nacional "San Luis"
+   Cubre: Portada + Cards (acordeón)
+   
+   Breakpoints:
+   - Tablet        : 768px – 1024px
+   - Móvil         : ≤ 768px
+   - Móvil pequeño : ≤ 480px
+   - Móvil muy peq : ≤ 360px
+   ============================================================ */
+
+
+/* ─────────────────────────────────────────────
+   TABLET  (768px – 1024px)
+   ───────────────────────────────────────────── */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  /* ── Header ── */
+  .contenedor-imagenes img {
+    height: 60px;
+  }
+
+  /* ── Portada ── */
+  .portada-contenido h1 {
+    font-size: 44px;
+    line-height: 1.2;
+  }
+
+  .divisor {
+    width: 340px;
+  }
+
+  .lema {
+    font-size: 16px;
+    letter-spacing: 2.5px;
+  }
+
+  .boton-portada {
+    height: 150px;
+    font-size: 20px;
+    border-top-left-radius: 120%;
+    border-top-right-radius: 120%;
+  }
+
+  .boton-portada p {
+    margin-top: 35px;
+  }
+
+  .boton-portada span {
+    font-size: 28px;
+    margin-bottom: 50px;
+  }
+
+  /* ── Sección explorar ── */
+  .explorar {
+    padding: 95px 25px 45px;
+  }
+
+  .explorar-header h2 {
+    font-size: 36px;
+    margin-top: 10px;
+  }
+
+  .explorar-header p {
+    font-size: 16px;
+  }
+
+  /* ── Acordeón: grid 2×2 ── */
+  .acordion {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    height: auto;
+    gap: 14px;
+    margin-top: 40px;
+    max-width: 700px;
+  }
+
+  .accordion__item {
+    width: 100%;
+    height: 200px;
+    border-radius: 24px;
+    flex: none;
+  }
+
+  .accordion__icon {
+    width: 60px;
+  }
+
+  .item-title {
+    font-size: 16px;
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Hover suave en tablet con ratón */
+  @media (hover: hover) {
+    .accordion__item:hover {
+      flex: none;
+      transform: scale(1.03);
+      transition: transform 0.3s ease;
+    }
+  }
+}
+
+
+/*  MÓVIL  (≤ 768px) IPAD AIR */
+@media (max-width: 768px) {
+
+  .header {
+    padding: 25px;
+    border-radius: 0 0 30px 30px;
+  }
+
+  /* ── Header ── */
+  .contenedor-imagenes img {
+    height: 90px;
+    margin-left: 5px;
+  }
+
+  /* ── Portada ── */
+  .portada-contenido h1 {
+    font-size: 60px;
+    line-height: 1.2;
+  }
+
+  .divisor {
+    width: 85%;
+  }
+
+  .lema {
+    font-size: 22px;
+    letter-spacing: 2px;
+  }
+
+  .boton-portada {
+    height: 170px;
+    font-size: 30px;
+    gap: 15px;
+    border-top-left-radius: 150%;
+    border-top-right-radius: 150%;
+  }
+
+  .boton-portada p {
+    margin-top: 35px;
+  }
+
+  .boton-portada span {
+    font-size: 35px;
+    margin-bottom: 80px;
+  }
+
+  /* ── Sección explorar ── */
+  .explorar {
+    padding: 25px 15px 40px;
+  }
+
+  .explorar-header h2 {
+    font-size: 30px;
+    margin-top: 80px;
+  }
+
+  .explorar-header p {
+    font-size: 16px;
+  }
+
+  /* ── Acordeón: columna vertical ── */
+  .acordion {
+    flex-direction: column;
+    height: auto;
+    gap: 8px;
+    margin-top: 30px;
+  }
+
+  .accordion__item {
+    width: 100%;
+    height: 100px;
+    border-radius: 40px;
+    flex: none;
+    transition: height 0.4s ease;
+    overflow: hidden;
+    touch-action: manipulation;
+  }
+
+  .accordion__item.activo {
+    height: 300px;
+  }
+
+  .acordion-link {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 20px;
+    gap: 15px;
+    height: 100%;
+    width: 100%;
+  }
+
+  .accordion__item.activo .acordion-link {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 20px 25px;
+  }
+
+  .accordion__icon {
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+  }
+
+  .accordion__item.activo .accordion__icon {
+    width: 65px;
+    height: 75px;
+  }
+
+  .item-title {
+    opacity: 1;
+    transform: none;
+    font-size: 18px;
+    margin-bottom: 0;
+  }
+
+  .accordion__item.activo .item-title {
+    font-size: 20px;
+  }
+
+  .accordion__item::before {
+    opacity: 0.85;
+  }
+
+  .accordion__item.activo::before {
+    opacity: 0.2;
+  }
+
+  /* Desactivar expansión hover de escritorio */
+  .accordion__item:hover {
+    flex: none;
+  }
+}
+
+
+/* MÓVIL PEQUEÑO  (≤ 480px) SAMSUNG S20+ */
+@media (max-width: 480px) {
+
+  /* ── Header ── */
+  .header {
+    padding: 10px;
+    border-radius: 0 0 20px 20px;
+  }
+
+  .contenedor-imagenes img {
+    height: 60px;
+   
+  }
+
+  /* ── Portada ── */
+  .portada-contenido h1 {
+    font-size: 30px;
+    
+  }
+
+  .divisor {
+    width: 90%;
+  }
+
+  .lema {
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+
+  .boton-portada {
+    height: 160px;
+    font-size: 22px;
+    border-top-left-radius: 40%;
+    border-top-right-radius: 40%;
+  }
+
+  .boton-portada p {
+    margin-top: 40px;
+  }
+
+  .boton-portada span {
+    font-size: 30px;
+    margin-bottom: 65px;
+  }
+
+  /* ── Sección explorar ── */
+  .explorar {
+    padding: 20px 12px 35px;
+  }
+
+  .explorar-header h2 {
+    font-size: 25px;
+    margin-top: 85px;
+    font-weight: 900;
+    
+  }
+
+  .explorar-header p {
+    font-size: 15px;
+  }
+
+  /* ── Acordeón ── */
+  .acordion {
+    gap: 5px;
+    margin-top: 30px;
+  }
+
+  .accordion__item {
+    height: 125px;
+    border-radius: 30px;
+  }
+
+  .accordion__item.activo {
+    height: 220px;
+  }
+
+  .acordion-link {
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .accordion__item.activo .acordion-link {
+    padding: 16px 18px;
+    margin-left: -30px;
+    margin-top: 20px;
+  }
+
+  .accordion__icon {
+    width: 65px;
+    height: 65px;
+  }
+
+  .accordion__item.activo .accordion__icon {
+    width: 75px;
+    height: 70px;
+    margin-bottom: 35px;
+    margin-left: 25px;
+  }
+
+  .item-title {
+    font-size: 19px;
+    margin-bottom: 25px;
+    margin-left: 35px;
+  }
+
+  .accordion__item.activo .item-title {
+    font-size: 20px;
+    margin-left: 30px;
+  }
+}
+
+
+/* MÓVIL MUY PEQUEÑO  (≤ 360px) SAMSUNG S8+ */
+@media (max-width: 360px) {
+
+
+  /* ── Header ── */
+  .header {
+    padding: 15px;
+    border-radius: 0 0 20px 20px;
+  }
+
+  .contenedor-imagenes img {
+    height: 55px;
+   
+  }
+
+  /* ── Portada ── */
+  .portada-contenido h1 {
+    font-size: 26px;
+  }
+
+  .lema {
+    font-size: 13px;
+    letter-spacing: 1.5px;
+  }
+
+  .boton-portada {
+    height: 125px;
+    font-size: 17px;
+  }
+
+  .boton-portada span {
+    font-size: 20px;
+  }
+
+  /* ── Sección explorar ── */
+  .explorar-header h2 {
+    font-size: 24px;
+    margin-top: 85px;
+  }
+
+  .explorar-header p {
+    font-size: 13px;
+  }
+
+  /* ── Acordeón ── */
+
+   .acordion {
+    gap: 5px;
+    margin-top: 30px;
+  }
+
+
+  .accordion__item {
+    height: 100px;
+    border-radius: 30px;
+  }
+
+  .accordion__item.activo {
+    height: 200px;
+  }
+
+  .accordion__icon {
+    width: 55px;
+    height: 55px;
+  }
+
+  .accordion__item.activo .accordion__icon {
+    width: 55px;
+    height: 55px;
+    margin-bottom: 40px;
+  }
+
+  .item-title {
+    font-size: 16px;
+    margin-left: 30px;
+  }
+
+  .accordion__item.activo .item-title {
+    font-size: 17px;
+    margin-bottom: 20px;
+    
+  }
+}
