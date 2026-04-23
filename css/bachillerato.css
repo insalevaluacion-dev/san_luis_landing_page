@@ -1,163 +1,509 @@
-/* Configuración */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap'); 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Montserrat", sans-serif;
-  background-color: var();
-}
-
-/* Variables */
 :root {
-  --white: #ffffff;
-  --naranja-principal: #ff9723ff;
-  --azul-principal: #0a4c8fff;
-  --naranja-difuminado: #ff97237b;
-  --azul-difuminado: #0a3f7aa9;
-  --gris: #e0e0e0;
+  --blanco: #ffffff;
+  --naranja: #ff9723;
+  --azul: #0a4c8f;
+  --gris: #eef1f4;
+  --texto: #1f1f1f;
+  --overlay-naranja: rgba(255, 151, 35, 0.7);
+  --overlay-azul: rgba(10, 76, 143, 0.72);
+  --sombra: 0 14px 30px rgba(0, 0, 0, 0.08);
+  --borde: rgba(0, 0, 0, 0.06);
 }
 
 html {
-  scroll-behavior: smooth;  
+  scroll-behavior: smooth;
 }
 
-.header {
-   background: var(--naranja-principal);
-  padding: 10px;
+body {
+  font-family: "Roboto", sans-serif;
+  background: var(--gris);
+  color: var(--texto);
+}
+
+.pagina {
+  padding-top: 90px;
+}
+
+.encabezado {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 100;
-  border-radius: 0 0 40px 40px;
-  transition: background 0.4s ease, border-radius 0.4s ease, box-shadow 0.4s ease;
-}
-
-.header.scroleado {
-  background: var(--naranja-principal);
-  border-radius: 0 0 25px 25px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-
+  background: var(--naranja);
+  padding: 10px;
+  border-radius: 0 0 34px 34px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(8px);
 }
 
 .contenedor-imagenes {
+  max-width: 1450px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1450px;
-  margin: 0 auto;
 }
 
 .contenedor-imagenes img {
   height: 75px;
-
+  width: auto;
 }
 
 .explorar {
-  padding: 80px 60px;
-  background: var(--white);
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 20px;
   text-align: center;
 }
 
-.explorar-header {
-  margin-top: 30px;
+.explorar-encabezado {
+  max-width: 1000px;
+  margin: 8px auto 52px;
+  padding: 20px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--borde);
+  box-shadow: var(--sombra);
 }
 
-.explorar-header h2 {
-  font-size: 52px;
+.explorar-encabezado h2 {
+  font-size: 45px;
+  line-height: 1;
   font-weight: 800;
-  color: #222;
-  margin-top: 30px;
+  letter-spacing: -1px;
+  color: #1d1d1d;
+  margin-bottom: 14px;
 }
 
-.explorar-header p {
-  font-size: 20px;
-  color: #777;
-  font-style: italic;
+.explorar-encabezado p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--subtexto);
+  font-style: normal;
+  font-weight: 400;
+  max-width: 760px;
+  margin: 0 auto;
 }
 
+.bloque {
+  margin: 40px;
+  padding: 0 0 8px;
+}
+
+.bloque__encabezado {
+  margin-bottom: 22px;
+}
+
+.bloque__encabezado h3 {
+  display: inline-block;
+  font-size: 45px;
+  font-weight: 700;
+  color: #141414;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.bloque__encabezado h3::after {
+  content: "";
+  display: block;
+  width: 180px;
+  height: 4px;
+  margin: 12px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--naranja), var(--azul));
+}
 
 .acordion {
   display: flex;
-  list-style: none;
-  padding: 0;
-  margin-top: 40px;
-  max-width: 1350px;
-  height: 480px;
-  margin-left: 25px;
-  gap: 3px;
-  
+  gap: 14px;
+  height: 400px;
+  width: 1300px;
+  margin: 0 auto;
 }
 
-.accordion__item {
+.acordion__elemento {
   flex: 1;
-  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
   cursor: pointer;
-  transition: flex 0.5s;
+  transform: skewX(-10deg);
+  transition: flex 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  position: relative;
 }
 
-.acordion-link{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  text-decoration: none;
-  color: inherit;
-  z-index: 3;
+/* ── Hover SOLO en mouse real ── */
+@media (hover: hover) and (pointer: fine) {
+  .acordion__elemento:hover {
+    flex: 2.5;
+    transform: skewX(-10deg) translateY(-4px);
+  }
+
+  .acordion__elemento:hover .acordion__icono {
+    bottom: 78px;
+    transform: translateX(-50%) skewX(10deg) scale(1.08);
+  }
 }
 
-.accordion__item .inner {
+.acordion__enlace {
   position: absolute;
   inset: 0;
-  transform: skewX(-10deg);
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
+  z-index: 4;
 }
 
-.accordion__item .inner::before {
+.interior {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: skewX(10deg) scale(1.1);
+  left: -10%;
+  width: 120%;
+}
+
+.interior::before {
   content: "";
   position: absolute;
   inset: 0;
 }
 
-
-.accordion__item.naranja .inner::before {
-  background: var(--naranja-difuminado);
+.naranja .interior::before {
+  background: var(--overlay-naranja);
 }
 
-.accordion__item.azul .inner::before {
-  background: var(--azul-difuminado);
+.azul .interior::before {
+  background: var(--overlay-azul);
 }
 
-.accordion__icon {
+.acordion__icono {
   position: absolute;
-  bottom: 0px;
-  left: 140px;
-  transform: translate(-50%, -50%);
-  width: 120px;
-  height: 120px;
-  object-fit: contain;
+  left: 48%;
+  bottom: 90px;
+  transform: translateX(-50%) skewX(10deg);
+  width: 92px;
+  height: 92px;
   filter: brightness(0) invert(1);
-  z-index: 0;
-  transition: transform 0.3s;
+  z-index: 3;
+  pointer-events: none;
+  transition: transform 0.3s ease, bottom 0.3s ease;
 }
 
-.accordion__item:hover {
-  flex: 4;
+.acordion__etiqueta {
+  position: absolute;
+  left: 50%;
+  bottom: 26px;
+  transform: translateX(-50%) skewX(10deg);
+  z-index: 3;
+  color: #fff;
+  font-size: 19px;
+  font-weight: 700;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
 }
 
-.accordion__item:hover .accordion__icon {
-  transform: translate(-50%, -60%) scale(1.2);
+.acordion-texto {
+  max-width: 1000px;
+  margin: 30px auto 0;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid var(--borde);
+  border-radius: 22px;
+  padding: 26px 30px;
+  box-shadow: var(--sombra);
+  backdrop-filter: blur(8px);
+  text-align: left;
+  position: relative;
+}
+
+.acordion-texto::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  border-radius: 22px 22px 0 0;
+  background: linear-gradient(90deg, var(--naranja), var(--azul));
+}
+
+.acordion-texto p {
+  font-size: 16px;
+  line-height: 1.85;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.acordion-texto p:last-child {
+  margin-bottom: -5px;
 }
 
 
+/* =========================
+   TABLETS (768px – 1024px)
+========================= */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  /* ── Encabezado ── */
+  .encabezado {
+    padding: 10px 14px;
+    border-radius: 0 0 28px 28px;
+  }
+
+  .contenedor-imagenes img {
+    height: 60px;
+  }
+
+  /* ── Acordeón ── */
+  .acordion {
+    width: 100%;
+    height: 320px;
+    padding: 0 12px;
+    gap: 12px;
+  }
+
+  .acordion__icono {
+    width: 70px;
+    height: 70px;
+  }
+
+  /* ── Bloque ── */
+  .bloque {
+    margin: 30px 20px;
+  }
+
+  .bloque__encabezado h3 {
+    font-size: 34px;
+  }
+
+  /* ── Sección explorar ── */
+  .explorar-encabezado h2 {
+    font-size: 36px;
+  }
+}
+
+
+/* =========================
+   MÓVIL GRANDE (≤ 768px) — iPad Air
+========================= */
+@media (max-width: 768px) {
+
+  /* ── Encabezado ── */
+  .encabezado {
+    padding: 20px;
+    border-radius: 0 0 24px 24px;
+  }
+
+  .contenedor-imagenes {
+    gap: 10px;
+  }
+
+  .contenedor-imagenes img {
+    height: 50px;
+  }
+
+  .pagina {
+    padding-top: 75px;
+  }
+
+  /* ── Acordeón: carrusel horizontal ── */
+  .acordion {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    gap: 14px;
+    width: 100%;
+    height: auto;
+    padding: 16px;
+    box-sizing: border-box;
+    overflow-y: hidden;
+  }
+
+  .acordion::-webkit-scrollbar {
+    display: none;
+  }
+
+  .acordion {
+    scrollbar-width: none;
+  }
+
+  .acordion__elemento {
+    flex: 0 0 100%;
+    height: 250px;
+    transform: none !important;
+    rotate: none !important;
+    scroll-snap-align: center;
+    min-width: 0;
+  }
+
+  .acordion__elemento .interior,
+  .acordion__elemento .interior * {
+    transform: none !important;
+    rotate: none !important;
+  }
+
+  .interior {
+    transform: none;
+    left: 0;
+    width: 100%;
+  }
+
+  .acordion__icono {
+    width: 60px;
+    height: 60px;
+    bottom: 65px;
+    transform: translateX(-50%);
+  }
+
+  .acordion__etiqueta {
+    font-size: 15px;
+    transform: translateX(-50%);
+  }
+
+  /* ── Sección explorar ── */
+  .explorar-encabezado {
+    margin-bottom: 30px;
+  }
+
+  .explorar-encabezado h2 {
+    font-size: 28px;
+  }
+
+  .explorar-encabezado p {
+    font-size: 14px;
+  }
+
+  /* ── Bloque ── */
+  .bloque {
+    margin: 20px 10px;
+  }
+}
+
+
+/* =========================
+   MÓVIL PEQUEÑO (≤ 480px) — Samsung S20+
+========================= */
+@media (max-width: 480px) {
+
+  /* ── Encabezado ── */
+  .encabezado {
+    padding: 12px;
+    border-radius: 0 0 22px 22px;
+  }
+
+  .contenedor-imagenes img {
+    height: 60px;
+    margin-left: 5px;
+  }
+
+  .explorar {
+    margin-top: 15px;
+  }
+
+  /* ── Acordeón ── */
+  .acordion {
+    gap: 12px;
+    padding: 12px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .acordion__elemento {
+    flex: 0 0 88%;
+    height: 350px;
+  }
+
+  .acordion__icono {
+    width: 52px;
+    height: 52px;
+    bottom: 60px;
+  }
+
+  .acordion__etiqueta {
+    font-size: 14px;
+  }
+
+  /* ── Bloque ── */
+  .bloque__encabezado h3 {
+    font-size: 26px;
+    margin-top: 35px;
+  }
+
+  .acordion-texto {
+    padding: 18px;
+  }
+
+  .acordion-texto p {
+    font-size: 14px;
+  }
+}
+
+
+/* =========================
+   MÓVIL MUY PEQUEÑO (≤ 360px) — Samsung S8+
+========================= */
+@media (max-width: 360px) {
+
+  /* ── Encabezado ── */
+  .encabezado {
+    padding: 8px;
+    border-radius: 0 0 20px 20px;
+  }
+
+  .contenedor-imagenes img {
+    height: 55px;
+    margin-top: 2px;
+    margin-left: 10px;
+    margin-right: 5px;
+  }
+
+  .pagina {
+    padding-top: 60px;
+  }
+
+  /* ── Acordeón ── */
+  .acordion {
+    gap: 12px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .acordion__elemento {
+    flex: 0 0 92%;
+    height: 300px;
+  }
+
+  .acordion__icono {
+    width: 45px;
+    height: 45px;
+    bottom: 55px;
+  }
+
+  .acordion__etiqueta {
+    font-size: 13px;
+  }
+
+  /* ── Sección explorar ── */
+  .explorar-encabezado h2 {
+    font-size: 24px;
+  }
+
+  .explorar-encabezado p {
+    font-size: 13px;
+  }
+
+  /* ── Bloque ── */
+  .bloque__encabezado h3 {
+    font-size: 22px;
+  }
+}

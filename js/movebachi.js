@@ -1,7 +1,25 @@
+document.querySelectorAll('.acordion__elemento').forEach(elemento => {
+  const interior = elemento.querySelector('.interior');
+  const fondo = elemento.dataset.bg;
 
-//ACORDEON DE BACHILLERATOS (WEB)
+  const img = new Image();
+  img.src = fondo;
 
-document.querySelectorAll('.accordion__item').forEach(item => {
-  const inner = item.querySelector('.inner');
-  inner.style.backgroundImage = `url('${item.dataset.bg}')`;
+  img.onload = () => {
+    interior.style.backgroundImage = `url('${fondo}')`;
+  };
+
+  const enlace = elemento.querySelector('.acordion__enlace');
+  const href = elemento.dataset.enlace;
+
+  if (href && href !== '#') {
+    enlace.href = href;
+  } else {
+    enlace.addEventListener('click', e => e.preventDefault());
+  }
 });
+
+
+if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+  document.body.classList.add('sin-hover');
+} 

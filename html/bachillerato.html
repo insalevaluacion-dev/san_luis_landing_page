@@ -1,59 +1,114 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Instituto Nacional "San Luis"</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
   <link rel="shortcut icon" href="/img/logoinsal2.png" type="image/x-icon">
   <link rel="stylesheet" href="/css/bachillerato.css">
 </head>
 <body>
 
-  <header class="header">
+  <header class="encabezado">
     <div class="contenedor-imagenes">
-    <a href="/index.html">
-      <img src="/img/logoinsal2.png" alt="Logo INSAL">
-    </a>
+      <a href="/index.html">
+        <img src="/img/logoinsal2.png" alt="Logo INSAL">
+      </a>
       <img src="/img/logomined.png" alt="Ministerio de Educación">
     </div>
   </header>
 
-  <main>
+  <main class="pagina">
     <section class="explorar">
-
-      <div class="explorar-header">
+      <div class="explorar-encabezado">
         <h2>Oferta Académica</h2>
-        <p>Explora la oferta educativa disponible de</p>
-        <p>nuestra institucion</p>
+        <p>En el Instituto Nacional "San Luis" ofrecemos una amplia y sólida oferta académica orientada a la formación integral de nuestros estudiantes.</p>
+        <p>Explora la oferta educativa que ofrece nuestra institución</p>
       </div>
 
-     <ul class="acordion">
+      <section class="bloque">
+        <div class="bloque__encabezado">
+          <h3>Bachilleratos Productivos</h3>
+        </div>
 
-  <li class="accordion__item naranja" data-bg="../img/ds.jpg">
-    <a href="/html/DS.html" class="acordion-link"></a>
-    <div class="inner"></div>
-    <img src="../img/soft.png" class="accordion__icon">
-  </li>
+        <ul class="acordion">
 
-  <li class="accordion__item azul" data-bg="../img/saludsmith.jpeg">
-    <div class="inner"></div>
-    <img src="../img/salu.png" class="accordion__icon">
-  </li>
+          <li class="acordion__elemento azul" data-bg="../img/saludsmith.jpeg" data-enlace="#">
+            <a href="#" class="acordion__enlace" aria-label="Abrir Salud"></a>
+            <div class="interior"></div>
+            <img src="../img/salu.png" class="acordion__icono" alt="Salud">
+            <span class="acordion__etiqueta">Salud</span>
+          </li>
 
-  <li class="accordion__item naranja" data-bg="../img/electric.jpeg">
-    <div class="inner"></div>
-    <img src="../img/electricos.png" class="accordion__icon">
-  </li>
+          <li class="acordion__elemento naranja" data-bg="../img/electrics.png" data-enlace="#">
+            <a href="#" class="acordion__enlace" aria-label="Abrir Electricidad"></a>
+            <div class="interior"></div>
+            <img src="../img/electricos.png" class="acordion__icono" alt="Electricidad">
+            <span class="acordion__etiqueta">Sistemas Eléctricos</span>
+          </li>
 
-  <li class="accordion__item azul" data-bg="../img/grafico.jpeg">
-    <div class="inner"></div>
-    <img src="../img/logistica.png" class="accordion__icon">
-  </li>
+          <li class="acordion__elemento azul" data-bg="../img/logistic.png" data-enlace="#">
+            <a href="#" class="acordion__enlace" aria-label="Abrir Logística"></a>
+            <div class="interior"></div>
+            <img src="../img/logistica.png" class="acordion__icono" alt="Logística">
+            <span class="acordion__etiqueta">Logística y Aduanas</span>
+          </li>
+        </ul>
 
-</ul>
+        <div class="acordion-texto">
+          <p>
+            El Bachillerato Productivo está orientado a la formación de estudiantes con habilidades técnicas específicas
+            que les permitan incorporarse de manera directa al mundo laboral o emprender sus propios proyectos.
+          </p>
+          <p>
+            Este enfoque combina conocimientos teóricos con una fuerte preparación práctica, desarrollando competencias en áreas productivas clave.
+          </p>
+        </div>
+      </section>
+
+      <section class="bloque">
+        <div class="bloque__encabezado">
+          <h3>Bachilleratos Vocacionales</h3>
+        </div>
+
+        <ul class="acordion">
+          <li class="acordion__elemento naranja" data-bg="../img/ds.jpg" data-enlace="/html/DS.html">
+            <a href="/html/DS.html" class="acordion__enlace" aria-label="Abrir Desarrollo de Software"></a>
+            <div class="interior"></div>
+            <img src="../img/soft.png" class="acordion__icono" alt="Desarrollo de Software">
+            <span class="acordion__etiqueta">Desarrollo de Software</span>
+          </li>
+
+          <li class="acordion__elemento azul" data-bg="../img/GRAFICOO.jpg" data-enlace="#">
+            <a href="#" class="acordion__enlace" aria-label="Abrir Diseño Gráfico"></a>
+            <div class="interior"></div>
+            <img src="../img/diesegrafi2.png" class="acordion__icono" alt="Diseño Gráfico">
+            <span class="acordion__etiqueta">Diseño Gráfico</span>
+          </li>
+
+          <li class="acordion__elemento naranja" data-bg="../img/admiconta.jpg" data-enlace="#">
+            <a href="#" class="acordion__enlace" aria-label="Abrir Administrativo Contable"></a>
+            <div class="interior"></div>
+            <img src="../img/conta.png" class="acordion__icono" alt="Administrativo Contable">
+            <span class="acordion__etiqueta">Administrativo Contable</span>
+          </li>
+        </ul>
+
+        <div class="acordion-texto">
+          <p>
+            El Bachillerato Vocacional está diseñado para brindar una formación integral que combina conocimientos académicos
+            con el desarrollo de habilidades prácticas en distintas áreas profesionales.
+          </p>
+          <p>
+            Su objetivo es fortalecer capacidades para el mundo laboral, combinando conocimientos teóricos y
+            experiencias aplicadas.
+          </p>
+        </div>
+      </section>
     </section>
   </main>
 

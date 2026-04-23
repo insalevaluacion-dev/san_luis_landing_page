@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 /* Configuración */
 * {
   margin: 0;
@@ -6,7 +8,7 @@
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Poppins";
   background-color: var(--gris);
   overflow-x: hidden;
 }
@@ -16,8 +18,8 @@ body {
   --white: #ffffff;
   --naranja-principal: #ff9723ff;
   --azul-principal: #0a4c8fff;
-  --naranja-difuminado: #ff97237b;
-  --azul-difuminado: #0a3f7aa9;
+  --naranja-difuminado: #ff9723cc;
+  --azul-difuminado: #0a4c8fcc;
   --gris: #e0e0e0;
 }
 
@@ -27,7 +29,7 @@ html {
 }
 
 .header {
-   background: var(--white);
+  background: var(--white);
   padding: 10px;
   position: fixed;
   top: 0;
@@ -42,7 +44,6 @@ html {
   background: var(--naranja-principal);
   border-radius: 0 0 25px 25px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-
 }
 
 .contenedor-imagenes {
@@ -55,13 +56,12 @@ html {
 
 .contenedor-imagenes img {
   height: 75px;
-
 }
 
 .portada {
   position: relative;
   height: 100vh;
-  overflow: hidden; /* ← ya lo tienes, bien */
+  overflow: hidden; 
   margin-bottom: 0;
 }
 
@@ -122,15 +122,12 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
   color: var(--white);
   font-size: 25px;
   font-weight: 300;
   cursor: pointer;
   z-index: 3;    
-    
 }
-
 
 .boton-portada span {
   font-size: 40px;
@@ -139,7 +136,6 @@ html {
   margin-top: -20px;
   font-weight: 300;
 }
-
 
 @keyframes flecha {
   0%, 100% {
@@ -153,13 +149,11 @@ html {
 /* CARDS DE LAS SECCIONES */
 
 .explorar {
-
   background: var(--white);
   text-align: center;
   min-height: 100vh;
   width: 100%;
-  padding: 110px 20px 40px; /* espacio para header fijo */
-  
+  padding: 110px 20px 40px; 
 }
 
 .explorar-header {
@@ -178,7 +172,6 @@ html {
   color: #777;
   font-style: italic;
 }
-
 
 .acordion {
   display: flex;
@@ -201,7 +194,6 @@ html {
   transition: flex 0.5s ease;
   overflow: hidden;
   position: relative;
-
   background-size: cover;
   background-position: center;
 }
@@ -210,25 +202,23 @@ html {
 .acordion-link {
   position: absolute;
   inset: 0;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 15px;
-
   text-decoration: none;
   color: var(--white);
   z-index: 2;
 }
 
-/* OVERLAY */
+/* OVERLAY — opacidad fija alta para que se lea siempre */
 .accordion__item::before {
   content: '';
   position: absolute;
   inset: 0;
   border-radius: 28px;
-  opacity: 1;
+  opacity: 0.90;
   transition: opacity 0.3s ease;
   z-index: 1;
 }
@@ -256,14 +246,16 @@ html {
   transform: translateY(10px);
   transition: all 0.3s ease;
 }
+
 @media (hover: hover) {
 
   .accordion__item:hover {
     flex: 4;
   }
 
+  /* Al hacer hover baja la opacidad para mostrar la imagen de fondo */
   .accordion__item:hover::before {
-    opacity: 0.2;
+    opacity: 0.60;
   }
 
   .accordion__item:hover .accordion__icon {
@@ -272,26 +264,16 @@ html {
 
   .accordion__item:hover .item-title {
     opacity: 1;
-    transform: translateY(0);
+   
   }
 }
 
 
-/* ============================================================
-   RESPONSIVE COMPLETO - Instituto Nacional "San Luis"
-   Cubre: Portada + Cards (acordeón)
-   
-   Breakpoints:
-   - Tablet        : 768px – 1024px
-   - Móvil         : ≤ 768px
-   - Móvil pequeño : ≤ 480px
-   - Móvil muy peq : ≤ 360px
-   ============================================================ */
 
 
-/* ─────────────────────────────────────────────
-   TABLET  (768px – 1024px)
-   ───────────────────────────────────────────── */
+
+
+/* TABLET  (768px – 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
 
   /* ── Header ── */
@@ -372,7 +354,6 @@ html {
     transform: none;
   }
 
-  /* Hover suave en tablet con ratón */
   @media (hover: hover) {
     .accordion__item:hover {
       flex: none;
@@ -509,7 +490,7 @@ html {
   }
 
   .accordion__item.activo::before {
-    opacity: 0.2;
+    opacity: 0.6;
   }
 
   /* Desactivar expansión hover de escritorio */
@@ -524,7 +505,7 @@ html {
 
   /* ── Header ── */
   .header {
-    padding: 10spx;
+    padding: 15px;
     border-radius: 0 0 20px 20px;
   }
 
@@ -587,7 +568,7 @@ html {
   }
 
   .accordion__item {
-    height: 125px;
+    height: 115px;
     border-radius: 30px;
   }
 
@@ -637,7 +618,7 @@ html {
 
   /* ── Header ── */
   .header {
-    padding: 15px;
+    padding: 12px;
     border-radius: 0 0 20px 20px;
   }
 
@@ -684,7 +665,7 @@ html {
 
 
   .accordion__item {
-    height: 100px;
+    height: 90px;
     border-radius: 30px;
   }
 
