@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oferta Académica</title>
+
+  <link rel="shortcut icon" href="/img/logoinsal2.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+  <link rel="stylesheet" href="/css/headerglobal.css">
+  <link rel="stylesheet" href="/css/bachillerato.css">
+  <link rel="stylesheet" href="/css/menuglobal.css">
+  <script src="/js/compomenu.js"></script>
+  <script src="/js/oferta.js"></script>
+</head>
+
+
+<body data-carrera="Oferta Académica">
+
+  <div id="header-container"></div>
+
+    <!-- MENÚ (botón + overlay + nav, inyectados por compomenu.js) -->
+  <div id="menu-container"></div>
+
+
+  <main class="pagina">
+
+    <!-- SECCIÓN PRINCIPAL -->
+    <section class="explorar" aria-labelledby="titulo-oferta">
+
+     
+      <!-- BACHILLERATOS GENERALES -->
+      <section class="bloque" aria-labelledby="titulo-generales">
+        <div class="bloque__encabezado">
+          <h2 id="titulo-generales">Bachilleratos Generales</h2>
+        </div>
+
+        <ul class="acordion" role="list">
+
+          <li class="acordion__elemento naranja" data-bg="/img/electrics.png">
+            <div class="interior"></div>
+            <a href="#" class="acordion__enlace" aria-label="Ver detalle de Bachillerato Regular"></a>
+            <img src="/img/electricos.png" class="acordion__icono" alt="">
+            <span class="acordion__etiqueta">Regular</span>
+          </li>
+
+          <li class="acordion__elemento azul" data-bg="/img/logistic.png">
+            <div class="interior"></div>
+            <a href="#" class="acordion__enlace" aria-label="Ver detalle de Bachillerato Flexible"></a>
+            <img src="/img/logistica.png" class="acordion__icono" alt="">
+            <span class="acordion__etiqueta">Flexible</span>
+          </li>
+
+        </ul>
+
+        <div class="acordion-texto">
+          <p>
+            El Bachillerato General ofrece una formación académica amplia y equilibrada que prepara a los estudiantes
+            para continuar estudios superiores o incorporarse al mundo laboral con una base sólida de conocimientos.
+          </p>
+          <p>
+            Disponible en modalidad <strong>Regular</strong> (presencial, jornada estándar) y <strong>Flexible</strong>
+            (horarios adaptados para estudiantes con necesidades especiales de disponibilidad).
+          </p>
+        </div>
+      </section>
+
+      <!-- BACHILLERATOS PRODUCTIVOS -->
+      <section class="bloque" aria-labelledby="titulo-productivos">
+        <div class="bloque__encabezado">
+          <h2 id="titulo-productivos">Bachilleratos Productivos</h2>
+        </div>
+
+        <ul class="acordion" role="list">
+
+          <li class="acordion__elemento azul" data-bg="/img/saludsmith.jpeg" data-enlace="/html/Salud.html">
+            <div class="interior"></div>
+            <a href="/html/Salud.html" class="acordion__enlace" aria-label="Ver detalle de Bachillerato en Salud"></a>
+            <img src="/img/salu.png" class="acordion__icono" alt="">
+            <span class="acordion__etiqueta">Salud</span>
+          </li>
+
+          <li class="acordion__elemento naranja" data-bg="/img/electrics.png" data-enlace="/html/Sistemas.html">
+            <div class="interior"></div>
+            <a href="/html/Sistemas.html" class="acordion__enlace" aria-label="Ver detalle de Bachillerato en Sistemas Eléctricos"></a>
+            <img src="/img/electricos.png" class="acordion__icono" alt="">
+            <span class="acordion__etiqueta">Sistemas Eléctricos</span>
+          </li>
+
+          <li class="acordion__elemento azul" data-bg="/img/logistic.png" data-enlace="/html/Logistica.html">
+            <div class="interior"></div>
+            <a href="/html/Logistica.html" class="acordion__enlace" aria-label="Ver detalle de Bachillerato en Logística y Aduanas"></a>
+            <img src="/img/logistica.png" class="acordion__icono" alt="">
+            <span class="acordion__etiqueta">Logística y Aduanas</span>
+          </li>
+
+        </ul>
+
+        <div class="acordion-texto">
+          <p>
+            El Bachillerato Productivo está orientado a la formación de estudiantes con habilidades técnicas específicas
+            que les permitan incorporarse de manera directa al mundo laboral o emprender sus propios proyectos.
+          </p>
+          <p>
+            Combina conocimientos teóricos con una fuerte preparación práctica en áreas como <strong>Salud</strong>,
+            <strong>Sistemas Eléctricos</strong> y <strong>Logística y Aduanas</strong>.
+          </p>
+        </div>
+      </section>
+
+      <!-- BACHILLERATOS VOCACIONALES -->
+      <section class="bloque" aria-labelledby="titulo-vocacionales">
+        <div class="bloque__encabezado">
+          <h2 id="titulo-vocacionales">Bachilleratos Vocacionales</h2>
+        </div>
+
+        <ul class="acordion" role="list">
+
+          <li class="acordion__elemento naranja" data-bg="/img/ds.jpg" data-enlace="/html/Desarrollo.html">
+            <div class="interior"></div>
+            <a href="/html/Desarrollo.html" class="acordion__enlace" aria-label="Ver detalle de Bachillerato en Desarrollo de Software"></a>
+            <img src="/img/soft.png" class="acordion__icono" alt="">
+            <span class="acordion__etiqueta">Desarrollo de Software</span>
+          </li>
+
+          <li class="acordion__elemento azul" data-bg="/img/GRAFICOO.jpg" data-enlace="/html/Diseño.html">
+            <div class="interior"></div>
+            <a href="/html/Diseño.html" class="acordion__enlace" aria-label="Ver detalle de Bachillerato en Diseño Gráfico"></a>
+            <img src="/img/diesegrafi2.png" class="acordion__icono" alt="">
+            <span class="acordion__etiqueta">Diseño Gráfico</span>
+          </li>
+
+          <li class="acordion__elemento naranja" data-bg="/img/admiconta.jpg" data-enlace="/html/Contable.html">
+            <div class="interior"></div>
+            <a href="/html/Contable.html" class="acordion__enlace" aria-label="Ver detalle de Bachillerato Administrativo Contable"></a>
+            <img src="/img/conta.png" class="acordion__icono" alt="">
+            <span class="acordion__etiqueta">Administrativo Contable</span>
+          </li>
+
+        </ul>
+
+        <div class="acordion-texto">
+          <p>
+            El Bachillerato Vocacional está diseñado para brindar una formación integral que combina conocimientos académicos
+            con el desarrollo de habilidades prácticas en distintas áreas profesionales.
+          </p>
+          <p>
+            Su objetivo es fortalecer capacidades para el mundo laboral en especialidades como <strong>Desarrollo de Software</strong>,
+            <strong>Diseño Gráfico</strong> y <strong>Administrativo Contable</strong>.
+          </p>
+        </div>
+      </section>
+
+    </section>
+  </main>
+
+  <script src="/js/compoheader.js"></script>
+  <script src="/js/movebachi.js"></script>
+</body>
+</html>

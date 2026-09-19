@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desarrollo de Software</title>
+
+  <link rel="stylesheet" href="/css/ofertaglobal.css">
+  <link rel="stylesheet" href="/css/headerglobal.css">
+  <link rel="stylesheet" href="/css/menuglobal.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+  <link rel="shortcut icon" href="/img/logoinsal2.png" type="image/x-icon">
+
+  <script src="/js/oferta.js" defer></script>
+  <script src="/js/compoheader.js" defer></script>
+  <script src="/js/compomenu.js" defer></script>
+</head>
+
+<body data-carrera="Desarrollo de Software">
+
+  <!-- HEADER -->
+  <div id="header-container"></div>
+
+  <!-- MENÚ (botón + overlay + nav, inyectados por compomenu.js) -->
+  <div id="menu-container"></div>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="contenedor-principal">
+
+    <!-- TÍTULO -->
+    <h1 class="titulo-principal">Bachillerato Técnico Vocacional en <br> Desarrollo de Software</h1>
+
+    <!-- VIDEO + DESCRIPCIÓN -->
+    <section class="seccion-video" aria-label="Video informativo y descripción de la carrera">
+      <div class="video-contenedor">
+        <iframe src="https://www.youtube.com/embed/wzKNDtwkJfU" title="Video informativo"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen loading="lazy"></iframe>
+      </div>
+
+      <div class="descripcion-lateral">
+        <p class="descripcion-lateral__eyebrow">¿De qué trata?</p>
+        <h2 class="descripcion-lateral__titulo">Forma tu futuro en tecnología</h2>
+        <p class="descripcion-lateral__texto">
+          El Bachillerato Técnico Vocacional en Desarrollo de Software te
+          prepara con las competencias técnicas y prácticas para diseñar,
+          construir y mantener sistemas informáticos modernos.
+          En tres años adquirirás habilidades reales que el mercado laboral
+          salvadoreño e internacional demanda, desde la lógica de programación
+          hasta el desarrollo de aplicaciones móviles.
+        </p>
+        <ul class="descripcion-lateral__pills">
+          <li>3 años de formación</li>
+          <li>Salida laboral inmediata</li>
+          <li>Proyecto final integrador</li>
+          <li>Inglés técnico incluido</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ÁREAS TÉCNICAS -->
+    <h2 class="titulo-secundario">Áreas técnicas que estudiarás</h2>
+
+    <!-- INFORMACIÓN DEL PROGRAMA -->
+    <section class="seccion-tres-columnas" aria-label="Información detallada del programa">
+
+      <!-- PERFIL DEL ESTUDIANTE -->
+      <div class="columna-acordeon">
+        <h3 class="columna-acordeon__titulo">Perfil del Estudiante</h3>
+
+        <div class="lista-acordeon" id="acordeon-perfil">
+
+          <!-- HABILIDADES ACADÉMICAS -->
+          <div class="acordeon-item">
+            <button class="acordeon-encabezado" aria-expanded="false" aria-controls="panel-perfil-academico">
+              <span>Habilidades académicas</span>
+              <span class="acordeon-flecha"><span class="material-symbols-outlined">expand_more</span></span>
+            </button>
+            <div class="acordeon-panel" id="panel-perfil-academico" role="region" hidden>
+              <div class="acordeon-contenido">
+                <ul>
+                  <li>Capacidad de comunicarse en forma oral y escrita</li>
+                  <li>Comprensión del mundo físico y de los seres vivos</li>
+                  <li>Destreza en matemática aritmética</li>
+                  <li>Capacidad de resolver expresiones algebraicas</li>
+                  <li>Manejo de jerarquía de operadores matemáticos</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- HABILIDADES TECNOLÓGICAS -->
+          <div class="acordeon-item">
+            <button class="acordeon-encabezado" aria-expanded="false" aria-controls="panel-perfil-tecnologico">
+              <span>Habilidades tecnológicas</span>
+              <span class="acordeon-flecha"><span class="material-symbols-outlined">expand_more</span></span>
+            </button>
+            <div class="acordeon-panel" id="panel-perfil-tecnologico" role="region" hidden>
+              <div class="acordeon-contenido">
+                <ul>
+                  <li>Destreza en el manejo de equipo de cómputo: teclado, mouse, etc.</li>
+                  <li>Destreza en aplicaciones de ofimática</li>
+                  <li>Responsable con normas de seguridad para el usuario y el equipo</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- ACTITUDES Y VALORES -->
+          <div class="acordeon-item">
+            <button class="acordeon-encabezado" aria-expanded="false" aria-controls="panel-perfil-valores">
+              <span>Actitudes y valores</span>
+              <span class="acordeon-flecha"><span class="material-symbols-outlined">expand_more</span></span>
+            </button>
+            <div class="acordeon-panel" id="panel-perfil-valores" role="region" hidden>
+              <div class="acordeon-contenido">
+                <ul>
+                  <li>Trabajo en grupo con actitud solidaria y tolerante</li>
+                  <li>Capacidad de relacionarse de forma constructiva</li>
+                  <li>Responsable en la entrega de tareas</li>
+                  <li>Autodidacta para ampliar conocimientos adquiridos</li>
+                  <li>Dispuesto a seguir lineamientos</li>
+                  <li>Actúa con valores éticos</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- QUÉ SE APRENDE -->
+      <div class="columna-acordeon">
+        <h3 class="columna-acordeon__titulo">Qué se aprende en la carrera</h3>
+
+        <div class="lista-acordeon" id="acordeon-carrera">
+
+          <!-- PRIMER AÑO -->
+          <div class="acordeon-item">
+            <button class="acordeon-encabezado" aria-expanded="false" aria-controls="panel-carrera-1">
+              <span>Primer Año</span>
+              <span class="acordeon-flecha"><span class="material-symbols-outlined">expand_more</span></span>
+            </button>
+            <div class="acordeon-panel" id="panel-carrera-1" role="region" hidden>
+              <div class="acordeon-contenido">
+                <p>Área Técnica:</p>
+                <ul>
+                  <li>Elaboración de algoritmos con lógica de programación</li>
+                  <li>Identificación de requerimientos para sistemas informáticos</li>
+                  <li>Diseño de Aplicaciones Multimedia</li>
+                  <li>Manual de sistemas de calidad para desarrollo de software</li>
+                  <li>Desarrollo de páginas Web</li>
+                  <li>Inglés técnico: sistemas informáticos y páginas Web</li>
+                  <li>Emprendedurismo colaborativo</li>
+                  <li>Proyecto tecnológico de desarrollo de páginas Web</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- SEGUNDO AÑO -->
+          <div class="acordeon-item">
+            <button class="acordeon-encabezado" aria-expanded="false" aria-controls="panel-carrera-2">
+              <span>Segundo Año</span>
+              <span class="acordeon-flecha"><span class="material-symbols-outlined">expand_more</span></span>
+            </button>
+            <div class="acordeon-panel" id="panel-carrera-2" role="region" hidden>
+              <div class="acordeon-contenido">
+                <p>Área Técnica:</p>
+                <ul>
+                  <li>Diseño de Sistemas Informáticos (UML)</li>
+                  <li>Diseño de Arquitectura de Software</li>
+                  <li>Programación de componentes de Base de Datos</li>
+                  <li>Programación Orientada a Objetos</li>
+                  <li>Diseño e instalación de Redes LAN</li>
+                  <li>Inglés técnico: arquitectura de software y base de datos</li>
+                  <li>Diseño de planes de negocio en asociatividad cooperativa</li>
+                  <li>Proyecto innovador de desarrollo de portales Web</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- TERCER AÑO -->
+          <div class="acordeon-item">
+            <button class="acordeon-encabezado" aria-expanded="false" aria-controls="panel-carrera-3">
+              <span>Tercer Año</span>
+              <span class="acordeon-flecha"><span class="material-symbols-outlined">expand_more</span></span>
+            </button>
+            <div class="acordeon-panel" id="panel-carrera-3" role="region" hidden>
+              <div class="acordeon-contenido">
+                <ul>
+                  <li>Desarrollo de aplicaciones de software para solución de problemas</li>
+                  <li>Mantenimiento y aseguramiento del sistema informático</li>
+                  <li>Administración de Bases de Datos</li>
+                  <li>Documentación de Sistemas Informáticos</li>
+                  <li>Desarrollo de componentes para dispositivos móviles</li>
+                  <li>Inglés técnico: mantenimiento de sistemas informáticos</li>
+                  <li>Puesta en marcha de microempresa cooperativa</li>
+                  <li>Proyecto innovador de desarrollo de Software</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PERFILES LABORALES -->
+      <div class="columna-acordeon">
+        <h3 class="columna-acordeon__titulo">Perfiles laborales</h3>
+
+        <div class="lista-acordeon" id="acordeon-laboral">
+
+          <!-- FINALIZAR PRIMER AÑO -->
+          <div class="acordeon-item">
+            <button class="acordeon-encabezado" aria-expanded="false" aria-controls="panel-laboral-1">
+              <span>Al finalizar 1° año</span>
+              <span class="acordeon-flecha"><span class="material-symbols-outlined">expand_more</span></span>
+            </button>
+            <div class="acordeon-panel" id="panel-laboral-1" role="region" hidden>
+              <div class="acordeon-contenido">
+                <ul>
+                  <li>Analista de Sistemas</li>
+                  <li>Animador Multimedia</li>
+                  <li>Técnico de Aseguramiento de Calidad</li>
+                  <li>Desarrollador de Páginas Web</li>
+                  <li>Microempresario en Desarrollo de Páginas Web</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- FINALIZAR SEGUNDO AÑO -->
+          <div class="acordeon-item">
+            <button class="acordeon-encabezado" aria-expanded="false" aria-controls="panel-laboral-2">
+              <span>Al finalizar 2° año</span>
+              <span class="acordeon-flecha"><span class="material-symbols-outlined">expand_more</span></span>
+            </button>
+            <div class="acordeon-panel" id="panel-laboral-2" role="region" hidden>
+              <div class="acordeon-contenido">
+                <ul>
+                  <li>Analista de Sistemas</li>
+                  <li>Animador Multimedia</li>
+                  <li>Técnico de Aseguramiento de Calidad</li>
+                  <li>Diseñador de Sistemas</li>
+                  <li>Diseñador de Base de Datos</li>
+                  <li>Arquitecto de Sistemas</li>
+                  <li>Desarrollador de Aplicaciones Web</li>
+                  <li>Instalador de Redes LAN</li>
+                  <li>Microempresario en Diseño y Configuración de Portales Web</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- FINALIZAR TERCER AÑO -->
+          <div class="acordeon-item">
+            <button class="acordeon-encabezado" aria-expanded="false" aria-controls="panel-laboral-3">
+              <span>Al finalizar 3° año</span>
+              <span class="acordeon-flecha"><span class="material-symbols-outlined">expand_more</span></span>
+            </button>
+            <div class="acordeon-panel" id="panel-laboral-3" role="region" hidden>
+              <div class="acordeon-contenido">
+                <ul>
+                  <li>Desarrollador de Aplicaciones Web (lenguajes 3ra generación)</li>
+                  <li>Gestor de Operación de Sistemas Informáticos</li>
+                  <li>Administrador de Base de Datos</li>
+                  <li>Documentador de Sistemas</li>
+                  <li>Analista / Arquitecto de Sistemas</li>
+                  <li>Microempresario en múltiples áreas tecnológicas</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- GALERÍA -->
+    <section>
+      <h2 class="titulo-secundario">Galeria</h2>
+
+      <div class="carrusel" role="region" aria-label="Carrusel de imágenes de egresados">
+        <div class="carrusel__pista">
+
+          <!-- GRUPO PRINCIPAL -->
+          <div class="carrusel__grupo">
+            <button type="button" class="carrusel__boton">
+              <img src="/img/insalito.png" alt="Egresados de Desarrollo de Software" class="carrusel__imagen">
+            </button>
+            <button type="button" class="carrusel__boton">
+              <img src="/img/image.png" alt="Egresados de Desarrollo de Software" class="carrusel__imagen">
+            </button>
+            <button type="button" class="carrusel__boton">
+              <img src="/img/insalito.png" alt="Egresados de Desarrollo de Software" class="carrusel__imagen">
+            </button>
+            <button type="button" class="carrusel__boton">
+              <img src="/img/image.png" alt="Egresados de Desarrollo de Software" class="carrusel__imagen">
+            </button>
+            <button type="button" class="carrusel__boton">
+              <img src="/img/insalito.png" alt="Egresados de Desarrollo de Software" class="carrusel__imagen">
+            </button>
+          </div>
+
+          <!-- COPIA PARA EL LOOP INFINITO -->
+          <div class="carrusel__grupo" aria-hidden="true">
+            <button type="button" class="carrusel__boton" tabindex="-1">
+              <img src="/img/insalito.png" alt="" class="carrusel__imagen">
+            </button>
+            <button type="button" class="carrusel__boton" tabindex="-1">
+              <img src="/img/image.png" alt="" class="carrusel__imagen">
+            </button>
+            <button type="button" class="carrusel__boton" tabindex="-1">
+              <img src="/img/insalito.png" alt="" class="carrusel__imagen">
+            </button>
+            <button type="button" class="carrusel__boton" tabindex="-1">
+              <img src="/img/image.png" alt="" class="carrusel__imagen">
+            </button>
+            <button type="button" class="carrusel__boton" tabindex="-1">
+              <img src="/img/insalito.png" alt="" class="carrusel__imagen">
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- MODAL -->
+      <div class="modal-imagen" id="modalImagen" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Vista ampliada de la imagen">
+        <div class="modal-imagen__fondo" data-cerrar-modal></div>
+        <div class="modal-imagen__contenido">
+          <button type="button" class="modal-imagen__cerrar" data-cerrar-modal aria-label="Cerrar">&times;</button>
+          <img src="" alt="" class="modal-imagen__imagen">
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<glass-element class="btn-menu-glass" onclick="toggleMenu()" width="48" height="48" radius="32" depth="5"
+  blur="1" strength="40" background-color="rgba(255,255,255,.6)" chromatic-aberration="2">
+  <span class="icono-menu material-symbols-outlined">menu</span>
+</glass-element>
+
+<div class="overlay-menu" id="overlayMenu" onclick="toggleMenu()" aria-hidden="true"></div>
+
+<nav class="menu-lateral" id="menuLateral" aria-label="Menú principal">
+  <div class="menu-lateral__cabecera">
+    <button class="menu-lateral__cerrar material-symbols-outlined" onclick="toggleMenu()" aria-label="Cerrar menú">close</button>
+    <a href="/index.html"><img src="/img/logoinsal2.png" alt="Logo INSAL"></a>
+    <h3 id="menuCarreraTitulo"></h3>
+  </div>
+
+  <ul class="menu-lateral__lista">
+    <li class="menu-lateral__volver">
+      <a href="/html/bachilleratos.html">
+        <span class="material-symbols-outlined">arrow_back</span>
+        Volver
+      </a>
+    </li>
+    <li>
+      <a href="/index.html">
+        <span class="material-symbols-outlined">home</span>
+        Inicio
+      </a>
+    </li>
+    <li>
+      <a href="/html/bachilleratos.html">
+        <span class="material-symbols-outlined">school</span>
+        Oferta Académica
+      </a>
+    </li>
+    <li>
+      <a href="/html/nosotros.html">
+        <span class="material-symbols-outlined">groups</span>
+        Nosotros
+      </a>
+    </li>
+    <li>
+      <a href="/html/eventos.html">
+        <span class="material-symbols-outlined">event</span>
+        Eventos
+      </a>
+    </li>
+    <li>
+      <a href="/html/Ubicacion.html">
+        <span class="material-symbols-outlined">location_on</span>
+        Ubicación
+      </a>
+    </li>
+  </ul>
+</nav>

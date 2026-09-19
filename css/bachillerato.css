@@ -1,63 +1,59 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap'); 
-* {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 :root {
-  --blanco: #ffffff;
-  --naranja: #ff9723;
-  --azul: #0a4c8f;
-  --gris: #eef1f4;
-  --texto: #1f1f1f;
-  --overlay-naranja: rgba(255, 151, 35, 0.7);
-  --overlay-azul: rgba(10, 76, 143, 0.72);
-  --sombra: 0 14px 30px rgba(0, 0, 0, 0.08);
-  --borde: rgba(0, 0, 0, 0.06);
+  --blanco:          #ffffff;
+  --naranja:         #ff9723;
+  --naranja-overlay: rgba(255, 151, 35, 0.72);
+  --azul:            #0a4c8f;
+  --azul-overlay:    rgba(10, 76, 143, 0.72);
+  --gris:            #eef1f4;
+  --texto:           #1f1f1f;
+  --subtexto:        #555;
+  --borde:           rgba(0, 0, 0, 0.06);
+
+  --sombra:    0 14px 30px rgba(0, 0, 0, 0.08);
+  --gradiente: linear-gradient(90deg, var(--naranja), var(--azul));
+
+  --radio-card:  20px;
+  --radio-panel: 22px;
+
+  --movil-altura:     290px;
+  --movil-transicion: 0.45s;
 }
 
+/* ═══════════════════════════════════════════
+   BASE
+═══════════════════════════════════════════ */
 html {
   scroll-behavior: smooth;
+  
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins", sans-serif;
   background: var(--gris);
   color: var(--texto);
 }
 
+/* ═══════════════════════════════════════════
+   PÁGINA
+═══════════════════════════════════════════ */
 .pagina {
   padding-top: 90px;
 }
 
-.encabezado {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  background: var(--naranja);
-  padding: 10px;
-  border-radius: 0 0 34px 34px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  backdrop-filter: blur(8px);
-}
-
-.contenedor-imagenes {
-  max-width: 1450px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.contenedor-imagenes img {
-  height: 75px;
-  width: auto;
-}
-
+/* ═══════════════════════════════════════════
+   SECCIÓN EXPLORAR
+═══════════════════════════════════════════ */
 .explorar {
   max-width: 1500px;
   margin: 0 auto;
@@ -68,90 +64,85 @@ body {
 .explorar-encabezado {
   max-width: 1000px;
   margin: 8px auto 52px;
-  padding: 20px;
+  padding: 20px 30px;
   border-radius: 28px;
   background: rgba(255, 255, 255, 0.7);
   border: 1px solid var(--borde);
   box-shadow: var(--sombra);
+  backdrop-filter: blur(8px);
 }
 
-.explorar-encabezado h2 {
-  font-size: 45px;
-  line-height: 1;
+.explorar-encabezado h1 {
+  font-size: clamp(28px, 4vw, 45px);
   font-weight: 800;
-  letter-spacing: -1px;
-  color: #1d1d1d;
+  letter-spacing: -0.5px;
+  color: var(--texto);
   margin-bottom: 14px;
+  line-height: 1.1;
 }
 
 .explorar-encabezado p {
-  font-size: 17px;
-  line-height: 1.7;
-  color: var(--subtexto);
-  font-style: normal;
-  font-weight: 400;
   max-width: 760px;
   margin: 0 auto;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--subtexto);
 }
 
+/* ═══════════════════════════════════════════
+   BLOQUE
+═══════════════════════════════════════════ */
 .bloque {
   margin: 40px;
-  padding: 0 0 8px;
 }
 
 .bloque__encabezado {
   margin-bottom: 22px;
 }
 
-.bloque__encabezado h3 {
+.bloque__encabezado h2 {
   display: inline-block;
-  font-size: 45px;
-  font-weight: 700;
-  color: #141414;
-  position: relative;
+  font-size: clamp(26px, 3vw, 45px);
+  font-weight: 800;
+  color: var(--azul);
   padding-bottom: 12px;
+  position: relative;
 }
 
-.bloque__encabezado h3::after {
+.bloque__encabezado h2::after {
   content: "";
   display: block;
-  width: 180px;
+  width: 280px;
   height: 4px;
-  margin: 12px auto 0;
+  margin: 5px auto 0;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--naranja), var(--azul));
+  background: var(--naranja);
 }
 
+/* ═══════════════════════════════════════════
+   ACORDEÓN — ESCRITORIO
+═══════════════════════════════════════════ */
 .acordion {
   display: flex;
   gap: 14px;
-  height: 400px;
   width: 1300px;
+  height: 400px;
   margin: 0 auto;
+  list-style: none;
 }
 
 .acordion__elemento {
   flex: 1;
+  position: relative;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: var(--radio-card);
   cursor: pointer;
   transform: skewX(-10deg);
-  transition: flex 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
-  position: relative;
-}
-
-/* ── Hover SOLO en mouse real ── */
-@media (hover: hover) and (pointer: fine) {
-  .acordion__elemento:hover {
-    flex: 2.5;
-    transform: skewX(-10deg) translateY(-4px);
-  }
-
-  .acordion__elemento:hover .acordion__icono {
-    bottom: 78px;
-    transform: translateX(-50%) skewX(10deg) scale(1.08);
-  }
+  transition:
+    flex       0.5s ease,
+    transform  0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .acordion__enlace {
@@ -163,11 +154,11 @@ body {
 .interior {
   position: absolute;
   inset: 0;
+  left: -10%;
+  width: 120%;
   background-size: cover;
   background-position: center;
   transform: skewX(10deg) scale(1.1);
-  left: -10%;
-  width: 120%;
 }
 
 .interior::before {
@@ -176,51 +167,65 @@ body {
   inset: 0;
 }
 
-.naranja .interior::before {
-  background: var(--overlay-naranja);
-}
-
-.azul .interior::before {
-  background: var(--overlay-azul);
-}
+.naranja .interior::before { background: var(--naranja-overlay); }
+.azul    .interior::before { background: var(--azul-overlay); }
 
 .acordion__icono {
   position: absolute;
   left: 48%;
   bottom: 90px;
-  transform: translateX(-50%) skewX(10deg);
+  z-index: 3;
   width: 92px;
   height: 92px;
+  transform: translateX(-50%) skewX(10deg);
   filter: brightness(0) invert(1);
-  z-index: 3;
   pointer-events: none;
-  transition: transform 0.3s ease, bottom 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    bottom    0.3s ease;
 }
 
 .acordion__etiqueta {
   position: absolute;
   left: 50%;
   bottom: 26px;
-  transform: translateX(-50%) skewX(10deg);
   z-index: 3;
-  color: #fff;
-  font-size: 19px;
+  color: var(--blanco);
+  font-size: 22px;
   font-weight: 700;
+  white-space: nowrap;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
   pointer-events: none;
+  transform: translateX(-50%) skewX(10deg);
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .acordion__elemento:hover {
+    flex: 2.5;
+    transform: skewX(-10deg) translateY(-4px);
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.18);
+  }
+
+  .acordion__elemento:hover .acordion__icono {
+    bottom: 78px;
+    transform: translateX(-50%) skewX(10deg) scale(1.08);
+  }
+}
+
+/* ═══════════════════════════════════════════
+   TEXTO DESCRIPTIVO
+═══════════════════════════════════════════ */
 .acordion-texto {
+  position: relative;
   max-width: 1000px;
   margin: 30px auto 0;
+  padding: 26px 30px;
+  border-radius: var(--radio-panel);
   background: rgba(255, 255, 255, 0.82);
   border: 1px solid var(--borde);
-  border-radius: 22px;
-  padding: 26px 30px;
   box-shadow: var(--sombra);
   backdrop-filter: blur(8px);
   text-align: left;
-  position: relative;
 }
 
 .acordion-texto::before {
@@ -230,212 +235,279 @@ body {
   left: 0;
   right: 0;
   height: 10px;
-  border-radius: 22px 22px 0 0;
-  background: linear-gradient(90deg, var(--naranja), var(--azul));
+  border-radius: var(--radio-panel) var(--radio-panel) 0 0;
+  background: var(--naranja);
 }
 
 .acordion-texto p {
   font-size: 16px;
   line-height: 1.85;
-  color: #555;
+  color: var(--subtexto);
   margin-bottom: 12px;
 }
 
 .acordion-texto p:last-child {
-  margin-bottom: -5px;
+  margin-bottom: 0;
 }
 
+/*RESPONSIVE*/
 
-/* =========================
-   TABLETS (768px – 1024px)
-========================= */
-@media (min-width: 768px) and (max-width: 1024px) {
-
-  /* ── Encabezado ── */
-  .encabezado {
-    padding: 10px 14px;
-    border-radius: 0 0 28px 28px;
-  }
-
-  .contenedor-imagenes img {
-    height: 60px;
-  }
-
-  /* ── Acordeón ── */
-  .acordion {
-    width: 100%;
-    height: 320px;
-    padding: 0 12px;
-    gap: 12px;
-  }
-
-  .acordion__icono {
-    width: 70px;
-    height: 70px;
-  }
-
-  /* ── Bloque ── */
+/* ───────────────────────────────────────────
+   TABLET (≤ 1024px)
+─────────────────────────────────────────── */
+@media (max-width: 1024px) {
   .bloque {
     margin: 30px 20px;
   }
 
-  .bloque__encabezado h3 {
-    font-size: 34px;
+  .acordion {
+    width: 100%;
+    height: 360px;
+    padding: 0 16px;
+    gap: 12px;
   }
 
-  /* ── Sección explorar ── */
-  .explorar-encabezado h2 {
-    font-size: 36px;
+  .acordion__icono {
+    width: 76px;
+    height: 76px;
+  }
+
+  .acordion__etiqueta {
+    font-size: 19px;
   }
 }
 
-
-/* =========================
-   MÓVIL GRANDE (≤ 768px) — iPad Air
-========================= */
+/* ───────────────────────────────────────────
+   MÓVIL HORIZONTAL / TABLET PEQUEÑA (≤ 768px)
+   Aquí entra la mecánica de acordeón vertical
+─────────────────────────────────────────── */
 @media (max-width: 768px) {
-
-  /* ── Encabezado ── */
-  .encabezado {
-    padding: 20px;
-    border-radius: 0 0 24px 24px;
-  }
-
-  .contenedor-imagenes {
-    gap: 10px;
-  }
-
-  .contenedor-imagenes img {
-    height: 50px;
-  }
-
   .pagina {
     padding-top: 75px;
   }
 
-  /* ── Acordeón: carrusel horizontal ── */
-  .acordion {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    gap: 14px;
-    width: 100%;
-    height: auto;
-    padding: 16px;
-    box-sizing: border-box;
-    overflow-y: hidden;
-  }
-
-  .acordion::-webkit-scrollbar {
-    display: none;
-  }
-
-  .acordion {
-    scrollbar-width: none;
-  }
-
-  .acordion__elemento {
-    flex: 0 0 100%;
-    height: 250px;
-    transform: none !important;
-    rotate: none !important;
-    scroll-snap-align: center;
-    min-width: 0;
-  }
-
-  .acordion__elemento .interior,
-  .acordion__elemento .interior * {
-    transform: none !important;
-    rotate: none !important;
-  }
-
-  .interior {
-    transform: none;
-    left: 0;
-    width: 100%;
-  }
-
-  .acordion__icono {
-    width: 60px;
-    height: 60px;
-    bottom: 65px;
-    transform: translateX(-50%);
-  }
-
-  .acordion__etiqueta {
-    font-size: 15px;
-    transform: translateX(-50%);
-  }
-
-  /* ── Sección explorar ── */
-  .explorar-encabezado {
-    margin-bottom: 30px;
-  }
-
-  .explorar-encabezado h2 {
-    font-size: 28px;
-  }
-
-  .explorar-encabezado p {
-    font-size: 14px;
-  }
-
-  /* ── Bloque ── */
   .bloque {
     margin: 20px 10px;
   }
-}
 
-
-/* =========================
-   MÓVIL PEQUEÑO (≤ 480px) — Samsung S20+
-========================= */
-@media (max-width: 480px) {
-
-  /* ── Encabezado ── */
-  .encabezado {
-    padding: 12px;
-    border-radius: 0 0 22px 22px;
+  /* — header: más compacto y menos pesado en pantallas chicas — */
+  .explorar-encabezado {
+    margin: 8px auto 24px;
+    padding: 18px 22px;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
   }
 
-  .contenedor-imagenes img {
-    height: 60px;
-    margin-left: 5px;
+  /* — panel de texto: mismo criterio, más liviano — */
+  .acordion-texto {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 18px;
+    backdrop-filter: blur(4px);
   }
 
-  .explorar {
-    margin-top: 15px;
+  .acordion-texto p {
+    font-size: 12px;
+    line-height: 1.7;
   }
 
-  /* ── Acordeón ── */
+  /*acordeon*/
+
   .acordion {
-    gap: 12px;
-    padding: 12px;
     width: 100%;
-    box-sizing: border-box;
+    height: 340px;
+    padding: 0 16px;
+    gap: 10px;
+    overflow: visible;
+    align-items: stretch;
   }
 
   .acordion__elemento {
-    flex: 0 0 88%;
-    height: 350px;
+    flex: 1;
+    min-width: 0;
+    border-radius: 18px;
+    overflow: hidden;
+    transform: none !important;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow:
+      0 8px 18px rgba(0, 0, 0, 0.18),
+      inset 0 0 0 1px rgba(0, 0, 0, 0.04);
+  }
+
+  .acordion__elemento.activo {
+    flex: 3 !important;
+    box-shadow:
+      0 16px 34px rgba(0, 0, 0, 0.28),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+  }
+
+  /* tarjeta colapsada: imagen apagada para resaltar la activa */
+  .acordion__elemento:not(.activo) .interior {
+    filter: saturate(0.75) brightness(0.82);
+  }
+
+  .acordion__elemento:not(.activo) .interior::before {
+    background: rgba(10, 10, 15, 0.42);
+  }
+
+  .acordion__elemento.activo .interior {
+    filter: saturate(1.08) brightness(1);
+  }
+
+  .interior {
+    left: 0 !important;
+    width: 100% !important;
+    transform: none !important;
   }
 
   .acordion__icono {
-    width: 52px;
-    height: 52px;
-    bottom: 60px;
+    left: 50%;
+    bottom: 64px;
+    width: 56px;
+    height: 56px;
+    opacity: 0.85;
+    filter: brightness(0) invert(1) drop-shadow(0 3px 8px rgba(0, 0, 0, 0.4));
+    transform: translateX(-50%) scale(0.9) !important;
+  }
+
+  .acordion__elemento.activo .acordion__icono {
+    opacity: 1;
+    width: 64px;
+    height: 64px;
+    transform: translateX(-50%) scale(1) !important;
+  }
+
+  .acordion__etiqueta {
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    max-width: calc(var(--movil-altura) - 20px);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    transform: translateX(-50%) translateY(-50%) rotate(-90deg) !important;
+  }
+
+  .acordion__elemento.activo .acordion__etiqueta {
+    top: auto;
+    bottom: 22px;
+    max-width: none;
+    overflow: visible;
+    font-size: 17px;
+    letter-spacing: 0.2px;
+    text-transform: none;
+    transform: translateX(-50%) rotate(0deg) !important;
+  }
+
+  /* línea de acento bajo la etiqueta activa */
+  .acordion__elemento::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 4px;
+    background: var(--blanco);
+    border-radius: 4px 4px 0 0;
+    opacity: 0;
+    transform: translateX(-50%);
+    z-index: 3;
+  }
+
+  .acordion__elemento.activo::after {
+    width: 46px;
+    opacity: 0.9;
+  }
+
+  .acordion__circulo {
+    display: none;
+  }
+}
+
+/* ───────────────────────────────────────────
+   MÓVIL GRANDE(≤ 600px)
+─────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .explorar-encabezado {
+    padding: 16px 18px;
+  }
+
+  .acordion {
+    height: 320px;
+    gap: 8px;
+    padding: 0 12px;
+  }
+
+  .acordion__elemento {
+    border-radius: 16px;
+  }
+
+  .acordion__icono {
+    width: 50px;
+    height: 50px;
+    bottom: 58px;
+  }
+
+  .acordion__elemento.activo .acordion__icono {
+    width: 58px;
+    height: 58px;
+  }
+
+  .acordion__etiqueta {
+    font-size: 10.5px;
+  }
+
+  .acordion__elemento.activo .acordion__etiqueta {
+    font-size: 16px;
+  }
+}
+
+/* ───────────────────────────────────────────
+   MÓVIL MEDIANO (≤ 414px)
+─────────────────────────────────────────── */
+@media (max-width: 414px) {
+  .bloque__encabezado h2 {
+    margin-top: 18px;
+  }
+
+  .acordion {
+    height: 360px;
+    gap: 4px;
+    padding: 0 0px;
+  }
+
+  .acordion__elemento {
+    border-radius: 18px;
+  }
+
+  .acordion__icono {
+    width: 45px;
+    height: 46px;
+    bottom: 20px;
+  }
+
+  .acordion__elemento.activo .acordion__icono {
+    width: 60px;
+    height: 60px;
+    bottom: 76px;
   }
 
   .acordion__etiqueta {
     font-size: 14px;
   }
 
-  /* ── Bloque ── */
-  .bloque__encabezado h3 {
-    font-size: 26px;
-    margin-top: 35px;
+  .acordion__elemento.activo .acordion__etiqueta {
+    font-size: 17px;
+    max-width: calc(100% - 32px);
+    padding: 0 0px;
+    text-align: center;
+    white-space: normal;
+    line-height: 1.1;
   }
 
   .acordion-texto {
@@ -447,63 +519,157 @@ body {
   }
 }
 
+/* ───────────────────────────────────────────
+   MÓVIL COMPACTO (≤ 390px)
+   Galaxy S20/S21/S22/S23/S24, iPhone mini/estándar
+─────────────────────────────────────────── */
+@media (max-width: 390px) {
+  .acordion {
+    height: 390px;
+    gap: 6px;
+    padding: 0 8px;
+  }
 
-/* =========================
-   MÓVIL MUY PEQUEÑO (≤ 360px) — Samsung S8+
-========================= */
+  .acordion__elemento {
+    border-radius: 14px;
+  }
+
+  .acordion__elemento.activo::after {
+    width: 38px;
+  }
+
+  .acordion__icono {
+    width: 42px;
+    height: 42px;
+    bottom: 52px;
+  }
+
+  .acordion__elemento.activo .acordion__icono {
+    width: 56px;
+    height: 56px;
+    bottom: 76px;
+  }
+
+  .acordion__etiqueta {
+    font-size: 12px;
+  }
+
+  .acordion__elemento.activo .acordion__etiqueta {
+    font-size: 14px;
+    max-width: calc(100% - 32px);
+    padding: 0 4px;
+    text-align: center;
+    white-space: normal;
+    line-height: 1.15;
+  }
+}
+
+/* ───────────────────────────────────────────
+   MÓVIL PEQUEÑO (≤ 360px)
+   Galaxy S8/S9/S10e, gama baja Android
+─────────────────────────────────────────── */
 @media (max-width: 360px) {
-
-  /* ── Encabezado ── */
-  .encabezado {
-    padding: 8px;
-    border-radius: 0 0 20px 20px;
-  }
-
-  .contenedor-imagenes img {
-    height: 55px;
-    margin-top: 2px;
-    margin-left: 10px;
-    margin-right: 5px;
-  }
-
   .pagina {
     padding-top: 60px;
   }
 
-  /* ── Acordeón ── */
-  .acordion {
-    gap: 12px;
-    padding: 10px;
-    width: 100%;
-    box-sizing: border-box;
+  .bloque__encabezado h2 {
+    font-size: 22px;
   }
 
-  .acordion__elemento {
-    flex: 0 0 92%;
+  .acordion {
     height: 300px;
+    gap: 6px;
+    padding: 0 6px;
+  }
+
+  .acordion__elemento.activo::after {
+    width: 32px;
   }
 
   .acordion__icono {
-    width: 45px;
-    height: 45px;
-    bottom: 55px;
+    width: 38px;
+    height: 38px;
+    bottom: 18px;
+  }
+
+  .acordion__elemento.activo .acordion__icono {
+    width: 46px;
+    height: 46px;
+    bottom: 68px;
   }
 
   .acordion__etiqueta {
+    font-size: 11px;
+  }
+
+  .acordion__elemento.activo .acordion__etiqueta {
+    font-size: 13px;
+    max-width: calc(100% - 28px);
+    padding: 0 3px;
+    text-align: center;
+    white-space: normal;
+    line-height: 1.15;
+  }
+
+  .acordion-texto p {
     font-size: 13px;
   }
+}
 
-  /* ── Sección explorar ── */
-  .explorar-encabezado h2 {
-    font-size: 24px;
+/* ───────────────────────────────────────────
+   MÓVIL MUY PEQUEÑO (≤ 320px)
+   iPhone SE / 5 / 5s, gama baja antigua
+─────────────────────────────────────────── */
+@media (max-width: 320px) {
+  .bloque__encabezado h2 {
+    font-size: 19px;
   }
 
-  .explorar-encabezado p {
-    font-size: 13px;
+  .explorar-encabezado {
+    padding: 14px 16px;
   }
 
-  /* ── Bloque ── */
-  .bloque__encabezado h3 {
-    font-size: 22px;
+  .acordion {
+    height: 250px;
+    gap: 4px;
+    padding: 0 4px;
+  }
+
+  .acordion__elemento.activo::after {
+    width: 28px;
+  }
+
+  .acordion__icono {
+    width: 32px;
+    height: 32px;
+    bottom: 44px;
+  }
+
+  .acordion__elemento.activo .acordion__icono {
+    width: 40px;
+    height: 40px;
+    bottom: 64px;
+  }
+
+  .acordion__etiqueta {
+    font-size: 8px;
+  }
+
+  .acordion__elemento.activo .acordion__etiqueta {
+    font-size: 12px;
+    max-width: calc(100% - 24px);
+    padding: 0 2px;
+    text-align: center;
+    white-space: normal;
+    line-height: 1.1;
+  }
+
+  .acordion-texto {
+    padding: 14px;
+  }
+
+  .acordion-texto p {
+    font-size: 12.5px;
   }
 }

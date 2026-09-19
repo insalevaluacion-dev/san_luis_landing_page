@@ -1,0 +1,149 @@
+:root {
+  --white: #ffffff;
+  --naranja-principal: #ff9723ff;
+  --azul-principal: #0a4c8fff;
+  --naranja-difuminado: #ff97237b;
+  --azul-difuminado: #0a3f7aa9;
+  --gris: #e0e0e0;
+}
+
+/* Header interno con las mismas dimensiones del estado naranja del inicio. */
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 90;
+  box-sizing: border-box;
+  padding: 10px;
+  background: var(--naranja-principal);
+  border-radius: 0 0 25px 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, .15);
+}
+
+.contenedor-imagenes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1450px;
+  margin: 0 auto;
+}
+
+.contenedor-imagenes img {
+  display: block;
+  height: 75px;
+  max-width: 100%;
+}
+
+/* Laptop / escritorio (1200px - 1439px). */
+@media (min-width: 1200px) and (max-width: 1439px) {
+  .contenedor-imagenes img {
+    height: 72px;
+  }
+}
+
+/* Laptop pequeña (1025px - 1199px). */
+@media (min-width: 1025px) and (max-width: 1199px) {
+  .contenedor-imagenes img {
+    height: 68px;
+  }
+}
+
+/* Tablet horizontal (900px - 1024px). */
+@media (min-width: 900px) and (max-width: 1024px) {
+  .header {
+    padding: 12px;
+  }
+
+  .contenedor-imagenes img {
+    height: 64px;
+  }
+}
+
+/* Tablet vertical (768px - 899px). */
+@media (min-width: 768px) and (max-width: 899px) {
+  .header {
+    padding: 16px;
+  }
+
+  .contenedor-imagenes img {
+    height: 62px;
+  }
+}
+
+/* Móvil grande horizontal (600px - 767px). */
+@media (min-width: 600px) and (max-width: 767px) {
+  .header {
+    padding: 14px;
+    border-radius: 0 0 22px 22px;
+  }
+
+  .contenedor-imagenes img {
+    height: 58px;
+    margin-left: 5px;
+  }
+}
+
+/* Móvil grande (480px - 599px). */
+@media (min-width: 480px) and (max-width: 599px) {
+  .header {
+    padding: 12px;
+    border-radius: 0 0 20px 20px;
+  }
+
+  .contenedor-imagenes img {
+    height: 54px;
+    margin-left: 5px;
+  }
+}
+
+/* Móvil medio (400px - 479px). */
+@media (min-width: 400px) and (max-width: 479px) {
+  .header {
+    padding: 10px;
+    border-radius: 0 0 18px 18px;
+  }
+
+  .contenedor-imagenes img {
+    height: 50px;
+    margin-left: 5px;
+  }
+}
+
+/* Móvil pequeño (360px - 399px). */
+@media (min-width: 360px) and (max-width: 399px) {
+  .header {
+    padding: 8px;
+    border-radius: 0 0 16px 16px;
+  }
+
+  .contenedor-imagenes img {
+    height: 46px;
+    margin-left: 5px;
+  }
+}
+
+/* Móvil muy pequeño (hasta 359px). */
+@media (max-width: 359px) {
+  .header {
+    padding: 8px;
+    border-radius: 0 0 14px 14px;
+  }
+
+  .contenedor-imagenes img {
+    height: 42px;
+    margin-left: 5px;
+  }
+}
+
+/* Móvil horizontal con poca altura. */
+@media (max-height: 420px) and (orientation: landscape) {
+  .header {
+    padding: 6px 20px;
+    border-radius: 0 0 16px 16px;
+  }
+
+  .contenedor-imagenes img {
+    height: 42px;
+  }
+}

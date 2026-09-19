@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* La fuente Poppins ahora se carga con <link rel="preconnect"> + <link rel="stylesheet">
+   en el <head> del HTML, solo con los pesos que realmente se usan (300/400/700/800/900).
+   Esto evita el bloqueo de render que provoca @import y descarga ~18 variantes menos. */
 
-/* Configuración */
 * {
   margin: 0;
   padding: 0;
@@ -8,60 +9,101 @@
 }
 
 body {
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   background-color: var(--gris);
   overflow-x: hidden;
 }
 
-/* Variables */
 :root {
   --white: #ffffff;
   --naranja-principal: #ff9723ff;
+  --naranja-quemado: #c96a12ff;
   --azul-principal: #0a4c8fff;
-  --naranja-difuminado: #ff9723cc;
-  --azul-difuminado: #0a4c8fcc;
+  --azul-oscuro: #072f57ff;
+  --naranja-difuminado: #ff97237b;
+  --azul-difuminado: #0a3f7aa9;
   --gris: #e0e0e0;
+  --carbon: #16202c;
+
+  /* AJUSTE RESPONSIVE: factor de escala para pantallas grandes.
+     En pantallas hasta 1919px vale 1, es decir, el diseño es idéntico al original. */
+  --k: 1;
 }
 
-html {
-  scroll-behavior: smooth;  
-  overflow-x: hidden;
+/* AJUSTE RESPONSIVE: monitores grandes (1920px, 2K/QHD, 4K) */
+@media (min-width: 1920px) {
+  :root { --k: 1.1; }
+}
+
+@media (min-width: 2560px) {
+  :root { --k: 1.4; }
+}
+
+@media (min-width: 3840px) {
+  :root { --k: 2; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+  }
 }
 
 .header {
   background: var(--white);
-  padding: 10px;
+  padding: calc(10px * var(--k));
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 100;
-  border-radius: 0 0 40px 40px;
-  transition: background 0.4s ease, border-radius 0.4s ease, box-shadow 0.4s ease;
+  border-radius: 0 0 calc(40px * var(--k)) calc(40px * var(--k));
+  box-sizing: border-box;
+  transition:
+    background 0.4s ease,
+    border-radius 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
 .header.scroleado {
   background: var(--naranja-principal);
-  border-radius: 0 0 25px 25px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  border-radius: 0 0 calc(25px * var(--k)) calc(25px * var(--k));
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 .contenedor-imagenes {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  max-width: 1450px;
+  gap: calc(10px * var(--k));
+  max-width: calc(1450px * var(--k));
   margin: 0 auto;
 }
 
 .contenedor-imagenes img {
-  height: 75px;
+  height: calc(75px * var(--k));
+  max-width: 100%;
 }
 
 .portada {
   position: relative;
   height: 100vh;
-  overflow: hidden; 
+  height: 100svh; /* AJUSTE RESPONSIVE: en celulares excluye la barra del navegador */
+  overflow: hidden;
   margin-bottom: 0;
 }
 
@@ -76,46 +118,75 @@ html {
 .cobertura {
   position: absolute;
   inset: 0;
-  background: var(--azul-difuminado);
+  background: linear-gradient(
+    to top,
+    var(--azul-oscuro) 0%,
+    rgba(7, 47, 87, 0.88) 30%,
+    rgba(7, 47, 87, 0.4) 58%,
+    rgba(7, 47, 87, 0.1) 78%
+  );
   z-index: 1;
 }
 
 .portada-contenido {
-  position: relative;
+  position: absolute;
   z-index: 2;
+  left: 0;
+  right: 0;
+  bottom: calc(280px * var(--k));
   text-align: center;
   color: var(--white);
-  top: 47%;
-  transform: translateY(-50%);
   padding: 0 20px;
 }
 
+.portada-contenido h1,
+.portada-contenido .divisor,
+.portada-contenido .lema {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: heroAparece 0.8s ease forwards;
+}
+
+.portada-contenido h1 { animation-delay: 0.1s; }
+.portada-contenido .divisor { animation-delay: 0.32s; }
+.portada-contenido .lema { animation-delay: 0.48s; }
+
+@keyframes heroAparece {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .portada-contenido h1 {
-  font-size: 75px;
+  font-size: calc(75px * var(--k));
   font-weight: 900;
+  line-height: 1.06;
 }
 
 .divisor {
-  width: 550px;
-  height: 1px;
-  background: var(--white);
-  margin: 15px auto;
+  width: calc(750px * var(--k));
+  height: calc(3px * var(--k));
+  border-radius: 3px;
+  background-color: var(--naranja-principal);
+  margin: calc(18px * var(--k)) auto;
 }
 
 .lema {
-  font-size: 20px;
+  font-size: calc(20px * var(--k));
   opacity: 0.9;
-  letter-spacing: 2px;
+  letter-spacing: calc(2px * var(--k));
 }
 
 .boton-portada {
   position: absolute;
-  bottom: 0px;    
+  bottom: 0px;
   left: 50%;
   transform: translateX(-50%);
   width: 105%;
-  height: 135px;
+  height: calc(135px * var(--k));
   background: var(--naranja-principal);
+  border: none;
   border-top-left-radius: 150%;
   border-top-right-radius: 150%;
   display: flex;
@@ -123,22 +194,47 @@ html {
   align-items: center;
   justify-content: center;
   color: var(--white);
-  font-size: 25px;
+  font-family: inherit;
+  font-size: calc(25px * var(--k));
   font-weight: 300;
   cursor: pointer;
-  z-index: 3;    
+  z-index: 3;
+  user-select: none;
+  -webkit-user-select: none; /* Safari/iOS */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE/Edge viejos */
+  -webkit-touch-callout: none; /* evita el menú de "copiar/seleccionar" al mantener presionado en iOS */
+  -webkit-tap-highlight-color: transparent; /* quita el resaltado gris/azul al tocar */
+  transition: background 0.3s ease;
+}
+
+@media (hover: hover) {
+  .boton-portada:hover {
+    background: var(--naranja-quemado);
+  }
+}
+
+.boton-portada:focus-visible {
+  outline: 3px solid var(--white);
+  outline-offset: -6px;
+}
+
+.acordion-link:focus-visible {
+  outline: 3px solid var(--white);
+  outline-offset: -4px;
 }
 
 .boton-portada span {
-  font-size: 40px;
+  font-size: calc(40px * var(--k));
   animation: flecha 1s infinite;
   margin-bottom: 0px;
-  margin-top: -20px;
+  margin-top: calc(-20px * var(--k));
   font-weight: 300;
 }
 
 @keyframes flecha {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -151,47 +247,57 @@ html {
 .explorar {
   background: var(--white);
   text-align: center;
-  min-height: 100vh;
+  min-height: 90vh;
   width: 100%;
-  padding: 110px 20px 40px; 
-}
-
-.explorar-header {
-  margin-top: 20px;
+  padding: calc(110px * var(--k)) calc(20px * var(--k)) calc(40px * var(--k));
 }
 
 .explorar-header h2 {
-  font-size: 52px;
+  font-size: clamp(2rem, 4.5vw, calc(3.25rem * var(--k)));
   font-weight: 800;
-  color: #222;
-  margin-bottom: 10px;
+  color: var(--azul-principal);
+  margin-bottom: calc(26px * var(--k));
+  position: relative;
+  display: inline-block;
+}
+
+.explorar-header h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: calc(-10px * var(--k));
+  transform: translateX(-50%);
+  width: calc(300px * var(--k));
+  max-width: calc(100vw - 32px); /* AJUSTE RESPONSIVE: no se sale en pantallas de 280–320px */
+  height: calc(4px * var(--k));
+  border-radius: 4px;
+  background: var(--naranja-principal);
 }
 
 .explorar-header p {
-  font-size: 20px;
-  color: #777;
+  font-size: calc(20px * var(--k));
+  color: rgba(22, 32, 44, 0.62);
   font-style: italic;
 }
 
 .acordion {
   display: flex;
-  gap: 16px;
+  gap: calc(16px * var(--k));
   list-style: none;
   padding: 0;
-  margin: 50px auto 0;
-  max-width: 1400px;
-  height: 420px;
+  margin: calc(50px * var(--k)) auto 0;
+  max-width: calc(1250px * var(--k));
+  height: calc(420px * var(--k));
 }
 
 /* ITEM */
 .accordion__item {
   flex: 1;
-  border-radius: 28px;
+  border-radius: calc(28px * var(--k));
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: flex 0.5s ease;
   overflow: hidden;
   position: relative;
   background-size: cover;
@@ -204,494 +310,1208 @@ html {
   inset: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: calc(10px * var(--k));
+  padding: calc(26px * var(--k));
   text-decoration: none;
   color: var(--white);
   z-index: 2;
+  text-align: left;
 }
 
-/* OVERLAY — opacidad fija alta para que se lea siempre */
+/* OVERLAY — degradado anclado abajo (mismo lenguaje que el hero): la foto respira arriba,
+   el color de marca sostiene la lectura del texto abajo */
 .accordion__item::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  border-radius: 28px;
-  opacity: 0.90;
-  transition: opacity 0.3s ease;
+  border-radius: calc(28px * var(--k));
+  opacity: 0.85;
+  transition: opacity 0.4s ease;
   z-index: 1;
 }
 
 .accordion__item.naranja::before {
-  background: var(--naranja-principal);
+  background: linear-gradient(to top, var(--naranja-principal) 50%, var(--naranja-difuminado) 100%);
 }
 
 .accordion__item.azul::before {
-  background: var(--azul-principal);
+  background: linear-gradient(to top, var(--azul-principal) 50%, var(--azul-difuminado) 100%);
+}
+.accordion__item {
+  transition: flex 0.5s ease;
 }
 
-/* ICONO */
+/* ICONO — ahora acompaña al título, no es el único protagonista */
 .accordion__icon {
-  width: 90px;
+  width: calc(44px * var(--k));
   transition: transform 0.3s ease;
+  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.25));
 }
 
-/* TEXTO */
+/* TEXTO — visible siempre, con una barrita de acento que se extiende en hover
+   (el mismo recurso del divisor del hero, para que las dos secciones hablen el mismo idioma) */
 .item-title {
-  margin-top: 40px;
-  font-size: 20px;
+  font-size: calc(20px * var(--k));
   font-weight: 700;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.3s ease;
+  line-height: 1.2;
+  position: relative;
+  padding-bottom: calc(12px * var(--k));
+}
+
+.item-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 40%;
+  background: var(--white);
+  opacity: 0.85;
+  transition: width 0.35s ease;
 }
 
 @media (hover: hover) {
-
   .accordion__item:hover {
     flex: 4;
   }
 
-  /* Al hacer hover baja la opacidad para mostrar la imagen de fondo */
+  /* Al hacer hover baja la opacidad para mostrar más foto de fondo */
   .accordion__item:hover::before {
-    opacity: 0.60;
+    opacity: 0.62;
   }
 
   .accordion__item:hover .accordion__icon {
-    transform: scale(1.4);
+    transform: scale(1.15);
   }
 
-  .accordion__item:hover .item-title {
-    opacity: 1;
-   
+  .accordion__item:hover .item-title::after {
+    width: 30%;
   }
 }
 
 
+/* =========================================================
+   RESPONSIVE
+   TABLETS + TELÉFONOS
+   ========================================================= */
 
 
+/* =========================================================
+   TABLETS
+   769px - 1024px
+   ========================================================= */
 
+@media (min-width: 769px) and (max-width: 1024px) {
 
-/* TABLET  (768px – 1024px) */
-@media (min-width: 768px) and (max-width: 1024px) {
+    /* ================= HEADER ================= */
 
-  /* ── Header ── */
-  .contenedor-imagenes img {
-    height: 60px;
-  }
-
-  /* ── Portada ── */
-  .portada-contenido h1 {
-    font-size: 44px;
-    line-height: 1.2;
-  }
-
-  .divisor {
-    width: 340px;
-  }
-
-  .lema {
-    font-size: 16px;
-    letter-spacing: 2.5px;
-  }
-
-  .boton-portada {
-    height: 150px;
-    font-size: 20px;
-    border-top-left-radius: 120%;
-    border-top-right-radius: 120%;
-  }
-
-  .boton-portada p {
-    margin-top: 35px;
-  }
-
-  .boton-portada span {
-    font-size: 28px;
-    margin-bottom: 50px;
-  }
-
-  /* ── Sección explorar ── */
-  .explorar {
-    padding: 95px 25px 45px;
-  }
-
-  .explorar-header h2 {
-    font-size: 36px;
-    margin-top: 10px;
-  }
-
-  .explorar-header p {
-    font-size: 16px;
-  }
-
-  /* ── Acordeón: grid 2×2 ── */
-  .acordion {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-    height: auto;
-    gap: 14px;
-    margin-top: 40px;
-    max-width: 700px;
-  }
-
-  .accordion__item {
-    width: 100%;
-    height: 200px;
-    border-radius: 24px;
-    flex: none;
-  }
-
-  .accordion__icon {
-    width: 60px;
-  }
-
-  .item-title {
-    font-size: 16px;
-    opacity: 1;
-    transform: none;
-  }
-
-  @media (hover: hover) {
-    .accordion__item:hover {
-      flex: none;
-      transform: scale(1.03);
-      transition: transform 0.3s ease;
+    .header {
+        padding: 12px 22px;
+        border-radius: 0 0 28px 28px;
     }
-  }
+
+    .contenedor-imagenes {
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 20px;
+    }
+
+    .contenedor-imagenes img {
+        height: 62px;
+        width: auto;
+        max-width: 42%;
+        object-fit: contain;
+    }
+
+
+    /* ================= PORTADA ================= */
+
+    .portada {
+        height: 100svh;
+        min-height: 600px;
+    }
+
+    .portada-contenido {
+        top: 50%;
+        bottom: auto;
+
+        left: 0;
+        right: 0;
+
+        width: 100%;
+
+        transform: translateY(-50%);
+
+        padding: 0 30px;
+    }
+
+    .portada-contenido h1 {
+        font-size: clamp(42px, 5.5vw, 58px);
+        line-height: 1.1;
+
+        max-width: 850px;
+
+        margin: 0 auto;
+
+        text-align: center;
+    }
+
+    .divisor {
+        width: min(430px, 65%);
+        height: 3px;
+
+        margin: 18px auto;
+    }
+
+    .lema {
+        font-size: 17px;
+        line-height: 1.5;
+
+        letter-spacing: 2px;
+
+        max-width: 650px;
+        margin: 0 auto;
+    }
+
+
+    /* ================= BOTÓN ================= */
+
+    .boton-portada {
+        width: 108%;
+        height: 145px;
+
+        font-size: 21px;
+
+        border-top-left-radius: 100%;
+        border-top-right-radius: 100%;
+    }
+
+    .boton-portada p {
+        margin-top: 25px;
+    }
+
+    .boton-portada span {
+        font-size: 30px;
+        margin-top: -8px;
+        margin-bottom: 38px;
+    }
+
+
+    /* ================= EXPLORAR ================= */
+
+    .explorar {
+        min-height: auto;
+
+        padding:
+            80px 30px 60px;
+    }
+
+    .explorar-header h2 {
+        font-size: 38px;
+
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+
+    .explorar-header h2::after {
+        width: 220px;
+        height: 4px;
+    }
+
+    .explorar-header p {
+        font-size: 16px;
+
+        max-width: 620px;
+        margin: 0 auto;
+
+        line-height: 1.5;
+    }
+
+
+    /* ================= CARDS ================= */
+
+    .acordion {
+        display: grid;
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        width: 100%;
+        max-width: 780px;
+
+        height: auto;
+
+        gap: 18px;
+
+        margin: 42px auto 0;
+    }
+
+    .accordion__item {
+        width: 100%;
+        height: 220px;
+
+        flex: none;
+
+        border-radius: 26px;
+
+        overflow: hidden;
+
+        box-shadow:
+            0 8px 22px rgba(0, 0, 0, 0.13);
+
+        transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
+    }
+
+    .acordion-link {
+        padding: 25px;
+
+        align-items: flex-start;
+        justify-content: flex-end;
+
+        gap: 10px;
+    }
+
+    .accordion__icon {
+        width: 48px;
+        height: 48px;
+
+        object-fit: contain;
+    }
+
+    .item-title {
+        font-size: 18px;
+
+        line-height: 1.25;
+    }
+
+    .accordion__item::before {
+        opacity: 0.78;
+    }
 }
 
 
-/*  MÓVIL  (≤ 768px) IPAD AIR */
-@media (max-width: 768px) {
+/* =========================================================
+   TABLET PEQUEÑA / TELÉFONO GRANDE
+   600px - 768px
+   ========================================================= */
 
-  .header {
-    padding: 25px;
-    border-radius: 0 0 30px 30px;
-  }
+@media (min-width: 600px) and (max-width: 768px) {
 
-  /* ── Header ── */
-  .contenedor-imagenes img {
-    height: 90px;
-    margin-left: 5px;
-  }
+    .header {
+        padding: 10px 18px;
+        border-radius: 0 0 22px 22px;
+    }
 
-  /* ── Portada ── */
-  .portada-contenido h1 {
-    font-size: 60px;
-    line-height: 1.2;
-  }
+    .contenedor-imagenes img {
+        height: 56px;
+    }
 
-  .divisor {
-    width: 85%;
-  }
 
-  .lema {
-    font-size: 22px;
-    letter-spacing: 2px;
-  }
+    /* PORTADA */
 
-  .boton-portada {
-    height: 170px;
-    font-size: 30px;
-    gap: 15px;
-    border-top-left-radius: 150%;
-    border-top-right-radius: 150%;
-  }
+    .portada {
+        min-height: 580px;
+    }
 
-  .boton-portada p {
-    margin-top: 35px;
-  }
+    .portada-contenido {
+        top: 51%;
+        bottom: auto;
 
-  .boton-portada span {
-    font-size: 35px;
-    margin-bottom: 80px;
-  }
+        transform: translateY(-50%);
 
-  /* ── Sección explorar ── */
-  .explorar {
-    padding: 25px 15px 40px;
-  }
+        padding: 0 30px;
+    }
 
-  .explorar-header h2 {
-    font-size: 30px;
-    margin-top: 80px;
-  }
+    .portada-contenido h1 {
+        font-size: clamp(34px, 6vw, 45px);
+        line-height: 1.1;
 
-  .explorar-header p {
-    font-size: 16px;
-  }
+        max-width: 650px;
+        margin: 0 auto;
+    }
 
-  /* ── Acordeón: columna vertical ── */
-  .acordion {
-    flex-direction: column;
-    height: auto;
-    gap: 8px;
-    margin-top: 30px;
-  }
+    .divisor {
+        width: min(380px, 70%);
+        margin: 16px auto;
+    }
 
-  .accordion__item {
-    width: 100%;
-    height: 100px;
-    border-radius: 40px;
-    flex: none;
-    transition: height 0.4s ease;
-    overflow: hidden;
-    touch-action: manipulation;
-  }
+    .lema {
+        font-size: 17px;
+        letter-spacing: 1.5px;
 
-  .accordion__item.activo {
-    height: 300px;
-  }
+        max-width: 520px;
+        margin: 0 auto;
+    }
 
-  .acordion-link {
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 0 20px;
-    gap: 15px;
-    height: 100%;
-    width: 100%;
-  }
 
-  .accordion__item.activo .acordion-link {
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
-    padding: 20px 25px;
-  }
+    /* BOTÓN */
 
-  .accordion__icon {
-    width: 45px;
-    height: 45px;
-    flex-shrink: 0;
-  }
+    .boton-portada {
+        height: 145px;
+        width: 108%;
 
-  .accordion__item.activo .accordion__icon {
-    width: 65px;
-    height: 75px;
-  }
+        font-size: 22px;
+    }
 
-  .item-title {
-    opacity: 1;
-    transform: none;
-    font-size: 18px;
-    margin-bottom: 0;
-  }
+    .boton-portada p {
+        margin-top: 25px;
+    }
 
-  .accordion__item.activo .item-title {
-    font-size: 20px;
-  }
+    .boton-portada span {
+        margin-bottom: 42px;
+    }
 
-  .accordion__item::before {
-    opacity: 0.85;
-  }
 
-  .accordion__item.activo::before {
-    opacity: 0.6;
-  }
+    /* EXPLORAR */
 
-  /* Desactivar expansión hover de escritorio */
-  .accordion__item:hover {
-    flex: none;
-  }
+    .explorar {
+        padding:
+            50px 22px 55px;
+    }
+
+    .explorar-header h2 {
+        font-size: 32px;
+        margin-top: 5px;
+    }
+
+    .explorar-header p {
+        font-size: 15px;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+
+    /* CARDS */
+
+    .acordion {
+        display: grid;
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        width: 100%;
+        max-width: 680px;
+
+        height: auto;
+
+        gap: 15px;
+
+        margin: 35px auto 0;
+    }
+
+    .accordion__item {
+        height: 190px;
+
+        border-radius: 24px;
+    }
+
+    .acordion-link {
+        padding: 22px;
+    }
+
+    .accordion__icon {
+        width: 44px;
+        height: 44px;
+    }
+
+    .item-title {
+        font-size: 17px;
+    }
 }
 
 
-/* MÓVIL PEQUEÑO  (≤ 480px) SAMSUNG S20+ */
-@media (max-width: 480px) {
+/* =========================================================
+   TELÉFONOS
+   0 - 599px
+   ========================================================= */
 
-  /* ── Header ── */
-  .header {
-    padding: 15px;
-    border-radius: 0 0 20px 20px;
-  }
+@media (max-width: 599px) {
 
-  .contenedor-imagenes img {
-    height: 60px;
-   
-  }
+    /* ================= HEADER ================= */
 
-  /* ── Portada ── */
-  .portada-contenido h1 {
-    font-size: 30px;
-    
-  }
+    .header {
+        padding: 8px 11px;
 
-  .divisor {
-    width: 90%;
-  }
+        border-radius:
+            0 0 18px 18px;
+    }
 
-  .lema {
-    font-size: 16px;
-    letter-spacing: 1px;
-  }
+    .contenedor-imagenes {
+        width: 100%;
 
-  .boton-portada {
-    height: 160px;
-    font-size: 22px;
-    border-top-left-radius: 40%;
-    border-top-right-radius: 40%;
-  }
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
-  .boton-portada p {
-    margin-top: 40px;
-  }
+        gap: 8px;
+    }
 
-  .boton-portada span {
-    font-size: 30px;
-    margin-bottom: 65px;
-  }
+    .contenedor-imagenes img {
+        height: 52px;
+        width: auto;
 
-  /* ── Sección explorar ── */
-  .explorar {
-    padding: 20px 12px 35px;
-  }
+        max-width: 45%;
 
-  .explorar-header h2 {
-    font-size: 25px;
-    margin-top: 85px;
-    font-weight: 900;
-    
-  }
+        object-fit: contain;
+    }
 
-  .explorar-header p {
-    font-size: 15px;
-  }
 
-  /* ── Acordeón ── */
-  .acordion {
-    gap: 5px;
-    margin-top: 30px;
-  }
+    /* ================= PORTADA ================= */
 
-  .accordion__item {
-    height: 115px;
-    border-radius: 30px;
-  }
+    .portada {
+        height: 100svh;
+        min-height: 540px;
+    }
 
-  .accordion__item.activo {
-    height: 220px;
-  }
+    /*
+       El título queda un poco más abajo que
+       en la versión anterior.
+    */
 
-  .acordion-link {
-    padding: 20px;
-    gap: 15px;
-  }
+    .portada-contenido {
+        top: 51%;
+        bottom: auto;
 
-  .accordion__item.activo .acordion-link {
-    padding: 16px 18px;
-    margin-left: -30px;
-    margin-top: 20px;
-  }
+        left: 0;
+        right: 0;
 
-  .accordion__icon {
-    width: 65px;
-    height: 65px;
-  }
+        width: 100%;
 
-  .accordion__item.activo .accordion__icon {
-    width: 75px;
-    height: 70px;
-    margin-bottom: 35px;
-    margin-left: 25px;
-  }
+        transform: translateY(-50%);
 
-  .item-title {
-    font-size: 19px;
-    margin-bottom: 25px;
-    margin-left: 35px;
-  }
+        padding: 0 16px;
+    }
 
-  .accordion__item.activo .item-title {
-    font-size: 20px;
-    margin-left: 30px;
-  }
+    .portada-contenido h1 {
+        font-size: clamp(29px, 8.7vw, 38px);
+
+        line-height: 1.1;
+
+        max-width: 370px;
+
+        margin: 0 auto;
+
+        text-align: center;
+    }
+
+    .divisor {
+        width: min(325px, 82%);
+
+        height: 3px;
+
+        margin: 15px auto;
+    }
+
+    .lema {
+        font-size: clamp(14px, 4.1vw, 17px);
+
+        line-height: 1.5;
+
+        letter-spacing: 0.8px;
+
+        max-width: 340px;
+
+        margin: 0 auto;
+
+        text-align: center;
+    }
+
+
+    /* ================= BOTÓN ================= */
+
+    .boton-portada {
+        width: 112%;
+
+        height: 140px;
+
+        font-size: 21px;
+
+        border-top-left-radius: 100%;
+        border-top-right-radius: 100%;
+
+        gap: 7px;
+    }
+
+    .boton-portada p {
+        font-size: 21px;
+
+        margin-top: 25px;
+    }
+
+    .boton-portada span {
+        font-size: 30px;
+
+        margin-top: -6px;
+        margin-bottom: 43px;
+    }
+
+
+    /* ================= EXPLORAR ================= */
+
+    .explorar {
+        width: 100%;
+
+        min-height: auto;
+
+        padding:
+            42px 12px 50px;
+    }
+
+    .explorar-header {
+        width: 100%;
+
+        padding: 0 6px;
+    }
+
+    .explorar-header h2 {
+        font-size: clamp(25px, 7vw, 30px);
+
+        line-height: 1.15;
+
+        margin-top: 5px;
+        margin-bottom: 17px;
+    }
+
+    .explorar-header h2::after {
+        width: 120px;
+        height: 3px;
+
+        bottom: -7px;
+    }
+
+    .explorar-header p {
+        font-size: 14px;
+
+        line-height: 1.5;
+
+        max-width: 330px;
+
+        margin: 0 auto;
+    }
+
+
+    /* =====================================================
+       CARDS
+       ===================================================== */
+
+    .acordion {
+        display: flex;
+
+        flex-direction: column;
+
+        width: 100%;
+
+        max-width: 430px;
+
+        height: auto;
+
+        gap: 13px;
+
+        margin:
+            30px auto 0;
+
+        padding: 0;
+    }
+
+
+    /* CARD CERRADA */
+
+    .accordion__item {
+        position: relative;
+
+        width: 100%;
+
+        height: 105px;
+
+        flex: none;
+
+        overflow: hidden;
+
+        border-radius: 24px;
+
+        background-size: cover;
+        background-position: center;
+
+        border:
+            1px solid rgba(255, 255, 255, 0.28);
+
+        box-shadow:
+            0 7px 20px rgba(0, 0, 0, 0.14);
+
+        transition:
+            height 0.4s ease,
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
+    }
+
+
+    /* CARD ABIERTA */
+
+    .accordion__item.activo {
+        height: 250px;
+
+        transform:
+            translateY(-2px);
+
+        box-shadow:
+            0 14px 30px rgba(0, 0, 0, 0.20);
+    }
+
+
+    /* OVERLAY */
+
+    .accordion__item::before {
+        opacity: 0.76;
+
+        transition:
+            opacity 0.4s ease;
+    }
+
+    .accordion__item.activo::before {
+        opacity: 0.68;
+    }
+
+
+    /* LINK CARD CERRADA */
+
+    .acordion-link {
+        position: absolute;
+
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+
+        flex-direction: row;
+
+        align-items: center;
+
+        justify-content: flex-start;
+
+        padding:
+            17px 20px;
+
+        gap: 15px;
+
+        text-align: left;
+    }
+
+
+    /* ICONO */
+
+    .accordion__icon {
+        width: 52px;
+        height: 52px;
+
+        flex-shrink: 0;
+
+        object-fit: contain;
+
+        filter:
+            drop-shadow(
+                0 4px 7px
+                rgba(0, 0, 0, 0.28)
+            );
+
+        transition:
+            width 0.35s ease,
+            height 0.35s ease,
+            transform 0.35s ease;
+    }
+
+
+    /* TÍTULO */
+
+    .item-title {
+        font-size: 18px;
+
+        font-weight: 700;
+
+        line-height: 1.2;
+
+        margin: 0;
+
+        padding-bottom: 8px;
+
+        text-shadow:
+            0 2px 6px
+            rgba(0, 0, 0, 0.28);
+    }
+
+    .item-title::after {
+        width: 45%;
+        height: 2px;
+    }
+
+
+    /* =====================================================
+       CARD ABIERTA
+       ===================================================== */
+
+    .accordion__item.activo .acordion-link {
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        justify-content: flex-end;
+
+        padding:
+            23px;
+
+        gap: 9px;
+    }
+
+    .accordion__item.activo .accordion__icon {
+
+        width: 68px;
+        height: 68px;
+
+        margin: 0 0 3px 0;
+
+        transform: scale(1.03);
+    }
+
+    .accordion__item.activo .item-title {
+
+        font-size: 21px;
+
+        margin: 0;
+
+        padding-bottom: 9px;
+    }
+
+    .accordion__item.activo .item-title::after {
+        width: 72px;
+    }
+
+
+    /* =====================================================
+       INTERACCIÓN TÁCTIL
+       ===================================================== */
+
+    .accordion__item:active {
+        transform:
+            scale(0.985);
+    }
+
+    .accordion__item.activo:active {
+        transform:
+            translateY(-2px)
+            scale(0.99);
+    }
+
+    /* Quitar expansión por hover de escritorio */
+
+    .accordion__item:hover {
+        flex: none;
+    }
 }
 
 
-/* MÓVIL MUY PEQUEÑO  (≤ 360px) SAMSUNG S8+ */
+/* =========================================================
+   TELÉFONOS PEQUEÑOS
+   ≤ 420px
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .header {
+        padding:
+            7px 10px;
+
+        border-radius:
+            0 0 17px 17px;
+    }
+
+    .contenedor-imagenes img {
+        height: 48px;
+    }
+
+
+    /* PORTADA */
+
+    .portada {
+        min-height: 520px;
+    }
+
+    .portada-contenido {
+        top: 50%;
+        padding: 0 13px;
+    }
+
+    .portada-contenido h1 {
+        font-size:
+            clamp(27px, 8.5vw, 34px);
+
+        max-width: 330px;
+    }
+
+    .divisor {
+        width: 78%;
+
+        margin:
+            13px auto;
+    }
+
+    .lema {
+        font-size:
+            clamp(13px, 4vw, 15px);
+
+        letter-spacing:
+            0.5px;
+
+        max-width: 300px;
+    }
+
+
+    /* BOTÓN */
+
+    .boton-portada {
+        height: 130px;
+    }
+
+    .boton-portada p {
+        font-size: 20px;
+        margin-top: 22px;
+    }
+
+    .boton-portada span {
+        font-size: 28px;
+        margin-bottom: 39px;
+    }
+
+
+    /* EXPLORAR */
+
+    .explorar {
+        padding:
+            38px 10px 45px;
+    }
+
+    .explorar-header h2 {
+        font-size: 25px;
+    }
+
+    .explorar-header p {
+        font-size: 13.5px;
+        max-width: 300px;
+    }
+
+
+    /* CARDS */
+
+    .acordion {
+        gap: 11px;
+        margin-top: 27px;
+    }
+
+    .accordion__item {
+        height: 100px;
+        border-radius: 22px;
+    }
+
+    .accordion__item.activo {
+        height: 225px;
+    }
+
+    .acordion-link {
+        padding:
+            16px 17px;
+
+        gap: 13px;
+    }
+
+    .accordion__icon {
+        width: 47px;
+        height: 47px;
+    }
+
+    .item-title {
+        font-size: 17px;
+    }
+
+    .accordion__item.activo .acordion-link {
+        padding: 20px;
+    }
+
+    .accordion__item.activo .accordion__icon {
+        width: 62px;
+        height: 62px;
+    }
+
+    .accordion__item.activo .item-title {
+        font-size: 20px;
+    }
+}
+
+
+/* =========================================================
+   TELÉFONOS MUY PEQUEÑOS
+   ≤ 360px
+   ========================================================= */
+
 @media (max-width: 360px) {
 
+    .header {
+        padding:
+            6px 8px;
 
-  /* ── Header ── */
-  .header {
-    padding: 12px;
-    border-radius: 0 0 20px 20px;
-  }
+        border-radius:
+            0 0 14px 14px;
+    }
 
-  .contenedor-imagenes img {
-    height: 55px;
-   
-  }
-
-  /* ── Portada ── */
-  .portada-contenido h1 {
-    font-size: 26px;
-  }
-
-  .lema {
-    font-size: 13px;
-    letter-spacing: 1.5px;
-  }
-
-  .boton-portada {
-    height: 125px;
-    font-size: 17px;
-  }
-
-  .boton-portada span {
-    font-size: 20px;
-  }
-
-  /* ── Sección explorar ── */
-  .explorar-header h2 {
-    font-size: 24px;
-    margin-top: 85px;
-  }
-
-  .explorar-header p {
-    font-size: 13px;
-  }
-
-  /* ── Acordeón ── */
-
-   .acordion {
-    gap: 5px;
-    margin-top: 30px;
-  }
+    .contenedor-imagenes img {
+        height: 43px;
+    }
 
 
-  .accordion__item {
-    height: 90px;
-    border-radius: 30px;
-  }
+    /* PORTADA */
 
-  .accordion__item.activo {
-    height: 200px;
-  }
+    .portada {
+        min-height: 500px;
+    }
 
-  .accordion__icon {
-    width: 55px;
-    height: 55px;
-  }
+    .portada-contenido {
+        top: 50%;
+        padding: 0 10px;
+    }
 
-  .accordion__item.activo .accordion__icon {
-    width: 55px;
-    height: 55px;
-    margin-bottom: 40px;
-  }
+    .portada-contenido h1 {
+        font-size: 26px;
 
-  .item-title {
-    font-size: 16px;
-    margin-left: 30px;
-  }
+        max-width: 300px;
+    }
 
-  .accordion__item.activo .item-title {
-    font-size: 17px;
-    margin-bottom: 18px;
-    
-  }
+    .divisor {
+        width: 74%;
+        margin: 11px auto;
+    }
+
+    .lema {
+        font-size: 12.5px;
+
+        letter-spacing: 0.4px;
+
+        max-width: 280px;
+    }
+
+
+    /* BOTÓN */
+
+    .boton-portada {
+        height: 118px;
+        font-size: 17px;
+    }
+
+    .boton-portada p {
+        font-size: 17px;
+        margin-top: 18px;
+    }
+
+    .boton-portada span {
+        font-size: 23px;
+        margin-bottom: 32px;
+    }
+
+
+    /* EXPLORAR */
+
+    .explorar {
+        padding:
+            32px 9px 40px;
+    }
+
+    .explorar-header h2 {
+        font-size: 22px;
+    }
+
+    .explorar-header p {
+        font-size: 12px;
+        max-width: 275px;
+    }
+
+
+    /* CARDS */
+
+    .acordion {
+        gap: 9px;
+        margin-top: 24px;
+    }
+
+    .accordion__item {
+        height: 88px;
+        border-radius: 19px;
+    }
+
+    .accordion__item.activo {
+        height: 205px;
+    }
+
+    .acordion-link {
+        padding:
+            13px 15px;
+
+        gap: 11px;
+    }
+
+    .accordion__icon {
+        width: 42px;
+        height: 42px;
+    }
+
+    .item-title {
+        font-size: 15px;
+    }
+
+    .accordion__item.activo .acordion-link {
+        padding: 18px;
+    }
+
+    .accordion__item.activo .accordion__icon {
+        width: 55px;
+        height: 55px;
+    }
+
+    .accordion__item.activo .item-title {
+        font-size: 18px;
+    }
+}
+
+
+/* =========================================================
+   TELÉFONO EN HORIZONTAL
+   ========================================================= */
+
+@media (max-width: 768px)
+and (orientation: landscape) {
+
+    .header {
+        padding:
+            5px 18px;
+
+        border-radius:
+            0 0 14px 14px;
+    }
+
+    .contenedor-imagenes img {
+        height: 40px;
+    }
+
+    .portada {
+        min-height: 400px;
+    }
+
+    .portada-contenido {
+        top: 50%;
+        bottom: auto;
+
+        transform:
+            translateY(-50%);
+
+        padding:
+            0 25px;
+    }
+
+    .portada-contenido h1 {
+        font-size:
+            clamp(23px, 6vw, 34px);
+
+        line-height: 1.05;
+
+        max-width: 600px;
+    }
+
+    .divisor {
+        width:
+            min(330px, 50%);
+
+        margin:
+            7px auto;
+    }
+
+    .lema {
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+
+    .boton-portada {
+        height: 75px;
+        font-size: 15px;
+    }
+
+    .boton-portada p {
+        margin-top: 0;
+        font-size: 15px;
+    }
+
+    .boton-portada span {
+        font-size: 20px;
+        margin:
+            -5px 0 0;
+    }
+
+
+    /* CARDS HORIZONTAL */
+
+    .explorar {
+        padding:
+            35px 20px 40px;
+    }
+
+    .explorar-header h2 {
+        font-size: 27px;
+        margin-top: 0;
+    }
+
+    .explorar-header p {
+        font-size: 13px;
+    }
+
+    .acordion {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 13px;
+
+        max-width: 700px;
+
+        margin-top: 28px;
+    }
+
+    .accordion__item {
+        height: 150px;
+        border-radius: 20px;
+    }
+
+    .accordion__item.activo {
+        height: 180px;
+    }
+
+    .acordion-link {
+        padding: 18px;
+    }
+
+    .accordion__icon {
+        width: 43px;
+        height: 43px;
+    }
+
+    .item-title {
+        font-size: 16px;
+    }
 }

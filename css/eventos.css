@@ -1,0 +1,870 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+ 
+:root {
+  --white: #ffffff;
+  --naranja-principal: #ff9723ff;
+  --azul-principal: #0a4c8fff;
+  --naranja-difuminado: #ff97237b;
+  --azul-difuminado: #0a3f7aa9;
+ --gris: #e0e0e0;
+ --fuente-principal: "Poppins", sans-serif;
+ --radio-card: 18px;
+ --texto: #243746;
+ --texto-suave: #64727d;
+ --sombra-suave: 0 12px 30px rgba(10, 76, 143, .11);
+ --transicion: .25s ease;
+}
+
+/* Reset basico */
+*,
+*::before,
+*::after {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+html {
+ scroll-behavior: smooth;
+}
+
+body {
+ background: #f4f5f6;
+  color: var(--texto);
+  font-family: var(--fuente-principal);
+  line-height: 1.4;
+ overflow-x: hidden;
+}
+
+/* ANCHO GENERAL DE LA PAGINA
+   Cambia width para hacer mas ancho o estrecho todo el contenido */
+.pagina-eventos {
+  width: 1280px;
+  max-width: calc(100% - 58px);
+  margin: 6px auto 80px;
+}
+
+/* ==================== CARRUSEL DE BANNERS ==================== */
+.carrusel {
+  position: relative;
+  width: 100vw;
+  height: 580px;
+  margin-left: calc(50% - 50vw);
+  overflow: hidden;
+  background: var(--azul-principal);
+  border-radius: 0;
+  mask-image: none;
+  -webkit-mask-image: none;
+}
+
+.carrusel::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  height: 76px;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(244, 245, 246, 0), #f4f5f680);
+}
+
+.carrusel-contenido {
+  display: flex;
+  height: 100%;
+  transition: transform .45s ease;
+}
+
+.diapositiva {
+  display: flex;
+  flex: 0 0 100%;
+  background: var(--azul-principal);
+}
+
+.diapositiva img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.flecha {
+  position: absolute;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--naranja-principal);
+  color: var(--white);
+  cursor: pointer;
+  z-index: 3;
+  transform: translateY(-50%);
+  transition: background var(--transicion), transform var(--transicion), box-shadow var(--transicion);
+}
+
+.flecha:hover {
+  background: #ffab4b;
+  box-shadow: 0 7px 18px rgba(0, 0, 0, .2);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.flecha:focus-visible,
+.puntos-carrusel button:focus-visible,
+.filtro-mes:focus-visible {
+  outline: 3px solid rgba(255, 151, 35, .55);
+  outline-offset: 3px;
+}
+
+.flecha-anterior {
+  left: 24px;
+}
+
+.flecha-siguiente {
+  right: 24px;
+}
+
+.flecha svg {
+  width: 26px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+}
+
+.puntos-carrusel {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  display: flex;
+  gap: 8px;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.puntos-carrusel button {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .45);
+  cursor: pointer;
+  transition: transform var(--transicion), background var(--transicion);
+}
+
+.puntos-carrusel button.activo {
+  background: var(--naranja-principal);
+  transform: scale(1.35);
+}
+
+/* ==================== TITULO Y TARJETAS DE EVENTOS ==================== */
+.seccion-eventos {
+  margin-top: 50px;
+}
+
+.encabezado-eventos {
+  position: relative;
+  max-width: 700px;
+  padding-left: 20px;
+  border-left: 5px solid var(--naranja-principal);
+}
+
+.etiqueta-eventos {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--naranja-principal);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .16em;
+}
+
+.encabezado-eventos h2 {
+  color: var(--azul-principal);
+  font-size: 32px;
+  line-height: 1.1;
+}
+
+.encabezado-eventos p {
+  max-width: 560px;
+  margin-top: 9px;
+  color: var(--texto-suave);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.linea-naranja {
+  width: 100%;
+  height: 1px;
+  margin: 22px 0 34px;
+  border-radius: 99px;
+  background-color: var(--naranja-principal)
+}
+
+.tarjetas-eventos {
+  display: grid;
+  /* Este valor controla el ancho maximo de cada card. */
+  grid-template-columns: repeat(2, minmax(0, 560px));
+  justify-content: center;
+  gap: 52px 64px;
+}
+
+.tarjeta-evento {
+  overflow: hidden;
+  border-radius: 0 0 var(--radio-card) var(--radio-card);
+  background: var(--white);
+  box-shadow: 0 6px 18px rgba(10, 76, 143, .1);
+  transition: transform var(--transicion), box-shadow var(--transicion);
+}
+
+.tarjeta-evento:hover {
+  box-shadow: 0 16px 32px rgba(10, 76, 143, .16);
+  transform: translateY(-8px) scale(1.10);
+  z-index: 3;
+}
+
+.imagen-evento {
+  position: relative;
+  height: 205px;
+  overflow: hidden;
+}
+
+.imagen-evento::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  content: "";
+  pointer-events: none;
+}
+
+.tarjeta-naranja .imagen-evento::after {
+  background: var(--naranja-difuminado);
+}
+
+.tarjeta-azul .imagen-evento::after {
+  background: var(--azul-difuminado);
+}
+
+.imagen-evento img {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+
+.imagen-evento img.imagen-activa {
+  opacity: 1;
+}
+
+.tarjeta-naranja .imagen-evento {
+  background: #ffcc91;
+}
+
+.tarjeta-azul .imagen-evento {
+  background: #668bad;
+}
+
+.esquina-icono {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: grid;
+  width: 75px;
+  height: 75px;
+  place-items: center;
+  z-index: 2;
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
+.tarjeta-naranja .esquina-icono {
+  background: var(--naranja-principal);
+}
+
+.tarjeta-azul .esquina-icono {
+  background: var(--azul-principal);
+}
+
+.esquina-icono svg {
+  width: 32px;
+  fill: none;
+  stroke: var(--white);
+  stroke-width: 1.5;
+  transform: translate(13px, -13px);
+}
+
+.contenido-evento {
+  min-height: 130px;
+  padding: 14px 20px 16px;
+}
+
+.contenido-evento h3 {
+  margin: 0;
+  color: var(--azul-principal);
+  font-size: 19px;
+}
+
+.contenido-evento p {
+  min-height: 40px;
+  margin: 7px 0 11px;
+  color: var(--texto-suave);
+  font-size: 12px;
+}
+
+.contenido-evento a {
+  color: var(--azul-principal);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color var(--transicion);
+}
+
+.contenido-evento a:hover {
+  color: var(--naranja-principal);
+}
+
+.contenido-evento a span {
+  color: var(--naranja-principal);
+  font-size: 17px;
+}
+
+/* ==================== CALENDARIO ESCOLAR ==================== */
+.calendario-escolar {
+  position: relative;
+  display: grid;
+  grid-template-columns: 330px minmax(0, 1fr) 260px;
+  align-items: center;
+  min-height: 190px;
+  gap: 34px;
+  margin: 70px 0 78px;
+  padding: 30px 36px;
+  overflow: hidden;
+  border: 2px solid rgba(10, 76, 143, .1);
+  border-radius: 28px;
+  background: var(--white);
+  box-shadow: 0 14px 35px rgba(10, 76, 143, .1);
+  transition: transform var(--transicion), box-shadow var(--transicion);
+}
+
+.calendario-escolar::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: var(--naranja-principal);
+  content: "";
+}
+
+
+
+.nombre-calendario {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-height: 120px;
+  padding: 20px 24px;
+  border-radius: 18px;
+  background: #edf4fa;
+  color: var(--azul-principal);
+}
+
+.nombre-calendario svg {
+  flex: 0 0 auto;
+  width: 58px;
+  height: 58px;
+  padding: 12px;
+  border-radius: 16px;
+  background: var(--azul-principal);
+  color: var(--white);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+}
+
+.nombre-calendario h2 {
+  margin: 0;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.informacion-calendario {
+  padding: 15px 0;
+}
+
+.informacion-calendario p {
+  max-width: 610px;
+  margin: 0 0 14px;
+  color: var(--azul-principal);
+  font-size: 16px;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.45;
+}
+
+.informacion-calendario small,
+.boton-calendario small {
+  color: #8a929a;
+  font-size: 12px;
+}
+
+.archivo-calendario {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 11px;
+  border-radius: 8px;
+  background: #f4f6f8;
+}
+
+.archivo-calendario svg {
+  width: 16px;
+  fill: none;
+  stroke: var(--azul-principal);
+  stroke-width: 1.5;
+}
+
+.boton-calendario {
+  padding: 15px 0 15px 14px;
+  border-left: 1px solid var(--gris);
+  text-align: center;
+}
+
+.boton-calendario a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 220px;
+  padding: 14px 22px;
+  border-radius: 12px;
+  background: var(--naranja-principal);
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background var(--transicion), transform var(--transicion), box-shadow var(--transicion);
+}
+
+.boton-calendario a:hover {
+  transform: translateY(-2px);
+}
+
+.boton-calendario svg {
+  width: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+
+/* ==================== CALENDARIZACION MENSUAL ==================== */
+.calendarizacion {
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--white);
+  box-shadow: 0 8px 22px rgba(10, 76, 143, .09);
+}
+
+.calendarizacion > h2 {
+  margin: 0;
+  padding: 18px 34px;
+  border-bottom: 3px solid var(--naranja-principal);
+  background: var(--white);
+  color: var(--azul-principal);
+  font-size: 15px;
+  letter-spacing: .02em;
+}
+
+.filtros-meses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 20px 34px;
+  border-bottom: 1px solid var(--gris);
+}
+
+.filtro-mes {
+  min-width: 58px;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 7px;
+  background: #eef3f7;
+  color: var(--azul-principal);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  transition: background var(--transicion), color var(--transicion);
+}
+
+.filtro-mes:hover {
+  background: #dfeaf2;
+}
+
+.filtro-mes.activo {
+  background: var(--azul-principal);
+  color: var(--white);
+}
+
+.contenido-mes {
+  display: none;
+  grid-template-columns: 220px 1fr;
+  gap: 24px;
+  align-items: stretch;
+  padding: 24px 34px 30px;
+}
+
+.contenido-mes.activo {
+  display: grid;
+}
+
+.encabezado-mes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 9px;
+  padding: 20px;
+  border-left: 5px solid var(--naranja-principal);
+  background: #f3f6f8;
+  color: var(--azul-principal);
+}
+
+.encabezado-mes span {
+  color: #7a8791;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .05em;
+}
+
+.encabezado-mes strong {
+  font-size: 19px;
+  line-height: 1.2;
+  text-transform: capitalize;
+}
+
+.fechas-mes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border: 1px solid var(--gris);
+}
+
+.fechas-mes div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  min-height: 55px;
+  padding: 10px 14px;
+  border-right: 1px solid var(--gris);
+  border-bottom: 1px solid var(--gris);
+  background: var(--white);
+}
+
+.fechas-mes div:nth-child(even) {
+  border-right: 0;
+}
+
+.fechas-mes div:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+
+.fechas-mes strong {
+  color: var(--azul-principal);
+  font-size: 13px;
+}
+
+.fechas-mes small {
+  color: #7c8792;
+  font-size: 11px;
+  text-align: right;
+}
+
+/* ==================== TABLET ==================== */
+@media (max-width: 1024px) {
+  .pagina-eventos {
+    width: 100%;
+    max-width: calc(100% - 40px);
+    margin-top: 0;
+  }
+
+  .carrusel {
+    height: 440px;
+  }
+
+  .encabezado-eventos {
+    gap: 25px;
+  }
+
+  .encabezado-eventos p {
+    width: auto;
+    max-width: 360px;
+  }
+
+  .tarjetas-eventos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 34px 28px;
+  }
+
+  .calendario-escolar {
+    grid-template-columns: 260px minmax(0, 1fr) 220px;
+    gap: 20px;
+    padding: 24px;
+  }
+
+  .nombre-calendario {
+    gap: 14px;
+    padding: 18px;
+  }
+
+  .nombre-calendario svg {
+    width: 48px;
+    height: 48px;
+    padding: 10px;
+  }
+
+  .nombre-calendario h2 {
+    font-size: 18px;
+  }
+
+  .boton-calendario {
+    padding-left: 12px;
+  }
+
+  .boton-calendario a {
+    min-width: 180px;
+    padding: 12px 14px;
+    font-size: 12px;
+  }
+}
+
+/* ==================== MOVIL HORIZONTAL Y TABLET PEQUENA ==================== */
+@media (max-width: 767px) {
+  .pagina-eventos {
+    max-width: calc(100% - 24px);
+    margin-top: 0;
+    margin-bottom: 45px;
+  }
+
+  .carrusel {
+    height: 480px;
+    margin-top: 0;
+    background: var(--azul-principal);
+    touch-action: pan-y;
+  }
+
+  .carrusel .flecha {
+    display: none;
+  }
+
+  .puntos-carrusel {
+    bottom: 14px;
+  }
+
+  .seccion-eventos {
+    margin-top: 42px;
+  }
+
+  .encabezado-eventos {
+    display: block;
+  }
+
+  .encabezado-eventos h2 {
+    font-size: 29px;
+  }
+
+  .encabezado-eventos p {
+    width: 100%;
+    margin-top: 16px;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    font-size: 12px;
+  }
+
+  .linea-naranja {
+    margin: 14px 0 25px;
+  }
+
+  .tarjetas-eventos {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .tarjeta-evento:hover {
+    transform: translateY(-4px) scale(1.015);
+  }
+
+  .imagen-evento {
+    height: 205px;
+  }
+
+  .calendario-escolar {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin: 45px 0 50px;
+    padding: 20px;
+  }
+
+  .nombre-calendario {
+    min-height: 90px;
+  }
+
+  .informacion-calendario {
+    padding: 0 4px;
+  }
+
+  .informacion-calendario p {
+    font-size: 14px;
+  }
+
+  .boton-calendario {
+    padding: 18px 0 0;
+    border-top: 1px solid var(--gris);
+    border-left: 0;
+  }
+
+  .boton-calendario a {
+    width: 100%;
+  }
+
+  .calendarizacion > h2 {
+    padding: 16px 20px;
+  }
+
+  .filtros-meses {
+    gap: 7px;
+    padding: 16px 20px;
+  }
+
+  .filtro-mes {
+    min-width: 51px;
+    padding: 8px 9px;
+  }
+
+  .contenido-mes {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .encabezado-mes {
+    min-height: 100px;
+    padding: 16px;
+  }
+
+  .fechas-mes {
+    grid-template-columns: 1fr;
+  }
+
+  .fechas-mes div,
+  .fechas-mes div:nth-child(even),
+  .fechas-mes div:nth-last-child(-n + 2) {
+    border-right: 0;
+    border-bottom: 1px solid var(--gris);
+  }
+
+  .fechas-mes div:last-child {
+    border-bottom: 0;
+  }
+}
+
+/* ==================== MOVIL ==================== */
+@media (max-width: 480px) {
+  .pagina-eventos {
+    max-width: calc(100% - 18px);
+    margin-top: 0;
+  }
+
+  .carrusel {
+    height: 430px;
+    margin-top: 0;
+  }
+
+  .encabezado-eventos h2 {
+    font-size: 24px;
+  }
+
+  .imagen-evento {
+    height: 185px;
+  }
+
+  .contenido-evento {
+    min-height: 125px;
+  }
+
+  .contenido-evento h3 {
+    font-size: 18px;
+  }
+
+  .nombre-calendario h2 {
+    font-size: 18px;
+  }
+
+  .filtros-meses {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .filtro-mes {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .contenido-mes {
+    padding: 16px;
+  }
+
+  .encabezado-mes strong {
+    font-size: 17px;
+  }
+}
+
+/* ==================== MOVIL PEQUENO ==================== */
+@media (max-width: 360px) {
+  .pagina-eventos {
+    max-width: calc(100% - 14px);
+  }
+
+  .carrusel {
+    height: 380px;
+    margin-top: 0;
+  }
+
+  .seccion-eventos {
+    margin-top: 28px;
+  }
+
+  .encabezado-eventos h2 {
+    font-size: 22px;
+  }
+
+  .imagen-evento {
+    height: 165px;
+  }
+
+  .nombre-calendario {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .filtros-meses {
+    padding: 14px;
+  }
+
+  .contenido-mes {
+    padding: 14px;
+  }
+}
+
+/* Evita que el hover agrande elementos en dispositivos tactiles. */
+@media (hover: none) {
+  .tarjeta-evento:hover,
+  .calendario-escolar:hover {
+    transform: none;
+    box-shadow: 0 6px 18px rgba(10, 76, 143, .1);
+  }
+}

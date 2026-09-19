@@ -8,13 +8,16 @@ if (btnPortada && explorar) {
 }
 
 
-// HEADER SCROLL
+// HEADER SCROLL (con requestAnimationFrame para no disparar el cálculo en cada evento de scroll)
 const header = document.querySelector('.header');
+let scrollTicking = false;
 
-window.addEventListener('scroll', () => {
+function actualizarHeader() {
     const portada = document.querySelector('.portada');
-
-    if (!portada) return;
+    if (!portada) {
+        scrollTicking = false;
+        return;
+    }
 
     const portadaAltura = portada.offsetHeight;
 
@@ -23,15 +26,17 @@ window.addEventListener('scroll', () => {
     } else {
         header.classList.remove('scroleado');
     }
+
+    scrollTicking = false;
+}
+
+window.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+        window.requestAnimationFrame(actualizarHeader);
+        scrollTicking = true;
+    }
 });
 
-
-
-
-// BACKGROUND DINÁMICO
-document.querySelectorAll('.accordion__item[data-bg]').forEach(item => {
-    item.style.backgroundImage = `url('${item.dataset.bg}')`;
-});
 
 // PARTE DE ACORDEON EN MOVIL (PANTALLA INICIAL)
 
@@ -42,19 +47,24 @@ items.forEach(item => {
 
     if (!link) return;
 
-    link.addEventListener("click", function(e) {
+    link.addEventListener("click", function (e) {
 
         if (window.innerWidth <= 768) {
 
             if (!item.classList.contains("activo")) {
                 e.preventDefault();
 
-                items.forEach(i => i.classList.remove("activo"));
+                items.forEach(i => {
+                    i.classList.remove("activo");
+                    const otroLink = i.querySelector(".acordion-link");
+                    if (otroLink) otroLink.setAttribute("aria-expanded", "false");
+                });
 
                 item.classList.add("activo");
+                link.setAttribute("aria-expanded", "true");
             }
 
-          
+
         }
     });
 });

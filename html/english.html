@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expotecnia</title>
+  <link rel="stylesheet" href="/css/headerglobal.css">
+  <link rel="stylesheet" href="/css/menuglobal.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+  <link rel="shortcut icon" href="/img/logoinsal2.png" type="image/x-icon">
+  <script src="/js/compoheader.js" defer></script>
+  <link rel="stylesheet" href="/css/eventosglobal.css">
+  <script src="/js/eventos.js" defer></script>
+  <script src="/js/compomenu.js"></script>}
+  <script src="/js/oferta.js"></script>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <div id="header-container"></div>
+
+      <!-- MENÚ (botón + overlay + nav, inyectados por compomenu.js) -->
+  <div id="menu-container"></div>
+
+  <main class="pagina">
+    <a class="volver" href="/html/eventos.html">← Volver a Eventos y Actividades</a>
+
+    <section class="galeria" aria-label="Galería de Expotecnia">
+      <div class="carrusel">
+        <div class="carrusel-contenido">
+          <img src="/img/insalito.png" alt="Expotecnia del Instituto Nacional San Luis">
+          <img src="/img/image.png" alt="Proyectos estudiantiles de Expotecnia">
+          <img src="/img/presen.jpg" alt="Presentación de proyectos tecnológicos">
+          <img src="/img/insalito.png" alt="Exposición de estudiantes">
+        </div>
+        <button class="flecha flecha--anterior" type="button" aria-label="Imagen anterior">‹</button>
+        <button class="flecha flecha--siguiente" type="button" aria-label="Imagen siguiente">›</button>
+        <span class="contador" aria-live="polite">1</span>
+        <div class="puntos" aria-label="Seleccionar imagen"></div>
+      </div>
+
+      <div class="mosaico">
+        <img class="grande" src="/img/image.png" alt="Vista principal de Expotecnia">
+        <img src="/img/presen.jpg" alt="Presentación educativa">
+        <img src="/img/rem2.jpg" alt="Actividad del evento">
+        <img src="/img/rem3.jpg" alt="Proyecto estudiantil">
+        <img src="/img/rem4.jpg" alt="Exposición tecnológica">
+        <img src="/img/GRAFICOO.jpg" alt="Trabajo creativo de estudiantes">
+        <img src="/img/especialidad.jpg" alt="Comunidad educativa">
+        <img src="/img/admiconta.jpg" alt="Proyecto administrativo estudiantil">
+        <img src="/img/diesegrafi2.png" alt="Diseño gráfico estudiantil">
+        <img src="/img/salu.png" alt="Actividad de la comunidad educativa">
+        <button class="ver-mas" type="button">Ver todas las fotos</button>
+      </div>
+    </section>
+
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo" hidden>
+      <div class="modal-contenido">
+        <button class="modal-cerrar" type="button" aria-label="Cerrar galería">×</button>
+        <p id="modal-titulo" class="modal-contador" aria-live="polite"></p>
+        <img class="modal-imagen" src="" alt="">
+        <button class="modal-flecha modal-flecha--anterior" type="button" aria-label="Foto anterior">‹</button>
+        <button class="modal-flecha modal-flecha--siguiente" type="button" aria-label="Foto siguiente">›</button>
+      </div>
+    </div>
+
+    <header class="encabezado">
+      <h1>English Day</h1>
+      <p>Ciencia, robótica y tecnología hechas por estudiantes</p>
+      <div class="etiquetas" aria-label="Categorías del evento">
+        <span>Idioma</span><span>Competencia</span><span>Aprendizaje</span><span>Gramatica</span>
+      </div>
+    </header>
+
+    <section class="contenido">
+      <article class="descripcion">
+        <h2><span></span>¿En qué consiste?</h2>
+        <p>Expotecnia es la feria anual donde los estudiantes exhiben proyectos de ciencia, robótica, programación y electrónica trabajados a lo largo del año en las asignaturas técnicas. Cada sección arma su propio stand y explica su proyecto a los visitantes.</p>
+        <p>El evento está abierto a padres de familia, docentes de otras instituciones y público en general. Al final de la jornada, un jurado docente selecciona los tres proyectos más destacados en cada nivel.</p>
+      </article>
+
+      <aside class="datos">
+        <h2><span></span>Datos del evento</h2>
+        <dl>
+          <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M8 3v4m8-4v4M3 10h18"></path></svg>Fecha</dt><dd>Viernes 20 de noviembre, 2026</dd></div>
+          <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v6l4 2"></path></svg>Hora</dt><dd>8:00 a.m. — 1:00 p.m.</dd></div>
+          <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"></path><circle cx="12" cy="10" r="2"></circle></svg>Lugar</dt><dd>Polideportivo institucional</dd></div>
+          <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"></circle><circle cx="17" cy="9" r="2"></circle><path d="M3 20c.5-4 3-6 6-6s5.5 2 6 6m0-5c2.5 0 4.5 1.5 5 5"></path></svg>Dirigido a</dt><dd>Estudiantes, padres de familia y público en general</dd></div>
+          <div class="contacto"><dt><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m4 7 8 6 8-6"></path></svg>Contacto</dt><dd>asignaturastecnicas@mined.gob.sv</dd></div>
+        </dl>
+      </aside>
+    </section>
+  </main>
+</body>
+</html>

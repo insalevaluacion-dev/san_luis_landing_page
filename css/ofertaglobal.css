@@ -1,0 +1,1332 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
+/* =========================================================
+   VARIABLES GLOBALES
+   ========================================================= */
+
+:root {
+  --white:      #ffffff;
+  --text:       #1f2937;
+  --text-soft:  #4b5563;
+  --muted:      #6b7280;
+  --border:     rgba(15, 23, 42, 0.17);
+
+  --azul:       #0a4c8f;
+  --naranja:    #ff9723;
+  --azul-bg:    rgba(10, 76, 143, 0.14);
+  --naranja-bg: rgba(255, 151, 35, 0.16);
+
+  --shadow-sm:  0 4px 14px rgba(15, 23, 42, 0.08);
+  --shadow-md:  0 10px 30px rgba(15, 23, 42, 0.12);
+  --shadow-lg:  0 18px 50px rgba(15, 23, 42, 0.16);
+
+  --radius:     20px;
+  --ease:       cubic-bezier(0.4, 0, 0.2, 1);
+  --bounce:     cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+
+/* =========================================================
+   RESET Y BASE
+   ========================================================= */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+body {
+  font-family: "Poppins", system-ui, sans-serif;
+  background: #f5f5f5;
+  color: var(--text);
+  line-height: 1.1;
+  overflow-x: hidden;
+  min-width: 280px;
+}
+
+img,
+iframe {
+  max-width: 100%;
+}
+
+
+/* =========================================================
+   CONTENIDO PRINCIPAL
+   ========================================================= */
+
+.contenedor-principal {
+  width: min(1500px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 30px 0 70px;
+}
+
+
+/* =========================================================
+   TÍTULOS
+   ========================================================= */
+
+.titulo-principal {
+  text-align: center;
+  margin: 95px 0 40px;
+  color: var(--azul);
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -.02em;
+}
+
+.titulo-secundario {
+  position: relative;
+  margin: 65px 0 28px;
+  padding-bottom: 10px;
+  color: var(--azul);
+  font-size: 1.7rem;
+  line-height: 1.2;
+  font-weight: 800;
+  border-bottom: 2px solid rgba(10, 76, 143, .12);
+}
+
+.titulo-secundario::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 5px;
+  border-radius: 10px;
+  background: var(--naranja);
+}
+
+
+/* =========================================================
+   VIDEO + DESCRIPCIÓN
+   ========================================================= */
+
+.seccion-video {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(300px, .75fr);
+  gap: 32px;
+  align-items: start;
+}
+
+.video-contenedor {
+  position: sticky;
+  top: 95px;
+  overflow: hidden;
+  border-radius: 22px;
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+}
+
+.video-contenedor::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%; /* relación de aspecto 16:9 */
+}
+
+.video-contenedor iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ---------- Tarjeta de descripción ---------- */
+
+.descripcion-lateral {
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--white);
+  border-left: 4px solid var(--naranja);
+  border-radius: 18px;
+  box-shadow: var(--shadow-sm);
+}
+
+.descripcion-lateral__eyebrow {
+  color: var(--naranja);
+  font-size: .8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.descripcion-lateral__titulo {
+  color: var(--azul);
+
+  font-size: 1.45rem;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.descripcion-lateral__texto {
+  color: var(--text-soft);
+
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.descripcion-lateral__pills {
+  list-style: none;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+
+  margin-top: 6px;
+}
+
+.descripcion-lateral__pills li {
+  padding: 5px 10px;
+
+  border-radius: 999px;
+
+  font-size: .72rem;
+  font-weight: 700;
+}
+
+.descripcion-lateral__pills li:nth-child(odd) {
+  background: var(--azul-bg);
+  color: var(--azul);
+}
+
+.descripcion-lateral__pills li:nth-child(even) {
+  background: var(--naranja-bg);
+  color: #9a4d06;
+}
+
+
+/* =========================================================
+   ACORDEÓN
+   Usado dentro de las 3 columnas de información
+   (Perfil del Estudiante / Qué se aprende / Perfiles laborales)
+   ========================================================= */
+
+.lista-acordeon {
+  columns: 2;
+  column-gap: 22px;
+}
+
+.lista-acordeon .acordeon-item {
+  break-inside: avoid;
+  margin-bottom: 14px;
+}
+
+/* Dentro de una columna individual, el acordeón va en una sola columna */
+.columna-acordeon .lista-acordeon {
+  columns: 1;
+}
+
+.acordeon-item {
+  position: relative;
+
+  overflow: hidden;
+
+  background: var(--white);
+
+  border: 1px solid rgba(15, 23, 42, .07);
+  border-radius: 16px;
+
+  box-shadow: 0 5px 16px rgba(15, 23, 42, .05);
+
+  transition:
+    transform .25s var(--bounce),
+    box-shadow .25s ease;
+}
+
+.acordeon-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.acordeon-item.is-open {
+  box-shadow: 0 10px 25px rgba(10, 76, 143, .09);
+}
+
+.acordeon-encabezado {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 16px 16px 16px 22px;
+
+  border: 0;
+  background: transparent;
+
+  color: var(--text);
+
+  text-align: left;
+  font-size: .95rem;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.acordeon-item:hover .acordeon-encabezado {
+  color: var(--azul);
+}
+
+.acordeon-flecha {
+  flex-shrink: 0;
+
+  width: 32px;
+  height: 32px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: var(--naranja-bg);
+  color: var(--naranja);
+
+  transition:
+    transform .35s var(--bounce),
+    background .2s ease,
+    color .2s ease;
+}
+
+.acordeon-item:hover .acordeon-flecha {
+  background: var(--naranja);
+  color: var(--white);
+}
+
+.acordeon-item.is-open .acordeon-flecha {
+  transform: rotate(180deg);
+}
+
+.acordeon-flecha .material-symbols-outlined {
+  font-size: 18px;
+}
+
+.acordeon-panel {
+  max-height: var(--panel-height, 0px);
+  opacity: 0;
+
+  overflow: hidden;
+
+  transition:
+    max-height .4s var(--ease),
+    opacity .25s ease;
+}
+
+.acordeon-panel[hidden] {
+  display: block;
+}
+
+.acordeon-item.is-open .acordeon-panel {
+  opacity: 1;
+}
+
+.acordeon-contenido {
+  padding: 0 18px 18px 22px;
+
+  color: var(--text-soft);
+
+  font-size: .9rem;
+  line-height: 1.65;
+}
+
+.acordeon-contenido p {
+  margin-bottom: 8px;
+}
+
+.acordeon-contenido ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+.acordeon-contenido li + li {
+  margin-top: 6px;
+}
+
+
+/* =========================================================
+   TRES COLUMNAS
+   (Perfil del Estudiante / Qué se aprende / Perfiles laborales)
+   ========================================================= */
+
+.seccion-tres-columnas {
+  margin-top: 80px;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.columna-acordeon {
+  background: var(--white);
+
+  border: 1px solid rgba(15, 23, 42, .07);
+  border-radius: 20px;
+
+  box-shadow: var(--shadow-sm);
+
+  padding: 16px;
+}
+
+.columna-acordeon .acordeon-item {
+  background: #fcfcfc;
+}
+
+.columna-acordeon__titulo {
+  margin: -16px -16px 16px;
+
+  padding: 14px;
+
+  border-radius: 20px 20px 0 0;
+
+  background: var(--azul);
+  color: var(--white);
+
+  text-align: center;
+
+  font-size: .92rem;
+  font-weight: 800;
+
+  box-shadow: 0 5px 14px rgba(10, 76, 143, .12);
+}
+
+
+/* =========================================================
+   CARRUSEL INFINITO (GALERÍA)
+   ========================================================= */
+
+.carrusel {
+  position: relative;
+  width: 100%;
+  margin-top: 28px;
+  overflow: hidden;
+
+  /* Desvanecido en los extremos */
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 6%,
+    black 94%,
+    transparent
+  );
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 6%,
+    black 94%,
+    transparent
+  );
+}
+
+.carrusel__pista {
+  display: flex;
+  gap: 22px;
+  width: max-content;
+
+  animation: carrusel-scroll linear infinite;
+
+  will-change: transform;
+}
+
+.carrusel__grupo {
+  display: flex;
+  gap: 22px;
+  flex-shrink: 0;
+}
+
+.carrusel__boton {
+  display: block;
+
+  width: 300px;
+  height: 220px;
+
+  padding: 0;
+  margin: 0;
+
+  border: 0;
+  border-radius: 18px;
+
+  background: none;
+
+  overflow: hidden;
+  cursor: pointer;
+
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease;
+}
+
+.carrusel__imagen {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  pointer-events: none;
+
+  transition: transform .4s ease;
+}
+
+/* Hover solamente en dispositivos con mouse */
+@media (hover: hover) and (pointer: fine) {
+
+  .carrusel__boton:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px rgba(15, 23, 42, .18);
+  }
+
+  .carrusel__boton:hover .carrusel__imagen {
+    transform: scale(1.04);
+  }
+
+  .carrusel:hover .carrusel__pista {
+    animation-play-state: paused;
+  }
+}
+
+/* Pausa controlada por JS (ej. al abrir el modal) */
+.carrusel.pausado .carrusel__pista {
+  animation-play-state: paused;
+}
+
+/* Accesibilidad */
+.carrusel__boton:focus-visible {
+  outline: 3px solid rgba(10, 76, 143, .35);
+  outline-offset: 3px;
+}
+
+@keyframes carrusel-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* =========================================================
+   MODAL DE IMAGEN
+   ========================================================= */
+
+.modal-imagen {
+  position: fixed;
+  inset: 0;
+
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity .3s ease,
+    visibility .3s ease;
+}
+
+.modal-imagen.activo {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ---------- Fondo oscuro ---------- */
+
+.modal-imagen__fondo {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(8, 15, 28, .88);
+
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+/* ---------- Contenedor ---------- */
+
+.modal-imagen__contenido {
+  position: relative;
+  z-index: 1;
+
+  max-width: 90vw;
+  max-height: 90vh;
+
+  animation: modal-aparecer .3s ease;
+}
+
+/* ---------- Imagen ---------- */
+
+.modal-imagen__imagen {
+  display: block;
+
+  max-width: 90vw;
+  max-height: 85vh;
+
+  border-radius: 16px;
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .45);
+}
+
+/* ---------- Botón cerrar ---------- */
+
+.modal-imagen__cerrar {
+  position: absolute;
+
+  top: -48px;
+  right: 0;
+
+  width: 40px;
+  height: 40px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255, 255, 255, .2);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, .12);
+  color: var(--white);
+
+  font-size: 1.5rem;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background .2s ease,
+    transform .2s ease;
+}
+
+.modal-imagen__cerrar:hover {
+  background: var(--naranja);
+  transform: scale(1.06);
+}
+
+.modal-imagen__cerrar:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, .4);
+  outline-offset: 2px;
+}
+
+@keyframes modal-aparecer {
+  from {
+    opacity: 0;
+    transform: scale(.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* =========================================================
+   AJUSTES TÁCTILES
+   ========================================================= */
+
+/* En dispositivos táctiles evitamos efectos hover innecesarios. */
+@media (hover: none) {
+  .acordeon-item:hover,
+  .carrusel__boton:hover {
+    transform: none;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+/* ---------- Pantallas extra grandes (>= 1600px) ---------- */
+
+@media (min-width: 1600px) {
+
+  .contenedor-principal {
+    width: min(1800px, calc(100% - 48px));
+    padding-top: 36px;
+    padding-bottom: 90px;
+  }
+
+  .titulo-principal {
+    font-size: clamp(2.6rem, 3.1vw, 3.35rem);
+    margin-top: 90px;
+    margin-bottom: 46px;
+  }
+
+  .titulo-secundario {
+    font-size: 1.9rem;
+    margin-top: 76px;
+    margin-bottom: 30px;
+  }
+
+  .seccion-video {
+    grid-template-columns: minmax(0, 1.4fr) minmax(380px, 0.6fr);
+    gap: 38px;
+  }
+
+  .descripcion-lateral {
+    padding: 30px;
+  }
+
+  .seccion-tres-columnas {
+    gap: 28px;
+    margin-top: 88px;
+  }
+
+  .columna-acordeon {
+    padding: 18px;
+  }
+
+  .carrusel__boton {
+    width: 320px;
+    height: 235px;
+  }
+}
+
+/* ---------- Escritorio (1200px - 1599px) ---------- */
+
+@media (min-width: 1200px) and (max-width: 1599px) {
+
+  .contenedor-principal {
+    width: min(1400px, calc(100% - 66px));
+  }
+
+  .seccion-video {
+    grid-template-columns:
+      minmax(0, 1.25fr)
+      minmax(340px, 0.75fr);
+    gap: 30px;
+  }
+}
+
+/* ---------- Tablet / laptop (<= 1199px) ---------- */
+
+@media (max-width: 1199px) {
+
+  .contenedor-principal {
+    width: min(1100px, calc(100% - 40px));
+  }
+
+  .titulo-principal {
+    font-size: clamp(2rem, 4vw, 2.55rem);
+    margin-top: 78px;
+    margin-bottom: 38px;
+  }
+
+  .seccion-video {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .video-contenedor {
+    position: relative;
+    top: auto;
+  }
+
+  .descripcion-lateral {
+    padding: 26px;
+  }
+
+  /*
+   * En lugar de CSS columns, usamos grid.
+   * Esto evita que los acordeones se "partan" en
+   * órdenes visuales inesperados.
+   */
+  .lista-acordeon {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    columns: auto;
+  }
+
+  .lista-acordeon .acordeon-item {
+    margin-bottom: 0;
+    break-inside: auto;
+  }
+
+  .columna-acordeon .lista-acordeon {
+    grid-template-columns: 1fr;
+  }
+
+  .seccion-tres-columnas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 68px;
+  }
+}
+
+/* ---------- Tablet (<= 991px) ---------- */
+
+@media (max-width: 991px) {
+
+  .contenedor-principal {
+    width: min(820px, calc(100% - 32px));
+    padding-top: 24px;
+    padding-bottom: 60px;
+  }
+
+  .titulo-principal {
+    margin-top: 64px;
+    margin-bottom: 32px;
+  }
+
+  .titulo-secundario {
+    margin-top: 54px;
+    margin-bottom: 24px;
+    font-size: 1.55rem;
+  }
+
+  .lista-acordeon {
+    grid-template-columns: 1fr;
+  }
+
+  .seccion-tres-columnas {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 56px;
+  }
+
+  .columna-acordeon {
+    padding: 16px;
+  }
+
+  .columna-acordeon__titulo {
+    margin: -16px -16px 16px;
+    border-radius: 20px 20px 0 0;
+  }
+}
+
+/* ---------- Móvil grande (<= 767px) ---------- */
+
+@media (max-width: 767px) {
+
+  body {
+    line-height: 1.35;
+  }
+
+  .contenedor-principal {
+    width: calc(100% - 24px);
+    padding-top: 12px;
+    padding-bottom: 48px;
+  }
+
+  .titulo-principal {
+    width: 100%;
+    margin-top: 76px;
+    margin-bottom: 26px;
+    font-size: clamp(1.55rem, 7vw, 2rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .titulo-secundario {
+    margin-top: 44px;
+    margin-bottom: 22px;
+    padding-bottom: 9px;
+    font-size: clamp(1.2rem, 5.2vw, 1.5rem);
+    line-height: 1.25;
+  }
+
+  /* Video */
+  .video-contenedor {
+    border-radius: 18px;
+  }
+
+  /* Descripción */
+  .descripcion-lateral {
+    padding: 20px 18px;
+    gap: 10px;
+    border-radius: 16px;
+  }
+
+  .descripcion-lateral__titulo {
+    font-size: clamp(1.15rem, 5.2vw, 1.4rem);
+  }
+
+  .descripcion-lateral__texto {
+    font-size: 0.91rem;
+    line-height: 1.65;
+  }
+
+  .descripcion-lateral__pills {
+    gap: 7px;
+  }
+
+  .descripcion-lateral__pills li {
+    font-size: 0.69rem;
+    padding: 5px 9px;
+  }
+
+  /* Acordeón */
+  .lista-acordeon {
+    gap: 12px;
+  }
+
+  .acordeon-item {
+    border-radius: 14px;
+  }
+
+  .acordeon-encabezado {
+    min-height: 52px;
+    padding: 14px 14px 14px 21px;
+    font-size: 0.92rem;
+    line-height: 1.35;
+  }
+
+  .acordeon-flecha {
+    width: 30px;
+    height: 30px;
+  }
+
+  .acordeon-flecha .material-symbols-outlined {
+    font-size: 17px;
+  }
+
+  .acordeon-contenido {
+    padding: 0 15px 16px 21px;
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  .acordeon-contenido ul {
+    padding-left: 17px;
+  }
+
+  /* Tres columnas */
+  .seccion-tres-columnas {
+    gap: 16px;
+    margin-top: 48px;
+  }
+
+  .columna-acordeon {
+    padding: 12px;
+    border-radius: 18px;
+  }
+
+  .columna-acordeon__titulo {
+    margin: -12px -12px 14px;
+    padding: 13px 14px;
+    border-radius: 18px 18px 0 0;
+    font-size: 0.88rem;
+  }
+
+  /* Carrusel */
+  .carrusel {
+    margin-top: 20px;
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 3%,
+      black 97%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 3%,
+      black 97%,
+      transparent
+    );
+  }
+
+  .carrusel__pista,
+  .carrusel__grupo {
+    gap: 12px;
+  }
+
+  .carrusel__boton {
+    width: min(82vw, 290px);
+    height: min(58vw, 210px);
+    min-height: 170px;
+    border-radius: 15px;
+  }
+
+  /* Modal */
+  .modal-imagen {
+    padding:
+      max(14px, env(safe-area-inset-top))
+      max(14px, env(safe-area-inset-right))
+      max(14px, env(safe-area-inset-bottom))
+      max(14px, env(safe-area-inset-left));
+  }
+
+  .modal-imagen__contenido {
+    width: 100%;
+    max-width: 100%;
+    max-height: 82vh;
+  }
+
+  .modal-imagen__imagen {
+    width: auto;
+    max-width: 100%;
+    max-height: 78vh;
+    border-radius: 12px;
+  }
+
+  .modal-imagen__cerrar {
+    top: auto;
+    right: 50%;
+    bottom: -48px;
+    transform: translateX(50%);
+  }
+
+  .modal-imagen__cerrar:hover {
+    transform: translateX(50%);
+  }
+}
+
+/* ---------- Móvil medio (<= 575px) ---------- */
+
+@media (max-width: 575px) {
+
+  .contenedor-principal {
+    width: calc(95% - 18px);
+  }
+
+  .titulo-principal {
+    margin-top: 68px;
+    margin-bottom: 22px;
+    font-size: clamp(1.42rem, 7vw, 1.8rem);
+  }
+
+  .titulo-secundario {
+    margin-top: 38px;
+    margin-bottom: 18px;
+    font-size: clamp(1.12rem, 5.8vw, 1.35rem);
+  }
+
+  .descripcion-lateral {
+    padding: 17px 15px;
+  }
+
+  .descripcion-lateral__eyebrow {
+    font-size: 0.68rem;
+  }
+
+  .descripcion-lateral__texto {
+    font-size: 0.87rem;
+    line-height: 1.6;
+  }
+
+  .descripcion-lateral__pills {
+    gap: 6px;
+  }
+
+  .descripcion-lateral__pills li {
+    font-size: 0.64rem;
+    padding: 4px 8px;
+  }
+
+  .acordeon-encabezado {
+    min-height: 48px;
+    padding: 12px 11px 12px 18px;
+    font-size: 0.87rem;
+  }
+
+  .acordeon-contenido {
+    padding: 0 12px 14px 18px;
+    font-size: 0.85rem;
+  }
+
+  .acordeon-flecha {
+    width: 28px;
+    height: 28px;
+  }
+
+  .acordeon-flecha .material-symbols-outlined {
+    font-size: 16px;
+  }
+
+  .columna-acordeon {
+    padding: 10px;
+    border-radius: 15px;
+  }
+
+  .columna-acordeon__titulo {
+    margin: -10px -10px 12px;
+    border-radius: 15px 15px 0 0;
+    padding: 11px 12px;
+    font-size: 0.82rem;
+  }
+
+  .carrusel__pista,
+  .carrusel__grupo {
+    gap: 10px;
+  }
+
+  .carrusel__boton {
+    width: 82vw;
+    height: 53vw;
+    min-height: 155px;
+    max-height: 190px;
+    border-radius: 13px;
+  }
+
+  .modal-imagen__imagen {
+    max-width: 94vw;
+    max-height: 76vh;
+    border-radius: 10px;
+  }
+
+  .modal-imagen__cerrar {
+    width: 38px;
+    height: 38px;
+    bottom: -46px;
+  }
+}
+
+/* ---------- Móvil pequeño (<= 400px) ---------- */
+
+@media (max-width: 400px) {
+
+  .contenedor-principal {
+    width: calc(100% - 14px);
+  }
+
+  .titulo-principal {
+    margin-top: 62px;
+    font-size: 1.34rem;
+    line-height: 1.23;
+  }
+
+  .titulo-secundario {
+    font-size: 1.08rem;
+    margin-top: 34px;
+    margin-bottom: 16px;
+  }
+
+  .descripcion-lateral {
+    padding: 14px 12px;
+    border-radius: 12px;
+  }
+
+  .descripcion-lateral__titulo {
+    font-size: 1rem;
+  }
+
+  .descripcion-lateral__texto {
+    font-size: 0.82rem;
+    line-height: 1.52;
+  }
+
+  .descripcion-lateral__pills li {
+    font-size: 0.59rem;
+    padding: 3px 7px;
+  }
+
+  .acordeon-encabezado {
+    min-height: 45px;
+    padding: 11px 9px 11px 16px;
+    font-size: 0.81rem;
+    gap: 7px;
+  }
+
+  .acordeon-contenido {
+    padding: 0 9px 11px 16px;
+    font-size: 0.79rem;
+    line-height: 1.55;
+  }
+
+  .acordeon-contenido ul {
+    padding-left: 15px;
+  }
+
+  .acordeon-flecha {
+    width: 26px;
+    height: 26px;
+  }
+
+  .acordeon-flecha .material-symbols-outlined {
+    font-size: 15px;
+  }
+
+  .columna-acordeon {
+    padding: 8px;
+    border-radius: 13px;
+  }
+
+  .columna-acordeon__titulo {
+    margin: -8px -8px 10px;
+    border-radius: 13px 13px 0 0;
+    padding: 10px 11px;
+    font-size: 0.78rem;
+  }
+
+  .carrusel__boton {
+    width: 84vw;
+    height: 51vw;
+    min-height: 145px;
+    max-height: 175px;
+    border-radius: 12px;
+  }
+}
+
+/* ---------- Móvil muy pequeño (<= 320px) ---------- */
+
+@media (max-width: 320px) {
+
+  .contenedor-principal {
+    width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-bottom: 32px;
+  }
+
+  .titulo-principal {
+    margin-top: 54px;
+    margin-bottom: 18px;
+    font-size: 1.18rem;
+    line-height: 1.25;
+  }
+
+  .titulo-secundario {
+    font-size: 1rem;
+    margin-top: 28px;
+    margin-bottom: 14px;
+  }
+
+  .descripcion-lateral {
+    padding: 12px 10px;
+  }
+
+  .descripcion-lateral__titulo {
+    font-size: 0.94rem;
+  }
+
+  .descripcion-lateral__texto {
+    font-size: 0.78rem;
+  }
+
+  .acordeon-encabezado {
+    min-height: 42px;
+    padding: 10px 8px 10px 14px;
+    font-size: 0.76rem;
+  }
+
+  .acordeon-contenido {
+    padding: 0 8px 10px 14px;
+    font-size: 0.74rem;
+  }
+
+  .acordeon-flecha {
+    width: 24px;
+    height: 24px;
+  }
+
+  .acordeon-flecha .material-symbols-outlined {
+    font-size: 14px;
+  }
+
+  .carrusel__pista,
+  .carrusel__grupo {
+    gap: 8px;
+  }
+
+  .carrusel__boton {
+    width: 88vw;
+    height: 49vw;
+    min-height: 132px;
+    max-height: 160px;
+    border-radius: 10px;
+  }
+
+  .modal-imagen {
+    padding: 10px;
+  }
+
+  .modal-imagen__imagen {
+    max-width: 96vw;
+    max-height: 74vh;
+  }
+
+  .modal-imagen__cerrar {
+    width: 34px;
+    height: 34px;
+    bottom: -42px;
+    font-size: 1.25rem;
+  }
+}
+
+/* ---------- Alturas pequeñas ----------
+   Evita que el modal se salga verticalmente
+   en móviles horizontales o pantallas bajas. */
+
+@media (max-height: 650px) and (max-width: 767px) {
+
+  .modal-imagen__imagen {
+    max-height: 70vh;
+  }
+}
+
+/* ---------- Orientación horizontal en móviles ---------- */
+
+@media (orientation: landscape) and (max-width: 900px) {
+
+  .contenedor-principal {
+    padding-top: 8px;
+    padding-bottom: 40px;
+  }
+
+  .titulo-principal {
+    margin-top: 60px;
+    margin-bottom: 22px;
+  }
+
+  .seccion-video {
+    gap: 18px;
+  }
+
+  .modal-imagen__imagen {
+    max-height: 78vh;
+  }
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD: REDUCIR MOVIMIENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .carrusel__pista {
+    animation: none !important;
+  }
+}

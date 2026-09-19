@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diseño Grafico</title>
+
+  <link rel="stylesheet" href="/css/ofertaglobal.css">
+  <link rel="stylesheet" href="/css/headerglobal.css">
+  <link rel="stylesheet" href="/css/menuglobal.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+  <link rel="shortcut icon" href="/img/logoinsal2.png" type="image/x-icon">
+
+  <script src="/js/oferta.js" defer></script>
+  <script src="/js/compomenu.js"></script>
+  <script src="/js/compoheader.js" defer></script>
+</head>
+
+<body data-carrera="Diseño Grafico">
+
+  <!-- HEADER -->
+  <div id="header-container"></div>
+
+ 
+  <!-- MENÚ (botón + overlay + nav, inyectados por compomenu.js) -->
+  <div id="menu-container"></div>
+
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="contenedor-principal">
+
+    <!-- TÍTULO -->
+    <h1 class="titulo-principal">Bachillerato Técnico Vocacional en <br> Diseño Grafico</h1>
+
+    <!-- VIDEO + DESCRIPCIÓN -->
+    <section class="seccion-video" aria-label="Video informativo y descripción de la carrera">
+      <div class="video-contenedor">
+        <iframe src="https://www.youtube.com/embed/wzKNDtwkJfU" title="Video informativo"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen loading="lazy"></iframe>
+      </div>
+
+      <div class="descripcion-lateral">
+        <p class="descripcion-lateral__eyebrow">¿De qué trata?</p>
+        <h2 class="descripcion-lateral__titulo">Convierte tu creatividad en tu profesión</h2>
+        <p class="descripcion-lateral__texto">
+          El Bachillerato Técnico Vocacional en Diseño Gráfico te prepara con las competencias técnicas y creativas para desarrollar soluciones gráficas y estrategias visuales que comuniquen marcas y mensajes con impacto.
+          En tres años adquirirás habilidades reales que el mercado publicitario y editorial demanda,
+          desde el dibujo y la ilustración hasta la producción de piezas digitales,
+          campañas publicitarias y video.
+        </p>
+        <ul class="descripcion-lateral__pills">
+          <li>3 años de formación</li>
+          <li>Salida laboral inmediata</li>
+          <li>Portafolio de proyectos</li>
+          <li>Inglés técnico incluido</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ÁREAS TÉCNICAS -->
+    <h2 class="titulo-secundario">Áreas técnicas que estudiarás</h2>
+
+    <!-- INFORMACIÓN DEL PROGRAMA -->
+    <section class="seccion-tres-columnas" aria-label="Información detallada del programa">
+
+      <!-- PERFIL DEL ESTUDIANTE -->
+      <div class="columna-acordeon">
+        <h3 class="columna-acordeon__titulo">Perfil del Estudiante</h3>
+
+        <div class="lista-acordeon" id="acordeon-perfil">
+
+          <!-- HABILIDADES ACADÉMICAS -->
+          <div class="acordeon-item">
+            <button class="acordeon-encabezado" aria-expanded="false" aria-controls="panel-perfil-academico">
+              <span>Habilidades académicas</span>
+              <span class="acordeon-flecha"><span class="material-symbols-outlined">expand_more</span></span>
+            </button>
+            <div class="acordeon-panel" id="panel-perfil-academico" role="region" hidden>
+              <div class="acordeon-contenido">
+                <ul>
+                  <li>Construcción de conocimiento humanístico, científico y técnico.</li>
+                  <li>Comunicación a través de diferentes formas y lenguajes.</li>
+                  <li>Resolución de situaciones diversas de la vida cotidiana.</li>
+                  <li>Conocimiento y valoración del ser humano y su entorno.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- HABILIDADES TECNOLÓGICAS -->
+          <div class="acordeon-item">
+            <button class="acordeon-encabezado" aria-expanded="false" aria-controls="panel-perfil-tecnologico">
+              <span>Habilidades artísticas y creativas</span>
+              <span class="acordeon-flecha"><span class="material-symbols-outlined">expand_more</span></span>
+            </button>
+            <div class="acordeon-panel" id="panel-perfil-tecnologico" role="region" hidden>
+              <div class="acordeon-contenido">
+                <ul>
+                  <li>Sensibilidad artística y capacidad de expresión visual como herramienta de comunicación.</li>
+                  <li>Pensamiento creativo aplicado al desarrollo de proyectos gráficos originales.</li>
+                  <li>Facilidad para el dibujo y la representación visual de ideas y conceptos.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- ACTITUDES Y VALORES -->
+          <div class="acordeon-item">
+            <button class="acordeon-encabezado" aria-expanded="false" aria-controls="panel-perfil-valores">
+              <span>Actitudes y valores</span>
+              <span class="acordeon-flecha"><span class="material-symbols-outlined">expand_more</span></span>
+            </button>
+            <div class="acordeon-panel" id="panel-perfil-valores" role="region" hidden>
+              <div class="acordeon-contenido">
+                <ul>
+                  <li>Conciencia ética que guía su desempeño profesional y sus decisiones.</li>
+                  <li>Actitudes positivas hacia sí mismo y hacia las personas con las que interactúa.</li>
+                  <li>Participación activa y comprometida en su formación integral y desarrollo sociocultural.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- QUÉ SE APRENDE -->
+      <div class="columna-acordeon">
+        <h3 class="columna-acordeon__titulo">Qué se aprende en la carrera</h3>
+
+        <div class="lista-acordeon" id="acordeon-carrera">
+
+          <!-- PRIMER AÑO -->
+          <div class="acordeon-item">
+            <button class="acordeon-encabezado" aria-expanded="false" aria-controls="panel-carrera-1">
+              <span>Primer Año</span>
+              <span class="acordeon-flecha"><span class="material-symbols-outlined">expand_more</span></span>
+            </button>
+            <div class="acordeon-panel" id="panel-carrera-1" role="region" hidden>
+              <div class="acordeon-contenido">
+                <p>Área Técnica:</p>
+                <ul>
+                  <li>Lectura de documentos técnicos en inglés.</li>
+                  <li>Procesos de investigación gráfica.</li>
+                  <li>Diseño de Aplicaciones Multimedia</li>
+                  <li>Estrategias y pensamiento creativo.</li>
+                  <li>Influencias artísticas en el diseño.</li>
+                  <li>Técnicas de expresión manual.</li>
+                  <li>Diseño de objetos vectoriales.</li>
+                  <li>Emprendedurismo colaborativo.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- SEGUNDO AÑO -->
+          <div class="acordeon-item">
+            <button class="acordeon-encabezado" aria-expanded="false" aria-controls="panel-carrera-2">
+              <span>Segundo Año</span>
+              <span class="acordeon-flecha"><span class="material-symbols-outlined">expand_more</span></span>
+            </button>
+            <div class="acordeon-panel" id="panel-carrera-2" role="region" hidden>
+              <div class="acordeon-contenido">
+                <p>Área Técnica:</p>
+                <ul>
+                  <li>Elaboración de piezas gráficas con principios de diseño.</li>
+                  <li>Estrategias de comunicación aplicadas al diseño.</li>
+                  <li>Edición digital de imágenes.</li>
+                  <li>Medios en idioma inglés.</li>
+                  <li>Diseño de piezas publicitarias.</li>
+                  <li>Maquetación y diseño editorial.</li>
+                  <li>Maquetación y diseño editorial.</li>
+                  <li>Planes de negocio en asociatividad cooperativa.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- TERCER AÑO -->
+          <div class="acordeon-item">
+            <button class="acordeon-encabezado" aria-expanded="false" aria-controls="panel-carrera-3">
+              <span>Tercer Año</span>
+              <span class="acordeon-flecha"><span class="material-symbols-outlined">expand_more</span></span>
+            </button>
+            <div class="acordeon-panel" id="panel-carrera-3" role="region" hidden>
+              <div class="acordeon-contenido">
+                <ul>
+                  <li>Sistemas de impresión.</li>
+                  <li>Técnicas fotográficas.</li>
+                  <li>Creación de identidad corporativa.</li>
+                  <li>Recursos publicitarios ilustrados.</li>
+                  <li>Publicidad estratégica.</li>
+                  <li>Producción de video y animación.</li>
+                  <li>Puesta en marcha de microempresa.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PERFILES LABORALES -->
+      <div class="columna-acordeon">
+        <h3 class="columna-acordeon__titulo">Perfiles laborales</h3>
+
+        <div class="lista-acordeon" id="acordeon-laboral">
+
+          <!-- FINALIZAR PRIMER AÑO -->
+          <div class="acordeon-item">
+            <button class="acordeon-encabezado" aria-expanded="false" aria-controls="panel-laboral-1">
+              <span>Al finalizar 1° año</span>
+              <span class="acordeon-flecha"><span class="material-symbols-outlined">expand_more</span></span>
+            </button>
+            <div class="acordeon-panel" id="panel-laboral-1" role="region" hidden>
+              <div class="acordeon-contenido">
+                <ul>
+                  <li>Diseñador/a gráfico y dibujante artístico.</li>
+                  <li>Pintor/escultor y similares (trabajo independiente, empresas de diseño gráfico, imprentas).</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- FINALIZAR SEGUNDO AÑO -->
+          <div class="acordeon-item">
+            <button class="acordeon-encabezado" aria-expanded="false" aria-controls="panel-laboral-2">
+              <span>Al finalizar 2° año</span>
+              <span class="acordeon-flecha"><span class="material-symbols-outlined">expand_more</span></span>
+            </button>
+            <div class="acordeon-panel" id="panel-laboral-2" role="region" hidden>
+              <div class="acordeon-contenido">
+                <ul>
+                  <li>Diseñador/a gráfico y dibujante artístico, con capacidad para desempeñarse en empresas de diseño gráfico, periódicos,
+                    imprentas y departamentos de publicidad.</li>
+                  <li>Ocupaciones profesionales en mercadeo y publicidad.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- FINALIZAR TERCER AÑO -->
+          <div class="acordeon-item">
+            <button class="acordeon-encabezado" aria-expanded="false" aria-controls="panel-laboral-3">
+              <span>Al finalizar 3° año</span>
+              <span class="acordeon-flecha"><span class="material-symbols-outlined">expand_more</span></span>
+            </button>
+            <div class="acordeon-panel" id="panel-laboral-3" role="region" hidden>
+              <div class="acordeon-contenido">
+                <ul>
+                  <li>Diseñador/a gráfico y dibujante artístico,
+                  con opción de trabajar en empresas de diseño gráfico, editoriales, agencias de publicidad o de forma independiente.</li>
+                  <li>Técnico/a en Arte Gráfico.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+       <!-- GALERÍA -->
+    <section>
+      <h2 class="titulo-secundario">Galeria</h2>
+
+      <div class="carrusel" role="region" aria-label="Carrusel de imágenes de egresados">
+        <div class="carrusel__pista">
+
+          <!-- GRUPO PRINCIPAL -->
+          <div class="carrusel__grupo">
+            <button type="button" class="carrusel__boton">
+              <img src="/img/insalito.png" alt="Egresados de Desarrollo de Software" class="carrusel__imagen">
+            </button>
+            <button type="button" class="carrusel__boton">
+              <img src="/img/image.png" alt="Egresados de Desarrollo de Software" class="carrusel__imagen">
+            </button>
+            <button type="button" class="carrusel__boton">
+              <img src="/img/insalito.png" alt="Egresados de Desarrollo de Software" class="carrusel__imagen">
+            </button>
+            <button type="button" class="carrusel__boton">
+              <img src="/img/image.png" alt="Egresados de Desarrollo de Software" class="carrusel__imagen">
+            </button>
+            <button type="button" class="carrusel__boton">
+              <img src="/img/insalito.png" alt="Egresados de Desarrollo de Software" class="carrusel__imagen">
+            </button>
+          </div>
+
+          <!-- COPIA PARA EL LOOP INFINITO -->
+          <div class="carrusel__grupo" aria-hidden="true">
+            <button type="button" class="carrusel__boton" tabindex="-1">
+              <img src="/img/insalito.png" alt="" class="carrusel__imagen">
+            </button>
+            <button type="button" class="carrusel__boton" tabindex="-1">
+              <img src="/img/image.png" alt="" class="carrusel__imagen">
+            </button>
+            <button type="button" class="carrusel__boton" tabindex="-1">
+              <img src="/img/insalito.png" alt="" class="carrusel__imagen">
+            </button>
+            <button type="button" class="carrusel__boton" tabindex="-1">
+              <img src="/img/image.png" alt="" class="carrusel__imagen">
+            </button>
+            <button type="button" class="carrusel__boton" tabindex="-1">
+              <img src="/img/insalito.png" alt="" class="carrusel__imagen">
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- MODAL -->
+      <div class="modal-imagen" id="modalImagen" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Vista ampliada de la imagen">
+        <div class="modal-imagen__fondo" data-cerrar-modal></div>
+        <div class="modal-imagen__contenido">
+          <button type="button" class="modal-imagen__cerrar" data-cerrar-modal aria-label="Cerrar">&times;</button>
+          <img src="" alt="" class="modal-imagen__imagen">
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+</body>
+</html>

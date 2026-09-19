@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eventos</title>
+
+  <link rel="stylesheet" href="/css/headerglobal.css">
+  <link rel="stylesheet" href="/css/menuglobal.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+  <link rel="shortcut icon" href="/img/logoinsal2.png" type="image/x-icon">
+  <script src="/js/compoheader.js" defer></script>
+  <link rel="stylesheet" href="/css/eventos.css">
+  <script src="/js/eventos.js" defer></script>
+  <script src="/js/compomenu.js"></script>
+  <script src="/js/oferta.js"></script>
+</head>
+
+<body data-carrera="Eventos">
+  <!-- HEADER -->
+  <div id="header-container"></div>
+  
+    <!-- MENÚ (botón + overlay + nav, inyectados por compomenu.js) -->
+  <div id="menu-container"></div>
+
+
+  <main class="pagina-eventos">
+    <!-- ==================== CARRUSEL DE BANNERS ==================== -->
+    <section class="carrusel" aria-label="Noticias destacadas">
+      <div class="carrusel-contenido">
+        <article class="diapositiva">
+          <img src="/img/insalito.png" alt="Banner de eventos y actividades del INSAL">
+        </article>
+        <article class="diapositiva">
+          <img src="/img/image.png" alt="Banner de actividades de la comunidad educativa">
+        </article>
+        <article class="diapositiva">
+          <img src="/img/insalito.png" alt="Banner de formación integral del INSAL">
+        </article>
+      </div>
+      <button class="flecha flecha-anterior" type="button" aria-label="Diapositiva anterior">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="m15 4-8 8 8 8"></path>
+        </svg>
+      </button>
+      <button class="flecha flecha-siguiente" type="button" aria-label="Diapositiva siguiente">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="m9 4 8 8-8 8"></path>
+        </svg>
+      </button>
+      <div class="puntos-carrusel"></div>
+    </section>
+    <!-- ==================== TARJETAS DE EVENTOS ==================== -->
+    <section class="seccion-eventos" aria-labelledby="titulo-eventos">
+      <div class="encabezado-eventos">
+        
+        <h2 id="titulo-eventos">Eventos y actividades</h2>
+        <p>Momentos que reúnen, inspiran y muestran el talento de nuestra comunidad educativa.</p>
+      </div>
+      <div class="linea-naranja"></div>
+
+      <div class="tarjetas-eventos">
+        <article class="tarjeta-evento tarjeta-naranja">
+          <div class="imagen-evento">
+            <img class="imagen-activa" src="/img/insalito.png" alt="Estudiantes participando en Expotecnía">
+            <img src="/img/image.png" alt="Proyecto tecnológico del INSAL">
+            <img src="/img/insalito.png" alt="Exposición estudiantil del INSAL">
+            <span class="esquina-icono">
+              <svg viewBox="0 0 32 32" aria-hidden="true">
+                <path d="M10 8h12v16H10zM6 12v8m20-8v8M14 4v4m4-4v4m-4 20v-4m4 4v-4M6 14h4m12 0h4M6 18h4m12 0h4"></path>
+              </svg>
+            </span>
+          </div>
+          <div class="contenido-evento">
+            <h3>Expotecnía</h3>
+            <p>Estudiantes presentan proyectos e innovaciones tecnológicas desarrolladas durante el año.</p>
+            <a href="/html/expotecnia.html">Ver evento <span>→</span></a>
+          </div>
+        </article>
+
+        <article class="tarjeta-evento tarjeta-azul">
+          <div class="imagen-evento">
+            <img class="imagen-activa" src="/img/image.png" alt="Actividad deportiva del Instituto Nacional San Luis">
+            <img src="/img/evento-2-2.jpg" alt="Competencia deportiva del INSAL">
+            <img src="/img/evento-2-3.jpg" alt="Equipo deportivo del INSAL">
+            <span class="esquina-icono">
+              <svg viewBox="0 0 32 32" aria-hidden="true">
+                <circle cx="16" cy="12" r="6"></circle>
+                <path d="M11 17 9 27l7-4 7 4-2-10M10 12h12M16 6v12"></path>
+              </svg>
+            </span>
+          </div>
+          <div class="contenido-evento">
+            <h3>Feria de logros</h3>
+            <p>Estudiantes presentan proyectos e innovaciones tecnológicas desarrolladas durante el año.</p>
+            <a href="/html/logros.html">Ver evento <span>→</span></a>
+          </div>
+        </article>
+
+        <article class="tarjeta-evento tarjeta-naranja">
+          <div class="imagen-evento">
+            <img class="imagen-activa" src="/img/insalito.png" alt="Actividad cultural del Instituto Nacional San Luis">
+            <img src="/img/evento-3-2.jpg" alt="Presentación cultural del INSAL">
+            <img src="/img/evento-3-3.jpg" alt="Actividad artística del INSAL">
+            <span class="esquina-icono">
+              <svg viewBox="0 0 32 32" aria-hidden="true">
+                <circle cx="16" cy="16" r="11"></circle>
+                <path d="M5 16h22M16 5c4 4 4 18 0 22M16 5c-4 4-4 18 0 22M7 10h18M7 22h18"></path>
+              </svg>
+            </span>
+          </div>
+          <div class="contenido-evento">
+            <h3>Intramuros</h3>
+            <p>Estudiantes presentan proyectos e innovaciones tecnológicas desarrolladas durante el año.</p>
+            <a href="/html/intramuros.html">Ver evento <span>→</span></a>
+          </div>
+        </article>
+
+        <article class="tarjeta-evento tarjeta-azul">
+          <div class="imagen-evento">
+            <img class="imagen-activa" src="/img/image.png" alt="Actividad musical del Instituto Nacional San Luis">
+            <img src="/img/evento-4-2.jpg" alt="Presentación musical del INSAL">
+            <img src="/img/evento-4-3.jpg" alt="Ensayo musical del INSAL">
+            <span class="esquina-icono">
+              <svg viewBox="0 0 32 32" aria-hidden="true">
+                <path d="M20 7v16M20 7l9-2v16M20 23c0 3-3 5-6 5s-5-1-5-3 2-4 5-4 6 1 6 3"></path>
+              </svg>
+            </span>
+          </div>
+          <div class="contenido-evento">
+            <h3>English Day</h3>
+            <p>Estudiantes presentan proyectos e innovaciones tecnológicas desarrolladas durante el año.</p>
+            <a href="/html/english.html">Ver evento <span>→</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==================== CALENDARIO ESCOLAR ==================== -->
+    <section class="calendario-escolar" aria-labelledby="titulo-calendario">
+      <div class="nombre-calendario">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <rect x="5" y="7" width="22" height="20" rx="2"></rect>
+          <path d="M10 4v6m12-6v6M5 13h22M10 17h.01m6 0h.01m6 0h.01m-12 5h.01m6 0h.01m6 0h.01"></path>
+        </svg>
+        <h2 id="titulo-calendario">Calendario<br>Escolar 2026</h2>
+      </div>
+      <div class="informacion-calendario">
+        <p>Consulta los períodos y principales fechas del año lectivo.</p>
+        
+      </div>
+      <div class="boton-calendario">
+        <a id="descargar-calendario" href="/files/calendarioINSAL_2026.pdf">
+          Descargar PDF
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 4v11m0 0-4-4m4 4 4-4M5 19h14"></path>
+          </svg>
+        </a>
+        <small>(Se abre en una pestaña nueva)</small>
+      </div>
+    </section>
+
+    <!-- ==================== CALENDARIZACION MENSUAL ==================== -->
+    <section class="calendarizacion" id="calendarizacion" aria-labelledby="titulo-calendarizacion">
+      <h2 id="titulo-calendarizacion">Calendarizacion lunes civicos 2026</h2>
+      <div class="filtros-meses" role="tablist" aria-label="Filtrar calendarización por mes">
+        <button class="filtro-mes activo" type="button" role="tab" aria-selected="true" data-mes="febrero">FEB</button>
+        <button class="filtro-mes" type="button" role="tab" aria-selected="false" data-mes="marzo">MAR</button>
+        <button class="filtro-mes" type="button" role="tab" aria-selected="false" data-mes="abril">ABR</button>
+        <button class="filtro-mes" type="button" role="tab" aria-selected="false" data-mes="mayo">MAY</button>
+        <button class="filtro-mes" type="button" role="tab" aria-selected="false" data-mes="junio">JUN</button>
+        <button class="filtro-mes" type="button" role="tab" aria-selected="false" data-mes="julio">JUL</button>
+        <button class="filtro-mes" type="button" role="tab" aria-selected="false" data-mes="agosto">AGO</button>
+        <button class="filtro-mes" type="button" role="tab" aria-selected="false" data-mes="septiembre">SEP</button>
+        <button class="filtro-mes" type="button" role="tab" aria-selected="false" data-mes="octubre">OCT</button>
+        <button class="filtro-mes" type="button" role="tab" aria-selected="false" data-mes="noviembre">NOV</button>
+      </div>
+      <div class="contenido-mes activo" data-contenido="febrero" role="tabpanel">
+        <div class="encabezado-mes"><span>FEBRERO</span><strong>El amor y la amistad</strong></div>
+        <div class="fechas-mes"><div><strong>02/02/2026</strong><small>3 AP S A</small></div><div><strong>09/02/2026</strong><small>3 AP S B</small></div><div><strong>16/02/2026</strong><small>3 DG</small></div><div><strong>23/02/2026</strong><small>3 SE</small></div></div>
+      </div>
+      <div class="contenido-mes" data-contenido="marzo" role="tabpanel"><div class="encabezado-mes"><span>MARZO</span><strong>La tolerancia</strong></div><div class="fechas-mes"><div><strong>02/03/2026</strong><small>2 AP S A</small></div><div><strong>09/03/2026</strong><small>2 AP S B</small></div><div><strong>16/03/2026</strong><small>2 DG</small></div><div><strong>23/03/2026</strong><small>2 SEYER</small></div></div></div>
+      <div class="contenido-mes" data-contenido="abril" role="tabpanel"><div class="encabezado-mes"><span>ABRIL</span><strong>El respeto</strong></div><div class="fechas-mes"><div><strong>07/04/2026</strong><small>2 LCyG</small></div><div><strong>13/04/2026</strong><small>2 DS B</small></div><div><strong>20/04/2026</strong><small>2 AC</small></div><div><strong>27/04/2026</strong><small>2 General C</small></div></div></div>
+      <div class="contenido-mes" data-contenido="mayo" role="tabpanel"><div class="encabezado-mes"><span>MAYO</span><strong>La responsabilidad</strong></div><div class="fechas-mes"><div><strong>04/05/2026</strong><small>2 General D</small></div><div><strong>11/05/2026</strong><small>1 General C</small></div><div><strong>18/05/2026</strong><small>1 General D</small></div><div><strong>25/05/2026</strong><small>1 General E</small></div></div></div>
+      <div class="contenido-mes" data-contenido="junio" role="tabpanel"><div class="encabezado-mes"><span>JUNIO</span><strong>La bondad</strong></div><div class="fechas-mes"><div><strong>01/06/2026</strong><small>1 General F</small></div><div><strong>08/06/2026</strong><small>3 AP S A</small></div><div><strong>15/06/2026</strong><small>3 AP S B</small></div><div><strong>29/06/2026</strong><small>3 DG</small></div></div></div>
+      <div class="contenido-mes" data-contenido="julio" role="tabpanel"><div class="encabezado-mes"><span>JULIO</span><strong>La paz</strong></div><div class="fechas-mes"><div><strong>06/07/2026</strong><small>3 SE</small></div><div><strong>13/07/2026</strong><small>2 AP S A</small></div><div><strong>20/07/2026</strong><small>2 AP S B</small></div><div><strong>27/07/2026</strong><small>2 DG</small></div></div></div>
+      <div class="contenido-mes" data-contenido="agosto" role="tabpanel"><div class="encabezado-mes"><span>AGOSTO</span><strong>La honradez</strong></div><div class="fechas-mes"><div><strong>10/08/2026</strong><small>2 SEYER</small></div><div><strong>17/08/2026</strong><small>2 LCyG</small></div><div><strong>24/08/2026</strong><small>2 DS B</small></div><div><strong>31/08/2026</strong><small>2 AC</small></div></div></div>
+      <div class="contenido-mes" data-contenido="septiembre" role="tabpanel"><div class="encabezado-mes"><span>SEPTIEMBRE</span><strong>La libertad</strong></div><div class="fechas-mes"><div><strong>07/09/2026</strong><small>2 General C</small></div><div><strong>21/09/2026</strong><small>2 General D</small></div><div><strong>28/09/2026</strong><small>1 General C</small></div></div></div>
+      <div class="contenido-mes" data-contenido="octubre" role="tabpanel"><div class="encabezado-mes"><span>OCTUBRE</span><strong>La justicia</strong></div><div class="fechas-mes"><div><strong>05/10/2026</strong><small>1 General D</small></div><div><strong>12/10/2026</strong><small>1 General E</small></div><div><strong>19/10/2026</strong><small>1 General F</small></div><div><strong>26/10/2026</strong><small>3 AP S A</small></div></div></div>
+      <div class="contenido-mes" data-contenido="noviembre" role="tabpanel"><div class="encabezado-mes"><span>NOVIEMBRE</span><strong>La equidad</strong></div><div class="fechas-mes"><div><strong>03/11/2026</strong><small>3 AP S B</small></div><div><strong>12/11/2026</strong><small>3 DG</small></div></div></div>
+    </section>
+  </main>
+
+</body>
+</html>

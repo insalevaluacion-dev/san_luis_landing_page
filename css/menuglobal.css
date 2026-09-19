@@ -1,0 +1,460 @@
+/* =========================================================
+   VARIABLES (necesarias para el menú)
+   Si la página ya carga ofertaglobal.css u otro archivo
+   que defina estas mismas variables, no hay conflicto:
+   son idénticas.
+   ========================================================= */
+
+:root {
+  --white:      #ffffff;
+  --text:       #1f2937;
+
+  --azul:       #0a4c8f;
+  --naranja:    #ff9723;
+  --azul-bg:    rgba(10, 76, 143, 0.14);
+  --naranja-bg: rgba(255, 151, 35, 0.16);
+
+  --shadow-md:  0 10px 30px rgba(15, 23, 42, 0.12);
+  --shadow-lg:  0 18px 50px rgba(15, 23, 42, 0.16);
+
+  --ease:       cubic-bezier(0.4, 0, 0.2, 1);
+  --bounce:     cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+
+/* =========================================================
+   MENÚ LATERAL
+   ========================================================= */
+
+/* ---------- Botón flotante ---------- */
+
+.btn-menu-glass {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 9999;
+
+  width: 58px;
+  height: 58px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(10, 76, 143, .15);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, .96);
+  color: var(--azul);
+
+  box-shadow: var(--shadow-md);
+
+  cursor: pointer;
+
+  transition:
+    transform .25s var(--bounce),
+    box-shadow .25s ease,
+    background .25s ease;
+}
+
+.btn-menu-glass:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: var(--shadow-lg);
+  background: var(--white);
+}
+
+.btn-menu-glass:active {
+  transform: scale(.94);
+}
+
+.icono-menu {
+  display: grid;
+  place-items: center;
+}
+
+.icono-menu .material-symbols-outlined {
+  font-size: 28px;
+  color: var(--azul);
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 600,
+    "GRAD" 0,
+    "opsz" 24;
+}
+
+/* ---------- Fondo oscuro (overlay) ---------- */
+
+.overlay-menu {
+  position: fixed;
+  inset: 0;
+
+  z-index: 200;
+
+  background: rgba(15, 23, 42, .42);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity .3s ease,
+    visibility .3s ease;
+}
+
+.overlay-menu.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ---------- Panel deslizante ---------- */
+
+.menu-lateral {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  z-index: 210;
+
+  width: min(330px, 88vw);
+  height: 100dvh;
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--white);
+
+  border-right: 1px solid rgba(15, 23, 42, .08);
+  border-radius: 0 24px 24px 0;
+
+  box-shadow: 18px 0 45px rgba(15, 23, 42, .18);
+
+  overflow: hidden;
+
+  transform: translateX(-102%);
+  transition: transform .4s var(--ease);
+}
+
+.menu-lateral.active {
+  transform: translateX(0);
+}
+
+/* ---------- Cabecera del menú ---------- */
+
+.menu-lateral__cabecera {
+  position: relative;
+
+  padding: 24px 22px;
+
+  background: var(--azul);
+  color: var(--white);
+
+  border-bottom: 4px solid var(--naranja);
+}
+
+.menu-lateral__cabecera img {
+  width: 62px;
+  height: 62px;
+
+  display: block;
+  object-fit: contain;
+
+  margin-bottom: 12px;
+}
+
+.menu-lateral__cabecera h3 {
+  font-size: 1.05rem;
+  line-height: 1.25;
+  font-weight: 800;
+}
+
+/* ---------- Botón cerrar ---------- */
+
+.menu-lateral__cerrar {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+
+  width: 40px;
+  height: 40px;
+
+  display: grid;
+  place-items: center;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, .12);
+  color: var(--white);
+
+  cursor: pointer;
+
+  transition:
+    background .2s ease,
+    transform .2s ease;
+}
+
+.menu-lateral__cerrar:hover {
+  background: var(--naranja);
+}
+
+/* ---------- Navegación ---------- */
+
+.menu-lateral__lista {
+  list-style: none;
+
+  padding: 16px 12px;
+
+  display: grid;
+  gap: 5px;
+
+  overflow-y: auto;
+}
+
+.menu-lateral__lista a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 13px 14px;
+
+  border-radius: 14px;
+
+  color: var(--text);
+  font-size: .94rem;
+  font-weight: 600;
+
+  transition:
+    background .2s ease,
+    color .2s ease,
+    transform .2s ease;
+}
+
+.menu-lateral__lista a .material-symbols-outlined {
+  flex-shrink: 0;
+
+  font-size: 21px;
+  color: var(--azul);
+}
+
+.menu-lateral__lista a:hover {
+  background: var(--naranja-bg);
+  color: var(--azul);
+  transform: translateX(4px);
+}
+
+.menu-lateral__volver a {
+  color: var(--azul);
+  border-bottom: 1px solid rgba(15, 23, 42, .08);
+  border-radius: 0 0 12px 12px;
+  margin-bottom: 4px;
+}
+
+/* ---------- Accesibilidad (foco por teclado) ---------- */
+
+.menu-lateral__cerrar:focus-visible,
+.btn-menu-glass:focus-visible,
+.menu-lateral__lista a:focus-visible {
+  outline: 3px solid rgba(10, 76, 143, .25);
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   AJUSTES TÁCTILES
+   ========================================================= */
+
+@media (hover: none) {
+  .menu-lateral__lista a:hover,
+  .btn-menu-glass:hover {
+    transform: none;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+/* ---------- Tablet (<= 991px) ---------- */
+
+@media (max-width: 991px) {
+  .menu-lateral {
+    width: min(350px, 88vw);
+  }
+}
+
+/* ---------- Móvil grande (<= 767px) ---------- */
+
+@media (max-width: 767px) {
+
+  .btn-menu-glass {
+    left: max(12px, env(safe-area-inset-left));
+    bottom: max(12px, env(safe-area-inset-bottom));
+    width: 54px;
+    height: 54px;
+  }
+
+  .icono-menu .material-symbols-outlined {
+    font-size: 27px;
+  }
+
+  .overlay-menu {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(15, 23, 42, 0.48);
+  }
+
+  .menu-lateral {
+    width: min(330px, 88vw);
+    border-radius: 0 20px 20px 0;
+  }
+
+  .menu-lateral__cabecera {
+    padding:
+      max(18px, env(safe-area-inset-top))
+      18px
+      18px;
+  }
+
+  .menu-lateral__lista {
+    padding: 12px 10px;
+    gap: 4px;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .menu-lateral__lista a {
+    min-height: 48px;
+    padding: 13px 12px;
+    font-size: 0.94rem;
+  }
+}
+
+/* ---------- Móvil pequeño (<= 400px) ---------- */
+
+@media (max-width: 400px) {
+
+  .btn-menu-glass {
+    width: 48px;
+    height: 48px;
+    left: 9px;
+    bottom: 9px;
+  }
+
+  .icono-menu .material-symbols-outlined {
+    font-size: 25px;
+  }
+
+  .menu-lateral {
+    width: min(310px, 91vw);
+  }
+
+  .menu-lateral__cabecera {
+    padding: 16px 14px;
+  }
+
+  .menu-lateral__cabecera img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 9px;
+  }
+
+  .menu-lateral__cabecera h3 {
+    font-size: 0.92rem;
+  }
+
+  .menu-lateral__lista {
+    padding: 9px 8px;
+  }
+
+  .menu-lateral__lista a {
+    min-height: 44px;
+    padding: 10px;
+    font-size: 0.84rem;
+    gap: 8px;
+  }
+
+  .menu-lateral__lista a .material-symbols-outlined {
+    font-size: 19px;
+  }
+}
+
+/* ---------- Móvil muy pequeño (<= 320px) ---------- */
+
+@media (max-width: 320px) {
+
+  .menu-lateral {
+    width: 95vw;
+  }
+
+  .menu-lateral__cabecera {
+    padding: 14px 12px;
+  }
+
+  .menu-lateral__cabecera img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .menu-lateral__cabecera h3 {
+    font-size: 0.86rem;
+  }
+
+  .menu-lateral__lista {
+    padding: 7px;
+  }
+
+  .menu-lateral__lista a {
+    min-height: 42px;
+    padding: 9px;
+    font-size: 0.78rem;
+  }
+
+  .btn-menu-glass {
+    left: 7px;
+    bottom: 7px;
+    width: 43px;
+    height: 43px;
+  }
+
+  .icono-menu .material-symbols-outlined {
+    font-size: 23px;
+  }
+}
+
+/* ---------- Alturas pequeñas ----------
+   Evita que el menú se salga verticalmente
+   en móviles horizontales o pantallas bajas. */
+
+@media (max-height: 650px) and (max-width: 767px) {
+
+  .menu-lateral__cabecera {
+    padding-top: 14px;
+    padding-bottom: 12px;
+  }
+
+  .menu-lateral__cabecera img {
+    width: 46px;
+    height: 46px;
+    margin-bottom: 7px;
+  }
+
+  .menu-lateral__lista {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .menu-lateral__lista a {
+    min-height: 42px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+  }
+}
+
+/* ---------- Orientación horizontal en móviles ---------- */
+
+@media (orientation: landscape) and (max-width: 900px) {
+  .menu-lateral {
+    width: min(330px, 72vw);
+  }
+}

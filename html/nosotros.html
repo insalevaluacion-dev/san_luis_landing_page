@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Conoce el Instituto Nacional San Luis, su trayectoria, misión, visión, valores y oferta educativa."
+    />
+    <title>Sobre Nosotros</title>
+    <link rel="shortcut icon" href="/img/logoinsal2.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+    <link rel="stylesheet" href="/css/nosotros.css" />
+    <link rel="stylesheet" href="/css/headerglobal.css" />
+    <link rel="stylesheet" href="/css/menuglobal.css">
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <script src="/js/compoheader.js" defer></script>
+    <script src="/js/nosotros.js" defer></script>
+    <script src="/js/compomenu.js"></script>
+    <script src="/js/oferta.js"></script>
+  </head>
+
+  <body data-carrera="Sobre nostotros"class="pagina-nosotros">
+
+    <!-- MENÚ (botón + overlay + nav, inyectados por compomenu.js) -->
+  <div id="menu-container"></div>
+    
+  
+  <div id="header-container"></div>
+
+    <main>
+      <!-- Portada -->
+      <section class="portada">
+        <video
+          class="portada-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster="/img/especialidad.jpg"
+        >
+          <source src="/img/Video promocional DS.mp4" type="video/mp4" />
+        </video>
+
+        <div class="portada-capa"></div>
+
+        <header class="portada-header">
+          <a href="/index.html">
+            <img
+              src="/img/logoinsal2.png"
+              alt="Logo del Instituto Nacional San Luis"
+              class="logo-insal"
+              width="300"
+              height="300"
+            />
+          </a>
+          <div class="logo-gobierno">
+            <img
+              src="/img/logo2.png"
+              alt="Logo del Gobierno de El Salvador"
+              width="500"
+              height="150"
+            />
+          </div>
+        </header>
+
+        <div class="portada-texto">
+          <p class="subtitulo">Conoce nuestra institución</p>
+          <h1 class="titulo-principal">Forma parte<br />de nosotros</h1>
+
+          <a href="#siguiente" class="flecha-abajo" aria-label="Ir a la siguiente sección">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 4v16m0 0l-6-6m6 6l6-6" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="diagonal-naranja"></div>
+      </section>
+
+      <!-- Bienvenida -->
+      <section id="siguiente" class="seccion-bienvenida">
+        <div class="fila-bienvenida">
+          <div class="tarjeta-texto">
+            <h2 class="bienvenida-titulo">¡Bienvenido!</h2>
+            <p class="bienvenida-texto">
+              En el <strong>Instituto Nacional "San Luis"</strong> formamos estudiantes con
+              conocimientos, valores y habilidades para afrontar los retos del mundo actual. Nuestra
+              institución se caracteriza por su compromiso con la excelencia académica, la
+              innovación y el crecimiento integral de cada alumno. Contamos con un cuerpo docente
+              altamente comprometido, instalaciones equipadas para el aprendizaje práctico y una
+              amplia oferta de especialidades y bachilleratos técnicos que responden a las
+              necesidades del entorno productivo del país. A lo largo de más de seis décadas de
+              trayectoria, hemos formado generaciones de jóvenes con pensamiento crítico, sentido de
+              responsabilidad y vocación de servicio, capaces de integrarse con éxito tanto al mundo
+              laboral como a la educación superior.
+            </p>
+          </div>
+
+          <div class="columna-video">
+            <div class="tarjeta-video">
+              <video class="bienvenida-video" poster="/img/especialidad.jpg" preload="none">
+                <source src="/img/Video promocional DS.mp4" type="video/mp4" />
+              </video>
+
+              <button class="boton-reproducir" aria-label="Reproducir video">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </button>
+            </div>
+
+            <div class="fila-estadisticas">
+              <div class="tarjeta-estadistica">
+                <div class="icono-estadistica icono-estadistica--naranja">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                  </svg>
+                </div>
+                <p class="numero-estadistica">+1,500</p>
+                <p class="descripcion-estadistica">Estudiantes activos</p>
+              </div>
+
+              <div class="tarjeta-estadistica">
+                <div class="icono-estadistica icono-estadistica--azul">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z" />
+                    <path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5" />
+                  </svg>
+                </div>
+                <p class="numero-estadistica">8</p>
+                <p class="descripcion-estadistica">Especialidades y bachilleratos</p>
+              </div>
+
+              <div class="tarjeta-estadistica">
+                <div class="icono-estadistica icono-estadistica--naranja">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" />
+                    <path d="M16 2v4M8 2v4M3 10h18" />
+                  </svg>
+                </div>
+                <p class="numero-estadistica">+60</p>
+                <p class="descripcion-estadistica">Años de trayectoria</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Galería -->
+      <section class="galeria">
+        <div class="galeria-intro-wrap">
+          <div class="galeria-intro">
+            <h2>Conoce nuestra</h2>
+            <h2>institución</h2>
+
+            <a href="#galeria-fotos" class="galeria-scroll-hint" aria-label="Ver galería de fotos">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 4v16m0 0l-6-6m6 6l6-6" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="galeria-grid-wrap" id="galeria-fotos">
+          <div class="galeria-grid">
+            <!-- TODO: reemplaza cada alt por la descripción real de la foto -->
+            <figure class="galeria-item">
+              <img src="/img/image.png" alt="Instalaciones del Instituto Nacional San Luis" class="galeria-img" loading="lazy" width="1200" height="800" />
+              <span class="galeria-overlay">
+                <span class="galeria-overlay-icono">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+                </span>
+              </span>
+              <span class="galeria-item-barra"></span>
+            </figure>
+
+            <figure class="galeria-item">
+              <img src="/img/insalito.png" alt="Escudo del Instituto Nacional San Luis" class="galeria-img" loading="lazy" width="800" height="800" />
+              <span class="galeria-overlay">
+                <span class="galeria-overlay-icono">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+                </span>
+              </span>
+              <span class="galeria-item-barra"></span>
+            </figure>
+
+            <figure class="galeria-item">
+              <img src="/img/image.png" alt="Patio y espacios educativos del instituto" class="galeria-img" loading="lazy" width="1200" height="800" />
+              <span class="galeria-overlay">
+                <span class="galeria-overlay-icono">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+                </span>
+              </span>
+              <span class="galeria-item-barra"></span>
+            </figure>
+
+            <figure class="galeria-item">
+              <img src="/img/insalito.png" alt="Comunidad educativa del instituto" class="galeria-img" loading="lazy" width="800" height="800" />
+              <span class="galeria-overlay">
+                <span class="galeria-overlay-icono">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+                </span>
+              </span>
+              <span class="galeria-item-barra"></span>
+            </figure>
+
+            <figure class="galeria-item">
+              <img src="/img/image.png" alt="Estudiantes y actividades académicas" class="galeria-img" loading="lazy" width="1200" height="800" />
+              <span class="galeria-overlay">
+                <span class="galeria-overlay-icono">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+                </span>
+              </span>
+              <span class="galeria-item-barra"></span>
+            </figure>
+
+            <figure class="galeria-item">
+              <img src="/img/insalito.png" alt="Identidad institucional del Instituto Nacional San Luis" class="galeria-img" loading="lazy" width="800" height="800" />
+              <span class="galeria-overlay">
+                <span class="galeria-overlay-icono">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+                </span>
+              </span>
+              <span class="galeria-item-barra"></span>
+            </figure>
+
+            <figure class="galeria-item">
+              <img src="/img/image.png" alt="Actividad formativa del instituto" class="galeria-img" loading="lazy" width="1200" height="800" />
+              <span class="galeria-overlay">
+                <span class="galeria-overlay-icono">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+                </span>
+              </span>
+              <span class="galeria-item-barra"></span>
+            </figure>
+
+            <figure class="galeria-item">
+              <img src="/img/insalito.png" alt="Historia del Instituto Nacional San Luis" class="galeria-img" loading="lazy" width="800" height="800" />
+              <span class="galeria-overlay">
+                <span class="galeria-overlay-icono">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+                </span>
+              </span>
+              <span class="galeria-item-barra"></span>
+            </figure>
+
+            <figure class="galeria-item">
+              <img src="/img/image.png" alt="Formación técnica y académica" class="galeria-img" loading="lazy" width="1200" height="800" />
+              <span class="galeria-overlay">
+                <span class="galeria-overlay-icono">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+                </span>
+              </span>
+              <span class="galeria-item-barra"></span>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- Modal de la galería -->
+      <div class="galeria-modal" id="galeriaModal" aria-hidden="true">
+        <button class="galeria-modal-cerrar" aria-label="Cerrar">&times;</button>
+        <button class="galeria-modal-prev" aria-label="Anterior">&#8249;</button>
+        <button class="galeria-modal-next" aria-label="Siguiente">&#8250;</button>
+
+        <div class="galeria-modal-marco">
+          <img alt="Imagen ampliada de la galería" class="galeria-modal-img" />
+          <span class="galeria-modal-contador">
+            <span class="galeria-modal-actual">1</span> / <span class="galeria-modal-total">1</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Misión, visión y valores -->
+      <section class="mision-vision">
+      
+
+        <div class="mv-fila">
+          <article class="mv-tarjeta mv-tarjeta--mision">
+            <p class="mv-eyebrow">Misión</p>
+            <h3 class="mv-titulo">Lo que hacemos</h3>
+            <span class="mv-linea"></span>
+            <p class="mv-texto">
+              Somos una institución de educación media del sector público ubicado en el distrito de
+              Soyapango, que forma a los alumnos en las dimensiones: morales, sociales, cívicas,
+              humanas, intelectuales y tecnológicas; a través de un equipo profesional de trabajo
+              altamente comprometido con el desarrollo de la sociedad; preparando de esta forma a
+              los estudiantes para incorporarse al campo laboral y/o a los estudios superiores.
+            </p>
+          </article>
+
+          <article class="mv-tarjeta mv-tarjeta--vision">
+            <p class="mv-eyebrow">Visión</p>
+            <h3 class="mv-titulo">Hacia dónde vamos</h3>
+            <span class="mv-linea"></span>
+            <p class="mv-texto">
+              Ser una institución que se identifique a nivel local y regional como un referente
+              educativo, acreditada para impartir la diversidad de modalidades que satisfagan las
+              necesidades de la sociedad; y que cuente con los recursos humanos y tecnológicos
+              debidamente actualizados como herramienta formadora de personas integrales.
+            </p>
+          </article>
+        </div>
+
+        <div class="valores-wrap">
+          <div class="valores-grid">
+            <div class="valor-item">
+              <span class="valor-icono">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M12 21s-6.7-4.3-9.3-8.2C1 10.1 1.5 6.7 4.4 5.1c2.2-1.2 4.9-.6 6.3 1.4l1.3 1.8 1.3-1.8c1.4-2 4.1-2.6 6.3-1.4 2.9 1.6 3.4 5 1.7 7.7C18.7 16.7 12 21 12 21z"
+                  />
+                </svg>
+              </span>
+              <h3 class="valor-titulo">Respeto</h3>
+              <p class="valor-desc">Valoramos a cada persona</p>
+            </div>
+
+            <div class="valor-item">
+              <span class="valor-icono">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5-4.8-4.6 6.6-.9z"
+                  />
+                </svg>
+              </span>
+              <h3 class="valor-titulo">Excelencia</h3>
+              <p class="valor-desc">Damos lo mejor siempre</p>
+            </div>
+
+            <div class="valor-item">
+              <span class="valor-icono">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </span>
+              <h3 class="valor-titulo">Comunidad</h3>
+              <p class="valor-desc">Crecemos juntos</p>
+            </div>
+
+            <div class="valor-item">
+              <span class="valor-icono">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M9 18h6" />
+                  <path d="M9.5 21h5" />
+                  <path d="M10 21.5h4" />
+                  <path
+                    d="M8.3 14.5C6.9 13.4 6 11.7 6 9.8A6 6 0 0 1 12 4a6 6 0 0 1 6 5.8c0 1.9-.9 3.6-2.3 4.7-.8.6-1.2 1.3-1.2 2.5H9.5c0-1.2-.4-1.9-1.2-2.5Z"
+                  />
+                </svg>
+              </span>
+              <h3 class="valor-titulo">Innovación</h3>
+              <p class="valor-desc">Aprendemos con visión</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Reglamento -->
+      <section class="reglamento">
+        <div class="reglamento-tarjeta">
+          <h2 class="reglamento-titulo reglamento-anim reglamento-anim--2">Reglamento</h2>
+          
+
+          <div class="reglamento-carrusel reglamento-anim reglamento-anim--1">
+            <div class="reglamento-tabs" role="tablist" aria-label="Tipos de uniforme">
+              <button
+                id="reglamento-tab-diario"
+                class="reglamento-tab reglamento-tab--diario activa"
+                data-tab="diario"
+                role="tab"
+                aria-selected="true"
+                aria-controls="reglamento-panel"
+              >
+                Diario
+              </button>
+              <button
+                id="reglamento-tab-alternativo"
+                class="reglamento-tab reglamento-tab--alternativo"
+                data-tab="alternativo"
+                role="tab"
+                aria-selected="false"
+                aria-controls="reglamento-panel"
+              >
+                Alternativo
+              </button>
+            </div>
+
+            <div class="reglamento-foto-card">
+              <button class="reglamento-flecha reglamento-flecha--prev" aria-label="Foto anterior">
+                &#8249;
+              </button>
+
+              <div
+                class="reglamento-foto-wrap"
+                id="reglamento-panel"
+                role="tabpanel"
+                aria-labelledby="reglamento-tab-diario"
+              >
+                <img src="/img/insalito.png" alt="Uniforme diario" class="reglamento-foto" data-grupo="diario" width="800" height="800" />
+                <img src="/img/image.png" alt="Uniforme diario" class="reglamento-foto oculta" data-grupo="diario" width="1200" height="800" />
+                <img src="/img/rem.jpg" alt="Uniforme alternativo" class="reglamento-foto oculta" data-grupo="alternativo" width="1200" height="800" />
+                <img src="/img/rem2.jpg" alt="Uniforme alternativo" class="reglamento-foto oculta" data-grupo="alternativo" width="1200" height="800" />
+              </div>
+
+              <button class="reglamento-flecha reglamento-flecha--next" aria-label="Foto siguiente">
+                &#8250;
+              </button>
+            </div>
+          </div>
+
+          <div class="reglamento-reglas">
+            <div class="regla-caja regla-caja--vestimenta reglamento-anim reglamento-anim--3">
+              <div class="regla-caja-header">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                  <path d="M22 10L12 5 2 10l10 5 10-5z" />
+                  <path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5" />
+                  <path d="M22 10v6" />
+                </svg>
+              </div>
+              <div class="regla-caja-body">
+                <h3>Uniforme diario</h3>
+                <ol class="regla-lista">
+                  <li>Uniforme completo, limpio y en buen estado</li>
+                  <li>Cabello recogido u ordenado de forma pulcra</li>
+                  <li>Camisa correctamente fajada en todo momento</li>
+                  <li>Zapatos negros formales, sin tenis</li>
+                  <li>Calcetines blancos o negros, sin diseños</li>
+                  <li>Sin maquillaje ni accesorios llamativos</li>
+                  <li>Ingreso puntual según el horario establecido</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="regla-caja regla-caja--institucion reglamento-anim reglamento-anim--4">
+              <div class="regla-caja-header">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" />
+                </svg>
+              </div>
+              <div class="regla-caja-body">
+                <h3>Institucional</h3>
+                <ol class="regla-lista">
+                  <li>Chumpa o camiseta institucional autorizada</li>
+                  <li>Pants o shorts deportivos reglamentarios</li>
+                  <li>Tenis deportivos en buen estado</li>
+                  <li>Calcetines deportivos blancos, sin diseños</li>
+                  <li>Cabello sujeto durante toda la actividad</li>
+                  <li>Sin maquillaje ni esmalte de uñas</li>
+                  <li>Uso exclusivo en días de educación física</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trayectoria -->
+      <section class="trayectoria">
+        <div class="tray-contenedor">
+          <h2 class="tray-titulo">Trayectoria</h2>
+
+          <div class="tray-video tray-anim tray-anim--1">
+            <video class="tray-video-el" poster="/img/especialidad.jpg" preload="none">
+              <source src="/img/Video promocional DS.mp4" type="video/mp4" />
+            </video>
+            <button class="tray-play" aria-label="Reproducir video">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </button>
+          </div>
+
+          <ol class="tray-hitos">
+            <li class="tray-hito tray-hito--azul tray-anim tray-anim--2">
+              <div class="tray-hito-header">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" />
+                  <path d="M16 2v4M8 2v4M3 10h18" />
+                  <path d="m9 16 2 2 4-4" />
+                </svg>
+                <span>1965</span>
+              </div>
+              <p>Fundación del Instituto Nacional San Luis Soyapango</p>
+            </li>
+
+            <li class="tray-hito tray-hito--naranja tray-anim tray-anim--3">
+              <div class="tray-hito-header">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M2 4h7a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z" />
+                  <path d="M22 4h-7a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h8z" />
+                </svg>
+                <span>1978</span>
+              </div>
+              <p>Primera promoción de bachilleres del instituto</p>
+            </li>
+
+            <li class="tray-hito tray-hito--azul tray-anim tray-anim--4">
+              <div class="tray-hito-header">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+                <span>1995</span>
+              </div>
+              <p>Incorporación de nuevas especialidades y mejoras académicas</p>
+            </li>
+
+            <li class="tray-hito tray-hito--naranja tray-anim tray-anim--4">
+              <div class="tray-hito-header">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="4" width="20" height="13" rx="2" />
+                  <path d="M8 21h8M12 17v4" />
+                </svg>
+                <span>2010</span>
+              </div>
+              <p>Modernización de laboratorios y tecnología educativa</p>
+            </li>
+
+            <li class="tray-hito tray-hito--azul tray-anim tray-anim--5">
+              <div class="tray-hito-header">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+                <span>2025</span>
+              </div>
+              <p>Expansión de programas tecnológicos y educativos</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Historia en imágenes -->
+      <section class="carrusel-trayecto" aria-labelledby="historia-titulo">
+        <div class="ct-contenedor">
+          <h2 class="ct-titulo" id="historia-titulo">Nuestra historia en imágenes</h2>
+
+          <div class="ct-carrusel" id="ctCarrusel">
+            <figure class="ct-item" tabindex="0" role="button" aria-label="Ver imagen: 1965, Fundación">
+              <img src="/img/insalito.png" alt="Fundación del Instituto Nacional San Luis" class="ct-img" loading="lazy" width="800" height="800" />
+              <div class="ct-circulo"><span>1965 · Fundación</span></div>
+            </figure>
+
+            <figure class="ct-item" tabindex="0" role="button" aria-label="Ver imagen: 1978, Primera promoción">
+              <img src="/img/image.png" alt="Primera promoción de bachilleres" class="ct-img" loading="lazy" width="1200" height="800" />
+              <div class="ct-circulo"><span>1978 · Primera promoción</span></div>
+            </figure>
+
+            <figure class="ct-item" tabindex="0" role="button" aria-label="Ver imagen: 1995, Nuevas especialidades">
+              <img src="/img/insalito.png" alt="Nuevas especialidades del instituto" class="ct-img" loading="lazy" width="800" height="800" />
+              <div class="ct-circulo"><span>1995 · Nuevas especialidades</span></div>
+            </figure>
+
+            <figure class="ct-item" tabindex="0" role="button" aria-label="Ver imagen: 2010, Modernización">
+              <img src="/img/rem.jpg" alt="Modernización de laboratorios" class="ct-img" loading="lazy" width="1200" height="800" />
+              <div class="ct-circulo"><span>2010 · Modernización</span></div>
+            </figure>
+
+            <figure class="ct-item" tabindex="0" role="button" aria-label="Ver imagen: 2025, Hoy">
+              <img src="/img/rem2.jpg" alt="Instituto Nacional San Luis en la actualidad" class="ct-img" loading="lazy" width="1200" height="800" />
+              <div class="ct-circulo"><span>2025 · Hoy</span></div>
+            </figure>
+
+            <figure class="ct-item" tabindex="0" role="button" aria-label="Ver imagen: más de 60 años formando estudiantes">
+              <img src="/img/lolo.jpg" alt="Estudiantes del Instituto Nacional San Luis" class="ct-img" loading="lazy" width="1200" height="800" />
+              <div class="ct-circulo"><span>+60 años formando estudiantes</span></div>
+            </figure>
+          </div>
+
+          <div class="ct-flechas">
+            <button class="ct-flecha ct-flecha--prev" aria-label="Ver anteriores">&#8249;</button>
+            <button class="ct-flecha ct-flecha--next" aria-label="Ver siguientes">&#8250;</button>
+          </div>
+        </div>
+
+        <div class="galeria-modal" id="ctModal" aria-hidden="true">
+          <button class="galeria-modal-cerrar" aria-label="Cerrar">&times;</button>
+          <button class="galeria-modal-prev" aria-label="Anterior">&#8249;</button>
+          <button class="galeria-modal-next" aria-label="Siguiente">&#8250;</button>
+          <div class="galeria-modal-marco">
+            <img alt="Imagen ampliada de la historia institucional" class="galeria-modal-img" />
+            <span class="galeria-modal-contador">
+              <span class="galeria-modal-actual">1</span> / <span class="galeria-modal-total">1</span>
+            </span>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

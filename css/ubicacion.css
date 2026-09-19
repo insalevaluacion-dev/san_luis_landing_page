@@ -1,0 +1,503 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --white: #ffffff;
+  --naranja-principal: #ff9723ff;
+  --azul-principal: #0a4c8fff;
+  --gris: #e0e0e0;
+  --fuente-principal: "Poppins", sans-serif;
+  --radio-ubicacion: 16px;
+  --sombra-ubicacion: 0 10px 25px rgba(10, 76, 143, .1);
+  --texto-ubicacion: #243746;
+  --texto-suave-ubicacion: #7b8791;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: #f4f5f6;
+  color: var(--texto-ubicacion);
+  font-family: var(--fuente-principal);
+  line-height: 1.4;
+}
+
+.pagina-ubicacion {
+  width: min(1240px, calc(100% - 72px));
+  margin: 112px auto 64px;
+}
+
+.encabezado-ubicacion h1 {
+  margin: 0;
+  color: var(--azul-principal);
+  font-size: clamp(30px, 3vw, 42px);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.linea-ubicacion {
+  height: 3px;
+  margin-top: 9px;
+  background: var(--naranja-principal);
+}
+
+.layout-ubicacion {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(280px, .9fr);
+  gap: 30px;
+  margin-top: 14px;
+  align-items: start;
+}
+
+.contenido-ubicacion {
+  min-width: 0;
+}
+
+.tarjeta-mapa,
+.tarjeta-red,
+.tarjeta-informacion,
+.tarjeta-contacto {
+  overflow: hidden;
+  border-radius: var(--radio-ubicacion);
+  background: var(--white);
+  box-shadow: var(--sombra-ubicacion);
+}
+
+.mapa {
+  display: block;
+  width: 100%;
+  height: 500px;
+  border: 0;
+  background: #e9eef2;
+}
+
+.enlace-mapa {
+  padding: 17px 18px;
+}
+
+.enlace-mapa a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--azul-principal);
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.enlace-mapa a:hover {
+  color: var(--naranja-principal);
+}
+
+.enlace-mapa svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.redes-ubicacion {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 22px;
+}
+
+.tarjeta-red {
+  display: flex;
+  height: 520px;
+  flex-direction: column;
+}
+
+.cabecera-red {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 9px 12px;
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.cabecera-red.facebook,
+.barra-red.facebook {
+  background: var(--azul-principal);
+}
+
+.cabecera-red.instagram,
+.barra-red.instagram {
+  background: var(--naranja-principal);
+}
+
+.nombre-red {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+}
+
+.nombre-red svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.cuerpo-red {
+  min-height: 0;
+  flex: 1;
+  overflow: hidden;
+  background: var(--white);
+}
+
+.fb-page,
+.fb-page > span {
+  display: block;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+.cuerpo-red .fb-page,
+.cuerpo-red .fb-page > span {
+  flex: 1 1 auto;
+  height: 100% !important;
+}
+
+.fb-page > span > iframe,
+.fb-page iframe {
+  display: block;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  border: 0;
+}
+
+.cuerpo-red .elfsight-app-e55a2f24-973e-40ae-a462-64fce9aa0154 {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.cuerpo-red .elfsight-app-e55a2f24-973e-40ae-a462-64fce9aa0154 iframe {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  border: 0 !important;
+}
+.barra-red {
+  height: 8px;
+  flex: 0 0 8px;
+}
+
+.barra-lateral-ubicacion {
+  display: grid;
+  gap: 22px;
+}
+
+.tarjeta-informacion,
+.tarjeta-contacto {
+  padding: 23px 24px;
+}
+
+.tarjeta-informacion {
+  min-height: 500px;
+}
+
+.tarjeta-informacion h2,
+.tarjeta-contacto h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: var(--azul-principal);
+  font-size: 17px;
+}
+
+.punto-titulo {
+  width: 10px;
+  height: 10px;
+  flex: 0 0 10px;
+  border-radius: 50%;
+  background: var(--naranja-principal);
+}
+
+.lista-datos {
+  margin: 22px 0 0;
+}
+
+.dato {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  column-gap: 10px;
+  padding: 9px 0;
+}
+
+.dato.separador {
+  margin-top: 8px;
+  padding-top: 18px;
+  border-top: 1px solid var(--gris);
+}
+
+.dato dt {
+  display: contents;
+  color: var(--texto-suave-ubicacion);
+  font-size: 12px;
+}
+
+.dato dt svg {
+  grid-column: 1;
+  width: 19px;
+  height: 19px;
+  margin-top: 1px;
+  fill: none;
+  stroke: var(--naranja-principal);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.dato dd {
+  grid-column: 2;
+  margin: 2px 0 0;
+  color: var(--azul-principal);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.dato dd a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.dato dd a:hover {
+  color: var(--naranja-principal);
+}
+
+@media (min-width: 1440px) {
+  .pagina-ubicacion {
+    width: min(1400px, calc(100% - 100px));
+  }
+
+  .mapa {
+    height: 540px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .pagina-ubicacion {
+    width: calc(100% - 48px);
+  }
+
+  .layout-ubicacion {
+    grid-template-columns: minmax(0, 1.45fr) minmax(260px, .9fr);
+    gap: 22px;
+  }
+
+  .mapa {
+    height: 440px;
+  }
+
+  .redes-ubicacion {
+    gap: 16px;
+  }
+
+  .tarjeta-red {
+    height: 500px;
+  }
+}
+
+@media (max-width: 800px) {
+  .pagina-ubicacion {
+    width: calc(100% - 32px);
+    margin-top: 104px;
+  }
+
+  .layout-ubicacion {
+    grid-template-columns: 1fr;
+  }
+
+  .barra-lateral-ubicacion {
+    order: 2;
+  }
+
+  .mapa {
+    height: 400px;
+  }
+
+  .tarjeta-informacion {
+    min-height: 0;
+  }
+
+  .tarjeta-red {
+    height: 500px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 800px) {
+  .pagina-ubicacion {
+    width: min(620px, calc(100% - 40px));
+  }
+
+  .mapa {
+    height: 420px;
+  }
+
+  .redes-ubicacion {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .pagina-ubicacion {
+    width: calc(100% - 24px);
+    margin-top: 96px;
+    margin-bottom: 40px;
+  }
+
+  .encabezado-ubicacion h1 {
+    font-size: 30px;
+  }
+
+  .linea-ubicacion {
+    height: 2px;
+  }
+
+  .mapa {
+    height: 330px;
+  }
+
+  .redes-ubicacion {
+    grid-template-columns: 1fr;
+  }
+
+  .tarjeta-red {
+    height: 520px;
+  }
+
+  .tarjeta-informacion,
+  .tarjeta-contacto {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 361px) and (max-width: 480px) {
+  .pagina-ubicacion {
+    width: calc(100% - 20px);
+    margin-top: 92px;
+    margin-bottom: 34px;
+  }
+
+  .encabezado-ubicacion h1 {
+    font-size: 28px;
+  }
+
+  .layout-ubicacion {
+    gap: 18px;
+    margin-top: 12px;
+  }
+
+  .mapa {
+    height: 300px;
+  }
+
+  .enlace-mapa {
+    padding: 15px;
+  }
+
+  .enlace-mapa a {
+    font-size: 14px;
+  }
+
+  .redes-ubicacion {
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .tarjeta-red {
+    height: 480px;
+  }
+
+  .cabecera-red {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .nombre-red {
+    font-size: 14px;
+  }
+
+  .tarjeta-informacion,
+  .tarjeta-contacto {
+    padding: 18px;
+  }
+
+  .dato dd {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 360px) {
+  .pagina-ubicacion {
+    width: calc(100% - 16px);
+    margin-top: 88px;
+    margin-bottom: 28px;
+  }
+
+  .encabezado-ubicacion h1 {
+    font-size: 25px;
+  }
+
+  .layout-ubicacion {
+    gap: 16px;
+    margin-top: 10px;
+  }
+
+  .mapa {
+    height: 280px;
+  }
+
+  .enlace-mapa {
+    padding: 13px;
+  }
+
+  .enlace-mapa a {
+    gap: 5px;
+    font-size: 13px;
+  }
+
+  .tarjeta-red {
+    height: 440px;
+  }
+
+  .cabecera-red {
+    gap: 6px;
+    padding: 8px;
+    font-size: 11px;
+  }
+
+  .nombre-red {
+    gap: 4px;
+    font-size: 13px;
+  }
+}

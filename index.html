@@ -1,14 +1,42 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Instituto Nacional "San Luis"</title>
-  <link rel="shortcut icon" href="/img/logoinsal2.png" type="image/x-icon">
+
+  <meta name="description" content="Instituto Nacional San Luis: educación pública, oferta académica de bachillerato, información institucional, ubicación y próximos eventos.">
+
+  <!-- Open Graph (vista previa al compartir en redes) -->
+  <meta property="og:title" content='Instituto Nacional "San Luis"'>
+  <meta property="og:description" content="Ciencia · Tecnología · Educación · Superación">
+  <meta property="og:image" content="/img/image.png">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="/img/logoinsal2.png" type="image/x-icon">
+
+  <!-- Fuentes: preconnect + solo los pesos usados en el CSS (300/400/700/800/900) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+
+  <!-- Precarga de la imagen del hero (candidata a LCP) -->
+  <link rel="preload" as="image" href="/img/image.png" fetchpriority="high">
+
   <link rel="stylesheet" href="/css/inicio.css">
+  <link rel="stylesheet" href="/css/menuglobal.css">
+  <script src="/js/compomenu.js" defer></script>
+  <script src="/js/oferta.js" defer></script>
 </head>
-<body>
-  
+
+<body data-carrera="Inicio">
+
+   <!-- MENÚ (botón + overlay + nav, inyectados por compomenu.js) -->
+  <div id="menu-container"></div>
+
+
   <header class="header">
     <div class="contenedor-imagenes">
       <img src="/img/logoinsal2.png" alt="Logo INSAL">
@@ -16,69 +44,67 @@
     </div>
   </header>
 
- <main>
-  <section class="portada">
-    <img src="/img/image.png" alt="Instituto" class="portada-img">
-    
-    <div class="cobertura"></div>
-    
-    <div class="portada-contenido">
-      <h1>Instituto Nacional "San Luis"</h1>
-      <p class="divisor"></p>
-      <p class="lema">Educación · Ciencia · Tecnología</p>
-    </div>
+  <main>
+    <section class="portada">
+      <img src="/img/image.png" alt="Instituto" class="portada-img" fetchpriority="high">
 
-    <div class="boton-portada">
-      <p>¡Conoce más!</p>
-      <span>⌄</span>
-      
-    </div>
+      <div class="cobertura"></div>
 
-  </section>
+      <div class="portada-contenido">
+        <h1>Instituto Nacional "San Luis"</h1>
+        <p class="divisor"></p>
+        <p class="lema">Ciencia · Tecnología · Educación · Superación</p>
+      </div>
 
-  <!-- AQUI PUEDEN EMPEZAR A TRABJAR EN LA FLASHCARDS CREEN LA OTRA SECTION DESPUES DE AQUI -->
+      <button type="button" class="boton-portada" aria-label="Ir a la sección ¿Qué deseas explorar?">
+        <p>¡Conoce más!</p>
+        <span aria-hidden="true">⌄</span>
+      </button>
 
-<section class="explorar">
-  <div class="explorar-header">
-    <h2>¿Que deseas explorar?</h2>
-    <p>Selecciona una sección y descubre</p>
-  </div>
+    </section>
 
- <ul class="acordion">
-    
-  <li class="accordion__item naranja" data-bg="img/especialidad.jpg">
-    <a href="/html/bachillerato.html" class="acordion-link">
-      <img src="img/path54-1.png" alt="Oferta Académica" class="accordion__icon">
-      <span class="item-title">Oferta Académica</span>
-    </a>
-  </li>
-  
-  <li class="accordion__item azul" data-bg="img/image.png">
-    <a href="#" class="acordion-link">
-      <img src="img/path55-1.png" alt="Sobre Nosotros" class="accordion__icon">
-      <span class="item-title">Sobre Nosotros</span>
-    </a>
-  </li>
-  
-  <li class="accordion__item naranja" data-bg="img/insalito.png">
-    <a href="#" class="acordion-link">
-      <img src="img/path56-3.png" width="8px" alt="Encuéntranos" class="accordion__icon">
-      <span class="item-title">Encuéntranos</span>
-    </a>
-  </li>
-  
-  <li class="accordion__item azul" data-bg="img/presen.jpg">
-    <a href="#" class="acordion-link">
-      <img src="img/path61-8.png" alt="Próximos Eventos" class="accordion__icon">
-      <span class="item-title">Próximos Eventos</span>
-    </a>
-  </li>
+    <section class="explorar">
+      <div class="explorar-header">
+        <h2>Un vistazo rápido</h2>
+        <p>Toda la información del instituto en un solo lugar</p>
+      </div>
 
-</ul>
-</section>
-      
-  <script src="/js/move.js"></script>
+      <ul class="acordion">
 
-</main>
+        <li class="accordion__item naranja" style="background-image: url('img/especialidad.jpg')">
+          <a href="/html/bachilleratos.html" class="acordion-link" aria-expanded="false">
+            <img src="img/path54-1.png" alt="" class="accordion__icon">
+            <span class="item-title">Oferta Académica</span>
+          </a>
+        </li>
+
+        <li class="accordion__item azul" style="background-image: url('img/image.png')">
+          <a href="/html/nosotros.html" class="acordion-link" aria-expanded="false">
+            <img src="img/path55-1.png" alt="" class="accordion__icon">
+            <span class="item-title">Sobre Nosotros</span>
+          </a>
+        </li>
+
+        <li class="accordion__item naranja" style="background-image: url('img/insalito.png')">
+          <a href="/html/Ubicacion.html" class="acordion-link" aria-expanded="false">
+            <img src="img/path56-3.png" alt="" class="accordion__icon">
+            <span class="item-title">Encuéntranos</span>
+          </a>
+        </li>
+
+        <li class="accordion__item azul" style="background-image: url('img/presen.jpg')">
+          <a href="/html/eventos.html" class="acordion-link" aria-expanded="false">
+            <img src="img/path61-8.png" alt="" class="accordion__icon">
+            <span class="item-title">Próximos Eventos</span>
+          </a>
+        </li>
+
+      </ul>
+    </section>
+
+    <script src="/js/move.js" defer></script>
+
+  </main>
 </body>
+
 </html>
